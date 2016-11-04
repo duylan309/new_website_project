@@ -11,7 +11,7 @@ class ComposerStaticInit72c4f863a359bf10c6c894faaeb739be
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
-        '7e702cccdb9dd904f2ccf22e5f37abae' => __DIR__ . '/..' . '/facebook/php-sdk-v4/src/Facebook/polyfills.php',
+        'c65d09b6820da036953a371c8c73a9b1' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/polyfills.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -50,7 +50,7 @@ class ComposerStaticInit72c4f863a359bf10c6c894faaeb739be
         ),
         'Facebook\\' => 
         array (
-            0 => __DIR__ . '/..' . '/facebook/php-sdk-v4/src/Facebook',
+            0 => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook',
         ),
     );
 

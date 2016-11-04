@@ -4,11 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f4b6421f4870314ce7d2a6ec69e0a9db",
-    "content-hash": "0a68cb6d4268e8c22464747e528d65d4",
+    "hash": "61e1826363021958628e9dd1b97c7aad",
+    "content-hash": "479f14e464ecb94fcfc109f07d104d50",
     "packages": [
         {
-            "name": "facebook/php-sdk-v4",
+            "name": "facebook/graph-sdk",
             "version": "5.4.1",
             "source": {
                 "type": "git",
@@ -62,7 +62,6 @@
                 "facebook",
                 "sdk"
             ],
-            "abandoned": "facebook/graph-sdk",
             "time": "2016-10-18 19:19:03"
         },
         {
