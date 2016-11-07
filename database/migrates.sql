@@ -99,3 +99,40 @@ ALTER TABLE `thue_today`.`company` CHANGE COLUMN `user_id` `employer_user_id` IN
 ALTER TABLE `thue_today`.`category` CHANGE COLUMN `user_id` `admin_user_id` INT(11) NOT NULL
 , DROP INDEX `user_id`
 , ADD INDEX `admin_user_id` (`admin_user_id` ASC) ;
+
+ALTER TABLE `thue_today`.`jobs_category` DROP COLUMN `jobs_category_id` , CHANGE COLUMN `jobs_id` `job_id` INT NOT NULL  , CHANGE COLUMN `company_id` `company_id` INT NOT NULL
+, DROP PRIMARY KEY
+, ADD PRIMARY KEY (`job_id`, `company_id`) , RENAME TO  `thue_today`.`job_company` ;
+
+ALTER TABLE `thue_today`.`job_applied` DROP COLUMN `id`
+, DROP PRIMARY KEY
+, ADD PRIMARY KEY (`job_id`, `candidate_user_id`, `employer_user_id`)
+, DROP INDEX `employer_user_id`
+, DROP INDEX `candidate_user_id`
+, DROP INDEX `job_id` ;
+
+drop table `thue_today`.`job_company`;
+
+drop table `thue_today`.`jobs_location`;
+
+ALTER TABLE `thue_today`.`job` DROP COLUMN `company_id` , CHANGE COLUMN `employer_user_id` `employer_user_id` INT(11) NOT NULL COMMENT 'employer id (table user)'  AFTER `job_id`
+, DROP INDEX `company_id` ;
+
+ALTER TABLE `thue_today`.`job_applied` DROP COLUMN `employer_user_id`
+, DROP PRIMARY KEY
+, ADD PRIMARY KEY (`job_id`, `candidate_user_id`) ;
+
+ALTER TABLE `thue_today`.`jobs_saved` ENGINE = InnoDB , DROP COLUMN `user_jobs_id` , DROP COLUMN `jobs_saved_id` , CHANGE COLUMN `jobs_id` `job_id` INT NOT NULL COMMENT '#job_id'  FIRST , CHANGE COLUMN `status` `status` TINYINT NULL DEFAULT 1 COMMENT '#status'  AFTER `candidate_user_id` , CHANGE COLUMN `user_id_candidate` `candidate_user_id` INT NOT NULL COMMENT '#candidate_id'  , CHANGE COLUMN `created_date` `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '#created_date'
+, DROP PRIMARY KEY
+, ADD PRIMARY KEY (`job_id`, `candidate_user_id`)
+, ADD INDEX `status` (`status` ASC)
+, DROP INDEX `co` , RENAME TO  `thue_today`.`job_saved` ;
+
+ALTER TABLE `thue_today`.`messages` DROP COLUMN `employer_status` , DROP COLUMN `user_status` , DROP COLUMN `receiver_id` , DROP COLUMN `sender_id` , CHANGE COLUMN `message_id` `parent_id` INT(11) NULL DEFAULT '0'  AFTER `message_id` , CHANGE COLUMN `important` `important` TINYINT(4) NULL DEFAULT '0'  AFTER `content` , CHANGE COLUMN `status` `status` TINYINT NULL DEFAULT 1 COMMENT '0 : new, 1 : view/ sent , 8 : draf'  AFTER `important` , CHANGE COLUMN `messages_id` `message_id` INT(11) NOT NULL AUTO_INCREMENT  , CHANGE COLUMN `user_id_employer` `employer_user_id` INT(11) NOT NULL  , CHANGE COLUMN `user_id_candidate` `candidate_user_id` INT(11) NOT NULL  , CHANGE COLUMN `message` `content` TEXT NOT NULL  , CHANGE COLUMN `created_date` `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP  , RENAME TO  `thue_today`.`message` ;
+
+ALTER TABLE `thue_today`.`message`
+ADD INDEX `parent_id` (`parent_id` ASC)
+, ADD INDEX `company_id` (`company_id` ASC)
+, ADD INDEX `employer_user_id` (`employer_user_id` ASC)
+, ADD INDEX `candidate_user_id` (`candidate_user_id` ASC)
+, ADD INDEX `status` (`status` ASC) ;
