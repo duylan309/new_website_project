@@ -91,3 +91,11 @@ ALTER TABLE `thue_today`.`category` CHANGE COLUMN `user_id` `user_id` INT NOT NU
 ALTER TABLE `thue_today`.`company` CHANGE COLUMN `size` `size` TINYINT NULL DEFAULT '0'  , CHANGE COLUMN `fb_load_newfeed` `fb_load_newfeed` TINYINT NULL DEFAULT '0' COMMENT '# allow to get newfeed from facebook '  , CHANGE COLUMN `fb_load_photo` `fb_load_photo` TINYINT NULL DEFAULT '0' COMMENT '# allow to get photo from facebook '  , CHANGE COLUMN `status` `status` TINYINT NOT NULL DEFAULT '1'  ;
 
 ALTER TABLE `thue_today`.`job` CHANGE COLUMN `salary` `salary` TINYINT NULL DEFAULT '0' COMMENT 'salary'  , CHANGE COLUMN `salary_negotiable` `salary_negotiable` TINYINT NULL DEFAULT '0' COMMENT 'salary negotiable'  , CHANGE COLUMN `status` `status` TINYINT NOT NULL DEFAULT '1' COMMENT 'status'  ;
+
+ALTER TABLE `thue_today`.`company` CHANGE COLUMN `user_id` `employer_user_id` INT(11) NOT NULL
+, DROP INDEX `user_id`
+, ADD INDEX `employer_user_id` (`employer_user_id` ASC) ;
+
+ALTER TABLE `thue_today`.`category` CHANGE COLUMN `user_id` `admin_user_id` INT(11) NOT NULL
+, DROP INDEX `user_id`
+, ADD INDEX `admin_user_id` (`admin_user_id` ASC) ;
