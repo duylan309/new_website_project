@@ -136,3 +136,27 @@ ADD INDEX `parent_id` (`parent_id` ASC)
 , ADD INDEX `employer_user_id` (`employer_user_id` ASC)
 , ADD INDEX `candidate_user_id` (`candidate_user_id` ASC)
 , ADD INDEX `status` (`status` ASC) ;
+
+ALTER TABLE `thue_today`.`pagehtml` DROP COLUMN `nat` , DROP COLUMN `di` , ADD COLUMN `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP  AFTER `status` , CHANGE COLUMN `category_id` `category_id` INT(11) NULL DEFAULT NULL COMMENT '#category_id'  AFTER `static_page_id` , CHANGE COLUMN `location` `company_branch_id` INT(11) NULL DEFAULT '0' COMMENT '#location_id'  AFTER `category_id` , CHANGE COLUMN `jobs_id` `job_ids` VARCHAR(255) NULL DEFAULT NULL  AFTER `company_branch_id` , CHANGE COLUMN `subject` `subject` VARCHAR(250) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL  AFTER `tiitle_en` , CHANGE COLUMN `sort` `sort` INT(11) NULL DEFAULT '0'  AFTER `language` , CHANGE COLUMN `pagehtml_id` `static_page_id` INT NOT NULL AUTO_INCREMENT
+, ADD INDEX `category_id` (`category_id` ASC)
+, ADD INDEX `company_branch_id` (`company_branch_id` ASC)
+, ADD INDEX `status` (`status` ASC) , RENAME TO  `thue_today`.`static_page` ;
+
+ALTER TABLE `thue_today`.`promo` RENAME TO  `thue_today`.`promotion` ;
+
+ALTER TABLE `thue_today`.`promotion` CHANGE COLUMN `service_id` `service_id` INT(11) NOT NULL  AFTER `promotion_id` , CHANGE COLUMN `note` `note` TEXT NULL DEFAULT NULL  AFTER `code` , CHANGE COLUMN `status` `status` TINYINT NULL DEFAULT 1  AFTER `note` , CHANGE COLUMN `promo_id` `promotion_id` INT(11) NOT NULL AUTO_INCREMENT  , CHANGE COLUMN `code` `code` VARCHAR(50) NOT NULL  , CHANGE COLUMN `created` `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+, ADD INDEX `service_id` (`service_id` ASC)
+, ADD INDEX `status` (`status` ASC) ;
+
+ALTER TABLE `thue_today`.`promo_applied` CHANGE COLUMN `promo_applied_id` `id` INT NOT NULL AUTO_INCREMENT  , CHANGE COLUMN `code` `promotion_id` INT NOT NULL COMMENT '#promotion_code'  , CHANGE COLUMN `user_id` `user_id` INT NOT NULL COMMENT '#user_id'  , CHANGE COLUMN `created_date` `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '#created_date'
+, ADD INDEX `promotion_id` (`promotion_id` ASC)
+, ADD INDEX `user_id` (`user_id` ASC)
+, DROP INDEX `pr` , RENAME TO  `thue_today`.`promotion_applied` ;
+
+TRUNCATE TABLE `promotion_applied`;
+
+ALTER TABLE `thue_today`.`promotion_applied` DROP COLUMN `id`
+, DROP PRIMARY KEY
+, ADD PRIMARY KEY (`promotion_id`, `user_id`)
+, DROP INDEX `user_id`
+, DROP INDEX `promotion_id` ;
