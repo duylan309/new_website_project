@@ -160,3 +160,17 @@ ALTER TABLE `thue_today`.`promotion_applied` DROP COLUMN `id`
 , ADD PRIMARY KEY (`promotion_id`, `user_id`)
 , DROP INDEX `user_id`
 , DROP INDEX `promotion_id` ;
+
+ALTER TABLE `thue_today`.`receive_email` DROP COLUMN `name` , ADD COLUMN `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP  AFTER `status` , CHANGE COLUMN `company_id` `company_id` INT(11) NOT NULL  AFTER `id` , CHANGE COLUMN `receive_email_id` `id` INT(11) NOT NULL AUTO_INCREMENT  , CHANGE COLUMN `email` `email` VARCHAR(150) NOT NULL  , CHANGE COLUMN `status` `status` TINYINT(4) NOT NULL DEFAULT 1
+, ADD INDEX `company_id` (`company_id` ASC)
+, ADD INDEX `user_id` (`user_id` ASC)
+, ADD INDEX `status` (`status` ASC) , RENAME TO  `thue_today`.`email_received` ;
+
+ALTER TABLE `thue_today`.`url` ADD COLUMN `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP  AFTER `url` , CHANGE COLUMN `pagehtml_id` `static_page_id` INT(11) NULL DEFAULT NULL  AFTER `id` , CHANGE COLUMN `company_id` `company_id` INT NOT NULL COMMENT '#company_id'  AFTER `static_page_id` , CHANGE COLUMN `url_id` `id` INT NOT NULL AUTO_INCREMENT  , CHANGE COLUMN `user_id_company` `employer_user_id` INT NOT NULL COMMENT '#user_id'
+, ADD INDEX `static_page_id` (`static_page_id` ASC)
+, ADD INDEX `company_id` (`company_id` ASC)
+, ADD INDEX `employer_user_id` (`employer_user_id` ASC) , RENAME TO  `thue_today`.`company_url` ;
+
+ALTER TABLE `thue_today`.`email_received` CHANGE COLUMN `user_id` `employer_user_id` INT(11) NOT NULL
+, DROP INDEX `user_id`
+, ADD INDEX `employer_user_id` (`employer_user_id` ASC) ;
