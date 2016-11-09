@@ -174,3 +174,20 @@ ALTER TABLE `thue_today`.`url` ADD COLUMN `created_at` TIMESTAMP NOT NULL DEFAUL
 ALTER TABLE `thue_today`.`email_received` CHANGE COLUMN `user_id` `employer_user_id` INT(11) NOT NULL
 , DROP INDEX `user_id`
 , ADD INDEX `employer_user_id` (`employer_user_id` ASC) ;
+
+ALTER TABLE `thue_today`.`user` CHANGE COLUMN `created` `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP  ;
+
+ALTER TABLE `thue_today`.`user` ADD COLUMN `updated_at` TIMESTAMP NULL DEFAULT NULL  AFTER `created_at` ,
+CHANGE COLUMN `email` `email` VARCHAR(150) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL  AFTER `user_id` ,
+CHANGE COLUMN `fbid` `facebook_id` VARCHAR(255) NULL DEFAULT NULL  AFTER `password` ,
+CHANGE COLUMN `dob` `birthday` DATE NULL DEFAULT NULL  AFTER `image` ,
+CHANGE COLUMN `type` `type` TINYINT NOT NULL  AFTER `signup_by` ,
+CHANGE COLUMN `status` `status` TINYINT NOT NULL DEFAULT 1  AFTER `type` ,
+CHANGE COLUMN `user_id` `user_id` INT NOT NULL AUTO_INCREMENT  , CHANGE COLUMN `password` `password` VARCHAR(150) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL  , CHANGE COLUMN `fb_email` `facebook_email` VARCHAR(150) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL  , CHANGE COLUMN `name` `name` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL  , CHANGE COLUMN `image` `image` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL  , CHANGE COLUMN `gender` `gender` TINYINT NULL DEFAULT '0'  , CHANGE COLUMN `phone` `phone` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL  , CHANGE COLUMN `address` `address` VARCHAR(255) NULL DEFAULT NULL  , CHANGE COLUMN `city` `city_id` INT(11) NULL DEFAULT '0'  , CHANGE COLUMN `city_text_en` `city_text_en` VARCHAR(50) NULL DEFAULT NULL  , CHANGE COLUMN `country` `country` VARCHAR(50) NULL DEFAULT NULL  , CHANGE COLUMN `is_newletter` `is_newletters_registered` TINYINT NULL DEFAULT '0'  , CHANGE COLUMN `is_received_email` `is_email_received` TINYINT(4) NULL DEFAULT '0'  , CHANGE COLUMN `dayleft` `days_left` INT(11) NULL DEFAULT '0'  , CHANGE COLUMN `jobleft` `jobs_left` INT(11) NULL DEFAULT '0'  , CHANGE COLUMN `page` `total_pages` TINYINT NULL DEFAULT '0'  , CHANGE COLUMN `signupby` `signup_by` VARCHAR(10) NULL DEFAULT NULL  , CHANGE COLUMN `deactive` `is_deleted` TINYINT NOT NULL DEFAULT 0  , CHANGE COLUMN `last_signin` `logined_at` TIMESTAMP NULL DEFAULT NULL
+, ADD INDEX `password` (`password` ASC)
+, ADD INDEX `type` (`type` ASC)
+, ADD INDEX `status` (`status` ASC)
+, ADD INDEX `is_deleted` (`is_deleted` ASC)
+, DROP INDEX `fb_email` ;
+
+ALTER TABLE `thue_today`.`user` CHANGE COLUMN `created_at` `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP  AFTER `logined_at` , CHANGE COLUMN `updated_at` `updated_at` TIMESTAMP NULL DEFAULT NULL  AFTER `created_at` ;
