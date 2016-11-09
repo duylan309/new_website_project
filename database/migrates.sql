@@ -191,3 +191,27 @@ CHANGE COLUMN `user_id` `user_id` INT NOT NULL AUTO_INCREMENT  , CHANGE COLUMN `
 , DROP INDEX `fb_email` ;
 
 ALTER TABLE `thue_today`.`user` CHANGE COLUMN `created_at` `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP  AFTER `logined_at` , CHANGE COLUMN `updated_at` `updated_at` TIMESTAMP NULL DEFAULT NULL  AFTER `created_at` ;
+
+ALTER TABLE `thue_today`.`category` CHANGE COLUMN `url` `url` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL  , CHANGE COLUMN `link` `link` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL COMMENT '# link to other page'  ;
+
+ALTER TABLE `thue_today`.`company` CHANGE COLUMN `category_ids` `category_ids` VARCHAR(100) NOT NULL  , CHANGE COLUMN `url` `url` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL  , CHANGE COLUMN `image` `image` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL COMMENT '# profile picture'  , CHANGE COLUMN `banner` `banner` VARCHAR(255) NULL DEFAULT NULL COMMENT '# cover banner'  , CHANGE COLUMN `phone` `phone` VARCHAR(100) NULL DEFAULT NULL  , CHANGE COLUMN `address` `address` VARCHAR(255) NOT NULL  , CHANGE COLUMN `facebook` `facebook_url` VARCHAR(255) NULL DEFAULT NULL  ;
+
+ALTER TABLE `thue_today`.`company_branch` CHANGE COLUMN `address` `address` VARCHAR(255) NOT NULL  ;
+
+ALTER TABLE `thue_today`.`company_url` CHANGE COLUMN `url` `url` VARCHAR(255) NOT NULL COMMENT '#url_name'  ;
+
+ALTER TABLE `thue_today`.`contact` CHANGE COLUMN `email` `email` VARCHAR(255) NOT NULL COMMENT '# email'  , CHANGE COLUMN `phone` `phone` VARCHAR(100) NOT NULL COMMENT '# phone number'  , CHANGE COLUMN `subject` `subject` VARCHAR(255) NOT NULL COMMENT '# subject'  ;
+
+ALTER TABLE `thue_today`.`email_edm` CHANGE COLUMN `name` `name` VARCHAR(255) NOT NULL  , CHANGE COLUMN `email` `email` VARCHAR(255) NOT NULL  , CHANGE COLUMN `company` `company` VARCHAR(255) NOT NULL  , CHANGE COLUMN `subject` `subject` VARCHAR(255) NOT NULL  ;
+
+ALTER TABLE `thue_today`.`email_received` CHANGE COLUMN `email` `email` VARCHAR(255) NOT NULL  ;
+
+ALTER TABLE `thue_today`.`job` CHANGE COLUMN `name` `name` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL COMMENT 'job title'  , CHANGE COLUMN `category_ids` `category_ids` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL COMMENT 'category'  , CHANGE COLUMN `city_ids` `city_ids` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL COMMENT 'location'  , CHANGE COLUMN `nationality` `nationality` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL  , CHANGE COLUMN `level` `level` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL COMMENT 'level'  , CHANGE COLUMN `type` `type` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL COMMENT 'type '  , CHANGE COLUMN `experience` `experience` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL COMMENT 'experience'  , CHANGE COLUMN `languages` `languages` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL COMMENT 'language'  ;
+
+ALTER TABLE `thue_today`.`message` CHANGE COLUMN `subject` `subject` VARCHAR(255) NOT NULL  ;
+
+ALTER TABLE `thue_today`.`promotion` CHANGE COLUMN `code` `code` VARCHAR(100) NOT NULL  ;
+
+ALTER TABLE `thue_today`.`static_page` CHANGE COLUMN `title_vi` `name_vi` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL COMMENT '#title_en'  , CHANGE COLUMN `tiitle_en` `name_en` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL COMMENT '#title_vn'  , CHANGE COLUMN `subject` `subject` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL  , CHANGE COLUMN `url` `url` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL  ;
+
+ALTER TABLE `thue_today`.`user` CHANGE COLUMN `email` `email` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL  , CHANGE COLUMN `password` `password` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL  , CHANGE COLUMN `facebook_email` `facebook_email` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL  , CHANGE COLUMN `phone` `phone` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL  , CHANGE COLUMN `city_text_vi` `city_text_vi` VARCHAR(255) NULL DEFAULT NULL  , CHANGE COLUMN `city_text_en` `city_text_en` VARCHAR(255) NULL DEFAULT NULL  , CHANGE COLUMN `country` `country` VARCHAR(255) NULL DEFAULT NULL  , CHANGE COLUMN `signup_by` `signup_by` VARCHAR(100) NULL DEFAULT NULL  ;
