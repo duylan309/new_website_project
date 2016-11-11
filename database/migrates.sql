@@ -223,3 +223,14 @@ ALTER TABLE `thue_today`.`user_comment` CHANGE COLUMN `company_id` `company_id` 
 , ADD INDEX `status` (`status` ASC)
 , ADD INDEX `is_read` (`is_read` ASC)
 , DROP INDEX `uid` , RENAME TO  `thue_today`.`comment` ;
+
+ALTER TABLE `thue_today`.`user_cv` ENGINE = InnoDB , ADD COLUMN `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP  AFTER `is_deleted` , ADD COLUMN `updated_at` TIMESTAMP NULL DEFAULT NULL  AFTER `created_at` , CHANGE COLUMN `lang` `language` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL  AFTER `category_ids` , CHANGE COLUMN `about` `description` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL  AFTER `language` , CHANGE COLUMN `tag` `tag` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL  AFTER `keyword` , CHANGE COLUMN `user_id` `user_id` INT NOT NULL  , CHANGE COLUMN `title` `name` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL  , CHANGE COLUMN `level` `level` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL  , CHANGE COLUMN `type` `type` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL  , CHANGE COLUMN `experience` `experience` TINYINT NULL DEFAULT '0'  , CHANGE COLUMN `salary` `salary` TINYINT NULL DEFAULT '0'  , CHANGE COLUMN `location` `location` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL  , CHANGE COLUMN `category` `category_ids` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL  , CHANGE COLUMN `skill` `skill` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL  , CHANGE COLUMN `keyword` `keyword` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL  , CHANGE COLUMN `deactive` `is_deleted` TINYINT NULL DEFAULT '0'  , RENAME TO  `thue_today`.`cv` ;
+
+ALTER TABLE `thue_today`.`cv` CHANGE COLUMN `location` `location_ids` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL
+, ADD INDEX `is_deleted` (`is_deleted` ASC)
+, ADD INDEX `category_ids` (`category_ids` ASC)
+, ADD INDEX `location_ids` (`location_ids` ASC) ;
+
+ALTER TABLE `thue_today`.`cv` CHANGE COLUMN `category_ids` `category_ids` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL  AFTER `name` , CHANGE COLUMN `location_ids` `city_ids` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL  AFTER `category_ids`
+, DROP INDEX `location_ids`
+, ADD INDEX `city_ids` (`city_ids` ASC) ;
