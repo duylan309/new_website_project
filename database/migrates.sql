@@ -234,3 +234,35 @@ ALTER TABLE `thue_today`.`cv` CHANGE COLUMN `location` `location_ids` VARCHAR(10
 ALTER TABLE `thue_today`.`cv` CHANGE COLUMN `category_ids` `category_ids` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL  AFTER `name` , CHANGE COLUMN `location_ids` `city_ids` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL  AFTER `category_ids`
 , DROP INDEX `location_ids`
 , ADD INDEX `city_ids` (`city_ids` ASC) ;
+
+ALTER TABLE `thue_today`.`user_education_history` RENAME TO  `thue_today`.`user_education` ;
+ALTER TABLE `thue_today`.`user_education` RENAME TO  `thue_today`.`cv_education` ;
+
+ALTER TABLE `thue_today`.`cv_education` ADD COLUMN `created_at` DATETIME DEFAULT NULL  AFTER `to_year` , ADD COLUMN `updated_at` DATETIME NULL DEFAULT NULL  AFTER `created_at` , CHANGE COLUMN `fieldofstudy` `study_field` VARCHAR(255) NULL DEFAULT NULL  AFTER `school_name` , CHANGE COLUMN `user_education_history_id` `id` INT(11) NOT NULL AUTO_INCREMENT  , CHANGE COLUMN `school_name` `school_name` VARCHAR(255) NOT NULL  , CHANGE COLUMN `degrees` `degree` VARCHAR(255) NULL DEFAULT NULL
+, ADD INDEX `user_id` (`user_id` ASC);
+
+ALTER TABLE `thue_today`.`cv_education` CHANGE COLUMN `created_at` `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP  , CHANGE COLUMN `updated_at` `updated_at` TIMESTAMP NULL DEFAULT NULL  ;
+
+ALTER TABLE `thue_today`.`user_day` CHANGE COLUMN `user_id` `employer_user_id` INT(11) NOT NULL  , CHANGE COLUMN `admin_id` `admin_user_id` INT(11) NOT NULL
+, DROP INDEX `admin_id`
+, ADD INDEX `admin_user_id` (`admin_user_id` ASC)
+, DROP INDEX `user_id`
+, ADD INDEX `employer_user_id` (`employer_user_id` ASC) , RENAME TO  `thue_today`.`employer_user_day` ;
+
+ALTER TABLE `thue_today`.`cv` CHANGE COLUMN `user_id` `candidate_user_id` INT(11) NOT NULL  ;
+
+ALTER TABLE `thue_today`.`cv_education` CHANGE COLUMN `user_id` `candidate_user_id` INT(11) NOT NULL
+, DROP INDEX `user_id`
+, ADD INDEX `candidate_user_id` (`candidate_user_id` ASC) ;
+
+ALTER TABLE `thue_today`.`user_manager` DROP COLUMN `user_manager_id` , ADD COLUMN `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP  AFTER `permission` , ADD COLUMN `updated_at` TIMESTAMP NULL DEFAULT NULL  AFTER `created_at` , CHANGE COLUMN `user_id` `user_id` INT NOT NULL  , CHANGE COLUMN `permission` `permission` TINYINT NOT NULL
+, DROP PRIMARY KEY
+, ADD PRIMARY KEY (`user_id`)
+, ADD INDEX `password` (`password` ASC)
+, DROP INDEX `user_id` , RENAME TO  `thue_today`.`user_admin` ;
+
+ALTER TABLE `thue_today`.`promotion_applied` CHANGE COLUMN `user_id` `employer_user_id` INT(11) NOT NULL COMMENT '#user_id'  ;
+
+ALTER TABLE `thue_today`.`employer_user_day` RENAME TO  `thue_today`.`employer_days_history` ;
+
+ALTER TABLE `thue_today`.`user_payment` ENGINE = InnoDB , CHANGE COLUMN `service_id` `service_id` INT(11) NOT NULL COMMENT '#service_id'  AFTER `employer_user_id` , CHANGE COLUMN `user_payment_id` `employer_payment_id` INT NOT NULL AUTO_INCREMENT  , CHANGE COLUMN `user_id` `employer_user_id` INT NOT NULL COMMENT '#employer_id'  , RENAME TO  `thue_today`.`employer_payment` ;
