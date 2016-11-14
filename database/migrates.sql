@@ -286,3 +286,12 @@ ALTER TABLE `thue_today`.`candidate_saved` CHANGE COLUMN `candidate_user_id` `ca
 
 ALTER TABLE `thue_today`.`user_work_history` CHANGE COLUMN `company_name` `company_name` VARCHAR(255) NULL DEFAULT NULL  AFTER `name` , CHANGE COLUMN `user_work_history_id` `id` INT(11) NOT NULL AUTO_INCREMENT  , CHANGE COLUMN `user_id` `candidate_user_id` INT(11) NOT NULL  , CHANGE COLUMN `title` `name` VARCHAR(255) NULL DEFAULT NULL  , CHANGE COLUMN `city` `city` VARCHAR(255) NULL DEFAULT NULL  , CHANGE COLUMN `country` `country` VARCHAR(255) NULL DEFAULT NULL
 , ADD INDEX `candidate_user_id` (`candidate_user_id` ASC) , RENAME TO  `thue_today`.`cv_work_history` ;
+
+ALTER TABLE `thue_today`.`cv_education` RENAME TO  `thue_today`.`cv_education_history` ;
+
+ALTER TABLE `thue_today`.`cv_work_history` CHANGE COLUMN `name` `job_title` VARCHAR(255) NULL DEFAULT NULL  ;
+
+ALTER TABLE `thue_today`.`usersub` ADD COLUMN `status` TINYINT NULL DEFAULT 1  AFTER `gender` , ADD COLUMN `updated_at` TIMESTAMP NULL DEFAULT NULL  AFTER `created_at` , CHANGE COLUMN `username` `email` VARCHAR(255) NULL DEFAULT NULL  AFTER `company_id` , CHANGE COLUMN `dob` `birthday` DATE NULL DEFAULT NULL  AFTER `name` , CHANGE COLUMN `user_id` `created_by` INT NOT NULL  AFTER `status` , CHANGE COLUMN `usersub_id` `user_moderator_id` INT NOT NULL AUTO_INCREMENT  , CHANGE COLUMN `company_id` `company_id` INT NOT NULL  , CHANGE COLUMN `name` `name` VARCHAR(255) NULL DEFAULT NULL  , CHANGE COLUMN `gender` `gender` TINYINT NULL DEFAULT '0'  , CHANGE COLUMN `created_date` `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+, DROP INDEX `cid`
+, ADD INDEX `company_id` (`company_id` ASC)
+, ADD INDEX `status` (`status` ASC) , RENAME TO  `thue_today`.`user_moderator` ;
