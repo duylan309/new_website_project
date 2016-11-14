@@ -365,3 +365,5 @@ ALTER TABLE `thue_today`.`r_company_page` DROP COLUMN `id` , CHANGE COLUMN `comp
 ALTER TABLE `thue_today`.`r_company_page` DROP COLUMN `url` , DROP COLUMN `employer_user_id`
 , DROP INDEX `employer_user_id`
 , DROP INDEX `url` ;
+
+ALTER TABLE `thuetoday_code_ver_1`.`t_employer_payment` CHANGE COLUMN `company_name` `bill_name` VARCHAR(255) NOT NULL DEFAULT '' , CHANGE COLUMN `company_address` `bill_address` VARCHAR(255) NOT NULL DEFAULT '' , CHANGE COLUMN `company_delivery_address` `bill_delivery_address` VARCHAR(255) NOT NULL DEFAULT '' , CHANGE COLUMN `note` `bill_note` TEXT NULL DEFAULT '', ADD COLUMN `bill_phone` VARCHAR(50) NULL AFTER `bill_address` , ADD COLUMN `status` TINYINT NOT NULL AFTER `created_at` , ADD COLUMN `bill_delivery_name` VARCHAR(255) NULL AFTER `bill_delivery_address` , ADD COLUMN `bill_delivery_phone` VARCHAR(50) NULL AFTER `bill_delivery_name` , ADD COLUMN `user_admin_id` INT(11) NULL , ADD COLUMN `user_admin_note` TEXT NULL, DROP COLUMN `ai` , DROP COLUMN `dp`;
