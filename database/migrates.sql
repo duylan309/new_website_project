@@ -323,3 +323,45 @@ ALTER TABLE `thue_today`.`employer_payment` DROP COLUMN `note` , CHANGE COLUMN `
 ALTER TABLE `thue_today`.`category` CHANGE COLUMN `title_en` `name_en` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL COMMENT 'title_en'  , CHANGE COLUMN `title_vn` `name_vn` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL COMMENT 'title_vn'  , CHANGE COLUMN `content` `content` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL  ;
 
 ALTER TABLE `thue_today`.`category` CHANGE COLUMN `image` `image` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL COMMENT 'Image'  AFTER `name_vn` ;
+
+ALTER TABLE `thue_today`.`category` CHANGE COLUMN `name_vn` `name_vi` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL COMMENT 'title_vn'  AFTER `admin_user_id` , CHANGE COLUMN `description_en` `description_en` TEXT NULL  AFTER `html_content_vi` , CHANGE COLUMN `content` `description_vi` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL  , CHANGE COLUMN `description_vi` `html_content_vi` TEXT NULL DEFAULT NULL COMMENT 'description vietnameses'  , CHANGE COLUMN `sort` `ordering` INT(11) NOT NULL DEFAULT '0'  ;
+
+ALTER TABLE `thue_today`.`category` CHANGE COLUMN `description_en` `html_content_en` TEXT NULL DEFAULT NULL  ;
+
+ALTER TABLE `thue_today`.`category` ADD COLUMN `description_en` TEXT NULL DEFAULT NULL  AFTER `description_vi` , CHANGE COLUMN `updated_at` `updated_at` TEXT NULL DEFAULT NULL  ;
+
+ALTER TABLE `thue_today`.`candidate_saved` RENAME TO  `thue_today`.`r_candidate_saved` ;
+ALTER TABLE `thue_today`.`category` RENAME TO  `thue_today`.`m_category` ;
+ALTER TABLE `thue_today`.`comment` CHANGE COLUMN `id` `comment_id` INT(11) NOT NULL AUTO_INCREMENT  , RENAME TO  `thue_today`.`m_comment` ;
+ALTER TABLE `thue_today`.`company` RENAME TO  `thue_today`.`m_company` ;
+ALTER TABLE `thue_today`.`company_branch` RENAME TO  `thue_today`.`m_company_branch` ;
+ALTER TABLE `thue_today`.`static_page` ADD COLUMN `updated_at` TIMESTAMP NULL DEFAULT NULL  AFTER `created_at` , CHANGE COLUMN `sort` `ordering` INT(11) NOT NULL DEFAULT '0'  , CHANGE COLUMN `status` `status` TINYINT(4) NOT NULL DEFAULT 1  , RENAME TO  `thue_today`.`m_static_page` ;
+ALTER TABLE `thue_today`.`contact` CHANGE COLUMN `id` `contact_id` INT(11) NOT NULL AUTO_INCREMENT  , CHANGE COLUMN `message` `content` TEXT NOT NULL COMMENT ' # message'  , RENAME TO  `thue_today`.`m_contact` ;
+ALTER TABLE `thue_today`.`message` CHANGE COLUMN `company_id` `company_id` INT(11) NOT NULL  AFTER `candidate_user_id` , CHANGE COLUMN `parent_id` `parent_id` INT(11) NOT NULL DEFAULT '0'  , CHANGE COLUMN `important` `is_important` TINYINT(4) NOT NULL DEFAULT '0'  , CHANGE COLUMN `status` `status` TINYINT(4) NOT NULL DEFAULT '1' COMMENT '0 : new, 1 : view/ sent , 8 : draf'  , RENAME TO  `thue_today`.`m_message` ;
+ALTER TABLE `thue_today`.`promotion` CHANGE COLUMN `status` `status` TINYINT(4) NOT NULL DEFAULT '1'  , RENAME TO  `thue_today`.`m_promotion` ;
+ALTER TABLE `thue_today`.`promotion_applied` RENAME TO  `thue_today`.`r_promotion_applied` ;
+ALTER TABLE `thue_today`.`user` CHANGE COLUMN `parent_user_id` `parent_user_id` INT(11) NOT NULL DEFAULT '0'  , RENAME TO  `thue_today`.`m_user` ;
+ALTER TABLE `thue_today`.`user_admin` ADD COLUMN `status` TINYINT NOT NULL DEFAULT 1  AFTER `permission`
+, ADD INDEX `status` (`status` ASC) , RENAME TO  `thue_today`.`r_user_admin` ;
+ALTER TABLE `thue_today`.`password_recovery_token` CHANGE COLUMN `id` `password_recovery_id` INT(11) NOT NULL AUTO_INCREMENT  , CHANGE COLUMN `status` `status` TINYINT(4) NOT NULL DEFAULT '0' COMMENT '#status'  , RENAME TO  `thue_today`.`m_password_recovery` ;
+ALTER TABLE `thue_today`.`job_saved` CHANGE COLUMN `status` `status` TINYINT(4) NOT NULL DEFAULT '1' COMMENT '#status'  , RENAME TO  `thue_today`.`r_job_saved` ;
+ALTER TABLE `thue_today`.`job_applied` CHANGE COLUMN `answer_one` `answer_one` VARCHAR(1000) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL COMMENT '# answer 1'  , CHANGE COLUMN `answer_two` `answer_two` VARCHAR(1000) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL COMMENT '# answer 2'  , CHANGE COLUMN `status` `status` TINYINT(4) NOT NULL DEFAULT '1' COMMENT '# status'  , RENAME TO  `thue_today`.`r_job_applied` ;
+ALTER TABLE `thue_today`.`job` CHANGE COLUMN `sort` `ordering` INT(11) NOT NULL DEFAULT '0'  , RENAME TO  `thue_today`.`m_job` ;
+ALTER TABLE `thue_today`.`m_password_recovery` CHANGE COLUMN `password_recovery_id` `id` INT(11) NOT NULL AUTO_INCREMENT  , RENAME TO  `thue_today`.`r_password_recovery` ;
+ALTER TABLE `thue_today`.`employer_days_history` RENAME TO  `thue_today`.`r_employer_day` ;
+ALTER TABLE `thue_today`.`r_password_recovery` RENAME TO  `thue_today`.`t_password_recovery` ;
+ALTER TABLE `thue_today`.`r_employer_day` RENAME TO  `thue_today`.`t_employer_days_history` ;
+ALTER TABLE `thue_today`.`email_received` CHANGE COLUMN `employer_user_id` `employer_user_id` INT(11) NOT NULL  AFTER `id` , RENAME TO  `thue_today`.`t_email_received` ;
+ALTER TABLE `thue_today`.`email_edm` RENAME TO  `thue_today`.`t_email_edm` ;
+ALTER TABLE `thue_today`.`cv` ADD COLUMN `status` TINYINT NOT NULL DEFAULT 1  AFTER `tag` , CHANGE COLUMN `name` `name` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL  , CHANGE COLUMN `is_deleted` `is_deleted` TINYINT(4) NOT NULL DEFAULT '0'
+, ADD INDEX `status` (`status` ASC) , RENAME TO  `thue_today`.`r_cv` ;
+ALTER TABLE `thue_today`.`cv_work_history` CHANGE COLUMN `job_title` `job_title` VARCHAR(255) NOT NULL  , CHANGE COLUMN `company_name` `company_name` VARCHAR(255) NOT NULL  , RENAME TO  `thue_today`.`t_cv_work_history` ;
+ALTER TABLE `thue_today`.`cv_education_history` RENAME TO  `thue_today`.`t_cv_education_history` ;
+ALTER TABLE `thue_today`.`employer_payment` CHANGE COLUMN `dp` `dp` TINYINT(4) NOT NULL DEFAULT '0'  , CHANGE COLUMN `token` `token` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL  , RENAME TO  `thue_today`.`t_employer_payment` ;
+ALTER TABLE `thue_today`.`company_url` RENAME TO  `thue_today`.`r_company_page` ;
+ALTER TABLE `thue_today`.`r_company_page` DROP COLUMN `id` , CHANGE COLUMN `company_id` `company_id` INT(11) NOT NULL COMMENT '#company_id'  FIRST , CHANGE COLUMN `static_page_id` `static_page_id` INT(11) NOT NULL
+, DROP PRIMARY KEY
+, ADD PRIMARY KEY (`company_id`, `static_page_id`) ;
+ALTER TABLE `thue_today`.`r_company_page` DROP COLUMN `url` , DROP COLUMN `employer_user_id`
+, DROP INDEX `employer_user_id`
+, DROP INDEX `url` ;
