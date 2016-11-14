@@ -295,3 +295,27 @@ ALTER TABLE `thue_today`.`usersub` ADD COLUMN `status` TINYINT NULL DEFAULT 1  A
 , DROP INDEX `cid`
 , ADD INDEX `company_id` (`company_id` ASC)
 , ADD INDEX `status` (`status` ASC) , RENAME TO  `thue_today`.`user_moderator` ;
+
+ALTER TABLE `thue_today`.`user` ADD COLUMN `parent_user_id` INT NULL DEFAULT 0  AFTER `user_id`
+, DROP INDEX `email`
+, ADD INDEX `email` (`email` ASC)
+, ADD INDEX `parent_user_id` (`parent_user_id` ASC) ;
+
+drop table `thue_today`.`user_moderator`;
+drop table `thue_today`.`user_search`;
+
+ALTER TABLE `cv` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+ALTER TABLE `employer_payment` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+ALTER TABLE `job` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+ALTER TABLE `job_applied` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+ALTER TABLE `job_saved` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+ALTER TABLE `user_admin` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+ALTER TABLE `thue_today`.`cv_work_history` ADD COLUMN `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP  AFTER `to_year` , ADD COLUMN `updated_at` TIMESTAMP NULL DEFAULT NULL  AFTER `created_at` ;
+
+ALTER TABLE `thue_today`.`email_edm` CHANGE COLUMN `action_click` `action_clicked` TINYINT(4) NOT NULL  , CHANGE COLUMN `action_click_date` `action_clicked_at` TIMESTAMP NULL DEFAULT NULL  ;
+
+ALTER TABLE `thue_today`.`employer_payment` CHANGE COLUMN `service_category_id` `service_category_id` INT NOT NULL COMMENT '#category service id'  AFTER `employer_user_id` , CHANGE COLUMN `employer_payment_id` `id` INT(11) NOT NULL AUTO_INCREMENT  ;
+
+ALTER TABLE `thue_today`.`employer_payment` DROP COLUMN `note` , CHANGE COLUMN `tax_code` `tax_code` VARCHAR(100) NULL DEFAULT '0'  AFTER `company_delivery_address` , CHANGE COLUMN `created_date` `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '#created_date'  AFTER `note` , CHANGE COLUMN `ai` `ai` INT NOT NULL  , CHANGE COLUMN `page` `page` TINYINT NOT NULL COMMENT '#page'  , CHANGE COLUMN `dp` `dp` TINYINT NULL DEFAULT '0'  , CHANGE COLUMN `token` `token` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT ''  , CHANGE COLUMN `payment_organize` `payment_organization` TINYINT(4) NOT NULL COMMENT '# 1: individual 2:company'  , CHANGE COLUMN `company_address` `company_address` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL  , CHANGE COLUMN `user_note` `note` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL  ;
