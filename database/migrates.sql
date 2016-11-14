@@ -266,3 +266,23 @@ ALTER TABLE `thue_today`.`promotion_applied` CHANGE COLUMN `user_id` `employer_u
 ALTER TABLE `thue_today`.`employer_user_day` RENAME TO  `thue_today`.`employer_days_history` ;
 
 ALTER TABLE `thue_today`.`user_payment` ENGINE = InnoDB , CHANGE COLUMN `service_id` `service_id` INT(11) NOT NULL COMMENT '#service_id'  AFTER `employer_user_id` , CHANGE COLUMN `user_payment_id` `employer_payment_id` INT NOT NULL AUTO_INCREMENT  , CHANGE COLUMN `user_id` `employer_user_id` INT NOT NULL COMMENT '#employer_id'  , RENAME TO  `thue_today`.`employer_payment` ;
+
+ALTER TABLE `thue_today`.`user_recovery_pw` CHANGE COLUMN `user_recovery_pw_id` `id` INT NOT NULL AUTO_INCREMENT  , CHANGE COLUMN `user_id` `user_id` INT NOT NULL COMMENT '#user_id'  , CHANGE COLUMN `url` `token` VARCHAR(100) NOT NULL COMMENT 'link recover password'  , CHANGE COLUMN `status` `status` TINYINT NULL DEFAULT '0' COMMENT '#status'  , CHANGE COLUMN `created_date` `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '#created_date'
+, DROP INDEX `url`
+, ADD UNIQUE INDEX `token` (`token` ASC)
+, ADD INDEX `user_id` (`user_id` ASC) , RENAME TO  `thue_today`.`password_recovery_token` ;
+
+ALTER TABLE `thue_today`.`user_saved` DROP COLUMN `status` , DROP COLUMN `employer_candidate_id` , DROP COLUMN `user_saved_id` , CHANGE COLUMN `user_id_employer` `employer_user_id` INT NOT NULL COMMENT '#employer_id'  , CHANGE COLUMN `user_id_candidate` `candidate_user_id` INT NOT NULL COMMENT '#candidate_id'  , CHANGE COLUMN `created_date` `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '#created_date'
+, DROP PRIMARY KEY
+, ADD PRIMARY KEY (`employer_user_id`, `candidate_user_id`)
+, DROP INDEX `co` , RENAME TO  `thue_today`.`candidate_saved` ;
+
+ALTER TABLE `thue_today`.`candidate_saved` ADD COLUMN `status` TINYINT NOT NULL DEFAULT 1  AFTER `candidate_user_id`
+, ADD INDEX `status` (`status` ASC) ;
+
+ALTER TABLE `thue_today`.`candidate_saved` CHANGE COLUMN `candidate_user_id` `candidate_user_id` INT(11) NOT NULL COMMENT '#candidate_id'  FIRST
+, DROP PRIMARY KEY
+, ADD PRIMARY KEY (`candidate_user_id`, `employer_user_id`) ;
+
+ALTER TABLE `thue_today`.`user_work_history` CHANGE COLUMN `company_name` `company_name` VARCHAR(255) NULL DEFAULT NULL  AFTER `name` , CHANGE COLUMN `user_work_history_id` `id` INT(11) NOT NULL AUTO_INCREMENT  , CHANGE COLUMN `user_id` `candidate_user_id` INT(11) NOT NULL  , CHANGE COLUMN `title` `name` VARCHAR(255) NULL DEFAULT NULL  , CHANGE COLUMN `city` `city` VARCHAR(255) NULL DEFAULT NULL  , CHANGE COLUMN `country` `country` VARCHAR(255) NULL DEFAULT NULL
+, ADD INDEX `candidate_user_id` (`candidate_user_id` ASC) , RENAME TO  `thue_today`.`cv_work_history` ;
