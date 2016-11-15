@@ -7,11 +7,11 @@ class Module
     {
         $loader = new \Phalcon\Loader;
 
-        $loader->registerNamespaces([
+        $loader->registerNamespaces(array(
             'Thue\Data\Lib'   => ROOT . '/app/data/lib/',
             'Thue\Data\Model' => ROOT . '/app/data/model/',
             'Thue\Data\Repo'  => ROOT . '/app/data/repo/'
-        ]);
+        ));
         $loader->register();
     }
 
