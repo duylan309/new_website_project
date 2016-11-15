@@ -25,12 +25,12 @@ class Module
         $di->setShared('volt', function ($view, $di) use ($config) {
             $volt = new \Phalcon\Mvc\View\Engine\Volt($view, $di);
 
-            $volt->setOptions([
+            $volt->setOptions(array(
                 'compiledPath'      => ROOT . '/cache/auth/view/',
                 'compiledSeparator' => $config->volt->separator,
                 'compileAlways'     => (bool)$config->volt->debug,
                 'stat'              => (bool)$config->volt->stat
-            ]);
+            ));
 
             $compiler = $volt->getCompiler();
             $compiler->addFunction('http_build_query', 'http_build_query');
@@ -41,7 +41,7 @@ class Module
         $di->setShared('view', function () {
             $view = new \Phalcon\Mvc\View();
             $view->setViewsDir(ROOT . '/app/admin/view/');
-            $view->registerEngines(['.volt' => 'volt']);
+            $view->registerEngines(array('.volt' => 'volt'));
 
             return $view;
         });
