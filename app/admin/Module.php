@@ -26,7 +26,7 @@ class Module
             $volt = new \Phalcon\Mvc\View\Engine\Volt($view, $di);
 
             $volt->setOptions(array(
-                'compiledPath'      => ROOT . '/cache/auth/view/',
+                'compiledPath'      => ROOT . '/cache/admin/view/',
                 'compiledSeparator' => $config->volt->separator,
                 'compileAlways'     => (bool)$config->volt->debug,
                 'stat'              => (bool)$config->volt->stat
