@@ -26,9 +26,9 @@ $parameter['application']['asset']['version'] = '20161115_4_22pm';
 // Application ---------
 
 // --------- Facebook
-$parameter['facebook']['app_id']      = '';
-$parameter['facebook']['app_secret']  = '';
-$parameter['facebook']['permission']  = array('public_profile');
+$parameter['facebook']['app_id']     = '';
+$parameter['facebook']['app_secret'] = '';
+$parameter['facebook']['permission'] = array('public_profile');
 // Facebook ---------
 
 // --------- Volt
