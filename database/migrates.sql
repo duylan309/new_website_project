@@ -367,6 +367,7 @@ ALTER TABLE `thue_today`.`r_company_page` DROP COLUMN `url` , DROP COLUMN `emplo
 , DROP INDEX `url` ;
 
 ALTER TABLE `thue_today`.`t_employer_payment` CHANGE COLUMN `company_name` `bill_name` VARCHAR(255) NOT NULL DEFAULT '' , CHANGE COLUMN `company_address` `bill_address` VARCHAR(255) NOT NULL DEFAULT '' , CHANGE COLUMN `company_delivery_address` `bill_delivery_address` VARCHAR(255) NOT NULL DEFAULT '' , CHANGE COLUMN `note` `bill_note` TEXT NULL DEFAULT '', ADD COLUMN `bill_phone` VARCHAR(50) NULL AFTER `bill_address` , ADD COLUMN `status` TINYINT NOT NULL AFTER `created_at` , ADD COLUMN `bill_delivery_name` VARCHAR(255) NULL AFTER `bill_delivery_address` , ADD COLUMN `bill_delivery_phone` VARCHAR(50) NULL AFTER `bill_delivery_name` , ADD COLUMN `user_admin_id` INT(11) NULL , ADD COLUMN `user_admin_note` TEXT NULL, DROP COLUMN `ai` , DROP COLUMN `dp`, ADD COLUMN `payment_method` TINYINT(4) NOT NULL AFTER `status`;
+
 CREATE TABLE `thue_today`.`m_package_category` ( `package_category_id` INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY, `name_en` VARCHAR(100) NOT NULL, `name_vi` VARCHAR(100) NOT NULL, `page` INT(11) NOT NULL, `status` TINYINT(4) NOT NULL ,`created_at` TIMESTAMP NOT NULL);
 CREATE TABLE `thue_today`.`m_package` ( `package_id` INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY, `name_en` VARCHAR(100) NOT NULL, `name_vi` VARCHAR(100) NOT NULL, `package_category_id` INT(11) NOT NULL, `jobleft` INT(11) NOT NULL, `page` INT(11) NOT NULL, `price` INT(20) NOT NULL, `status` INT(4) NOT NULL ,`created_at` TIMESTAMP NOT NULL);
 ALTER TABLE `thue_today`.`m_package` ADD INDEX `status` (`status` ASC);
@@ -374,3 +375,37 @@ CREATE TABLE `thue_today`.`m_city` ( `city_id` INT(11) UNSIGNED AUTO_INCREMENT P
 CREATE TABLE `thue_today`.`m_disctrict` ( `disctrict_id` INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY, `text_vi` VARCHAR(50) NOT NULL, `text_en` VARCHAR(50) NOT NULL, `created_at` TIMESTAMP NOT NULL);
 CREATE TABLE `thue_today`.`m_province` ( `province_id` INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY, `text_vi` VARCHAR(50) NOT NULL, `text_en` VARCHAR(50) NOT NULL, `created_at` TIMESTAMP NOT NULL);
 CREATE TABLE `thue_today`.`m_ads` (`ads_in` INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY, `title` VARCHAR(255) NOT NULL, `job_id` INT(11) NULL DEFAULT '0', `number_applied` INT(11) NULL DEFAULT '0', `employer_user_id` INT(11) NOT NULL, `images` VARCHAR(255) NOT NULL,`images_mobile` VARCHAR(255) NOT NULL, `alt_images` VARCHAR(255) NULL DEFAULT '', `clicks` INT(11) NULL DEFAULT '0', `links` TEXT NOT NULL, `position` INT(11) NOT NULL, `created_at` TIMESTAMP NOT NULL, `expired_at` DATE NOT NULL, `status` TINYINT(4) NOT NULL, `number_of_mobile` INT(11) NULL DEFAULT '0', `number_of_pc` INT(11) NULL DEFAULT '0' );
+
+ALTER TABLE `thue_today`.`t_employer_payment` CHANGE COLUMN `tax_code` `tax_code` VARCHAR(100) NULL DEFAULT '0'  AFTER `have_red_invoice` , CHANGE COLUMN `payment_method` `type` TINYINT(4) NOT NULL  AFTER `bill_note` , CHANGE COLUMN `created_at` `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '#created_date'  AFTER `admin_note` , CHANGE COLUMN `payment_organization` `is_personal` TINYINT(4) NOT NULL DEFAULT 0 COMMENT '# 1: individual 2:company'  , CHANGE COLUMN `user_admin_id` `approved_by` INT(11) NULL DEFAULT NULL  , CHANGE COLUMN `user_admin_note` `admin_note` TEXT NULL DEFAULT NULL  ;
+ALTER TABLE `thue_today`.`t_employer_payment`
+ADD INDEX `employer_user_id` (`employer_user_id` ASC)
+, ADD INDEX `service_id` (`service_id` ASC)
+, ADD INDEX `type` (`type` ASC)
+, ADD INDEX `status` (`status` ASC) ;
+
+ALTER TABLE `thue_today`.`m_ads` DROP COLUMN `employer_user_id` , ADD COLUMN `updated_at` TIMESTAMP NULL DEFAULT NULL  AFTER `created_at` , CHANGE COLUMN `job_id` `job_id` INT(11) NOT NULL  AFTER `ads_id` , CHANGE COLUMN `links` `link` VARCHAR(500) NOT NULL  AFTER `alt_tag` , CHANGE COLUMN `number_applied` `number_applied` INT(11) NULL DEFAULT '0'  AFTER `link` , CHANGE COLUMN `number_of_mobile` `number_of_mobile` INT(11) NULL DEFAULT '0'  AFTER `position` , CHANGE COLUMN `number_of_pc` `number_of_pc` INT(11) NULL DEFAULT '0'  AFTER `number_of_mobile` , CHANGE COLUMN `status` `status` TINYINT(4) NOT NULL DEFAULT 1  AFTER `number_of_pc` , CHANGE COLUMN `ads_in` `ads_id` INT(11) NOT NULL AUTO_INCREMENT  , CHANGE COLUMN `title` `name` VARCHAR(255) NOT NULL  , CHANGE COLUMN `images` `image` VARCHAR(255) NULL DEFAULT NULL  , CHANGE COLUMN `images_mobile` `mobile_image` VARCHAR(255) NULL DEFAULT NULL  , CHANGE COLUMN `alt_images` `alt_tag` VARCHAR(255) NULL DEFAULT NULL  , CHANGE COLUMN `clicks` `hit_view` INT(11) NOT NULL DEFAULT '0'  , CHANGE COLUMN `position` `position` TINYINT NOT NULL  , CHANGE COLUMN `created_at` `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+, ADD INDEX `job_id` (`job_id` ASC)
+, ADD INDEX `status` (`status` ASC) ;
+
+ALTER TABLE `thue_today`.`m_city` CHANGE COLUMN `city_id` `city_id` INT(11) NOT NULL AUTO_INCREMENT  , CHANGE COLUMN `text_vi` `text_vi` VARCHAR(255) NOT NULL  , CHANGE COLUMN `text_en` `text_en` VARCHAR(255) NOT NULL  , CHANGE COLUMN `created_at` `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP  ;
+ALTER TABLE `thue_today`.`m_ads` CHANGE COLUMN `link` `link` VARCHAR(255) NOT NULL  ;
+drop table `thue_today`.`m_province`;
+ALTER TABLE `thue_today`.`m_city` CHANGE COLUMN `city_id` `city_province_id` INT(11) NOT NULL AUTO_INCREMENT  , RENAME TO  `thue_today`.`m_city_province_id` ;
+ALTER TABLE `thue_today`.`m_disctrict` ADD COLUMN `city_province_id` INT NOT NULL  AFTER `disctrict_id` , CHANGE COLUMN `text_vi` `name_vi` VARCHAR(255) NOT NULL  , CHANGE COLUMN `text_en` `name_en` VARCHAR(255) NOT NULL  , CHANGE COLUMN `created_at` `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+, ADD INDEX `city_province_id` (`city_province_id` ASC) ;
+ALTER TABLE `thue_today`.`m_city_province_id` CHANGE COLUMN `text_vi` `name_vi` VARCHAR(255) NOT NULL  , CHANGE COLUMN `text_en` `name_en` VARCHAR(255) NOT NULL  ;
+ALTER TABLE `thue_today`.`m_package` ADD COLUMN `updated_at` TIMESTAMP NULL DEFAULT NULL  AFTER `created_at` , CHANGE COLUMN `package_category_id` `service_category_id` INT(11) NOT NULL  AFTER `service_id` , CHANGE COLUMN `name_vi` `name_vi` VARCHAR(255) NOT NULL  AFTER `service_category_id` , CHANGE COLUMN `package_id` `service_id` INT(11) NOT NULL AUTO_INCREMENT  , CHANGE COLUMN `name_en` `name_en` VARCHAR(255) NOT NULL  , CHANGE COLUMN `jobleft` `jobs_left` INT(11) NOT NULL  , CHANGE COLUMN `status` `status` INT(4) NOT NULL DEFAULT 1  , CHANGE COLUMN `created_at` `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+, ADD INDEX `service_category_id` (`service_category_id` ASC) , RENAME TO  `thue_today`.`m_service` ;
+ALTER TABLE `thue_today`.`m_service` CHANGE COLUMN `price` `price` INT(11) NOT NULL  ;
+ALTER TABLE `thue_today`.`m_package_category` ADD COLUMN `updated_at` TIMESTAMP NULL DEFAULT NULL  AFTER `created_at` , CHANGE COLUMN `name_vi` `name_vi` VARCHAR(255) NOT NULL  AFTER `service_category_id` , CHANGE COLUMN `package_category_id` `service_category_id` INT(11) NOT NULL AUTO_INCREMENT  , CHANGE COLUMN `name_en` `name_en` VARCHAR(255) NOT NULL  , CHANGE COLUMN `status` `status` TINYINT(4) NOT NULL DEFAULT 1  , CHANGE COLUMN `created_at` `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP  , RENAME TO  `thue_today`.`m_service_category` ;
+ALTER TABLE `thue_today`.`m_category` CHANGE COLUMN `type` `type` TINYINT(4) NULL DEFAULT NULL COMMENT '# type of page'  AFTER `html_content_en` ;
+ALTER TABLE `thue_today`.`m_company` CHANGE COLUMN `city_id` `city_province_id` INT(11) NULL DEFAULT NULL  AFTER `website` ;
+ALTER TABLE `thue_today`.`m_company_branch` CHANGE COLUMN `city_id` `city_province_id` INT(11) NULL DEFAULT NULL  AFTER `address` ;
+ALTER TABLE `thue_today`.`m_job` CHANGE COLUMN `city_ids` `city_province_ids` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL COMMENT 'location'  ;
+ALTER TABLE `thue_today`.`m_user` DROP COLUMN `city_text_en` , DROP COLUMN `city_text_vi` , CHANGE COLUMN `city_id` `city_province_id` INT(11) NULL DEFAULT '0'  ;
+ALTER TABLE `thue_today`.`m_service` CHANGE COLUMN `page` `total_pages` INT(11) NOT NULL  ;
+ALTER TABLE `thue_today`.`m_service_category` DROP COLUMN `page` ;
+ALTER TABLE `thue_today`.`r_cv` CHANGE COLUMN `city_ids` `city_province_ids` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL  ;
+ALTER TABLE `thue_today`.`t_cv_work_history` CHANGE COLUMN `city` `city_province` VARCHAR(255) NULL DEFAULT NULL  ;
+ALTER TABLE `thue_today`.`t_employer_payment` DROP COLUMN `service_category_id` , CHANGE COLUMN `page` `total_pages` INT(11) NOT NULL COMMENT '#page'  ;
+ALTER TABLE `thue_today`.`m_user` CHANGE COLUMN `total_pages` `total_pages` INT(11) NULL DEFAULT '0'  ;
