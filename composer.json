@@ -1,7 +1,0 @@
-{
-    "require": {
-        "swiftmailer/swiftmailer": "@stable",
-        "guzzlehttp/guzzle": "^6.2",
-        "facebook/graph-sdk": "^5.4"
-    }
-}
