@@ -15,7 +15,7 @@ try {
     $di = new \Phalcon\DI\FactoryDefault;
 
     require_once ROOT . '/app/admin/config/parameter.php';
-    $config = new \Phalcon\Config($parameters);
+    $config = new \Phalcon\Config($parameter);
     $di->setShared('config', $config);
 
     $di->setShared('db', function () use ($config) {
