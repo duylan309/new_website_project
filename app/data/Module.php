@@ -5,7 +5,7 @@ class Module
 {
     public function registerAutoloaders()
     {
-        $loader = new \Phalcon\Loader();
+        $loader = new \Phalcon\Loader;
 
         $loader->registerNamespaces([
             'Thue\Data\Lib'   => ROOT . '/app/data/lib/',
