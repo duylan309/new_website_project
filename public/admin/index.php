@@ -225,7 +225,7 @@ try {
 
     $di->setShared('dispatcher', function () {
         $dispatcher = new \Phalcon\Mvc\Dispatcher;
-        $dispatcher->setDefaultNamespace('ITECH\Admin\Controller\\');
+        $dispatcher->setDefaultNamespace('Thue\Admin\Controller\\');
 
         $eventsManager = new \Phalcon\Events\Manager;
         $eventsManager->attach('dispatch', function ($event, $dispatcher, $exception) {
