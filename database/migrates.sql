@@ -413,3 +413,5 @@ ALTER TABLE `thue_today`.`m_user` CHANGE COLUMN `total_pages` `total_pages` INT(
 ALTER TABLE `thue_today`.`m_ads` CHANGE COLUMN `number_of_mobile` `number_of_mobile` INT(11) NULL DEFAULT '0'  AFTER `number_applied` , CHANGE COLUMN `number_of_pc` `number_of_pc` INT(11) NULL DEFAULT '0'  AFTER `number_of_mobile` ;
 ALTER TABLE `thue_today`.`m_ads` CHANGE COLUMN `number_of_pc` `number_of_pc` INT(11) NULL DEFAULT '0'  AFTER `number_applied` ;
 ALTER TABLE `thue_today`.`m_ads` CHANGE COLUMN `expired_at` `expired_at` DATE NOT NULL  AFTER `status` ;
+
+ALTER TABLE `thue_today`.`m_category` CHANGE COLUMN `image` `image` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL COMMENT 'Image'  AFTER `link` , CHANGE COLUMN `url` `slug` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL  ;

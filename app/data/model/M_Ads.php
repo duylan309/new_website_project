@@ -1,7 +1,7 @@
 <?php
 namespace Thue\Data\Model;
 
-class MAds extends BaseModel
+class M_Ads extends BaseModel
 {
     public $ads_id;
     public $job_id;
