@@ -11,4 +11,4 @@
 <link type="text/css" rel="stylesheet" href="{{ config.asset.url ~ 'css/admin_style.css?' ~ config.asset.version }}" />
 
 <script type="text/javascript" src="{{ config.asset.url ~ 'js/jquery.min.js?' ~ config.asset.version }}"></script>
-<script type="text/javascript" src="{{ config.asset.url ~ 'js/bootstrap.min.js?' ~ config.asset.version }}"></script>
+<script type="text/javascript" src="{{ config.asset.url ~ 'js/bootstrap.min.js?' ~ config.asset.version }}"></script> 
