@@ -426,3 +426,8 @@ drop view `thue_today`.`v_company`;
 ALTER TABLE `thue_today`.`m_company_branch` CHANGE COLUMN `city_province_id` `city_province_id` INT(11) NOT NULL  ;
 
 ALTER TABLE `thue_today`.`m_job` ADD COLUMN `slug` VARCHAR(255) NOT NULL  AFTER `name` , CHANGE COLUMN `workhour` `work_hour` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL  , CHANGE COLUMN `keyword` `keywords` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL  , CHANGE COLUMN `view` `hit_view` INT(11) NULL DEFAULT '0' COMMENT 'view'  ;
+
+ALTER TABLE `thue_today`.`m_static_page` CHANGE COLUMN `category_id` `category_id` INT(11) NOT NULL COMMENT '#category_id'  , CHANGE COLUMN `company_branch_id` `company_branch_id` INT(11) NOT NULL DEFAULT '0' COMMENT '#location_id'  , CHANGE COLUMN `url` `slug` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL
+, DROP INDEX `url`
+, ADD UNIQUE INDEX `slug` (`slug` ASC) ;
+ALTER TABLE `thue_today`.`m_static_page` CHANGE COLUMN `slug` `slug` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL  AFTER `name_en` , CHANGE COLUMN `name_vi` `name_vi` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL COMMENT '#title_en'  , CHANGE COLUMN `name_en` `name_en` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL COMMENT '#title_vn'  , CHANGE COLUMN `subject` `subject` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL  , CHANGE COLUMN `language` `languages` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL COMMENT '#language'  ;
