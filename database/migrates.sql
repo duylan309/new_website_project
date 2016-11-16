@@ -409,3 +409,7 @@ ALTER TABLE `thue_today`.`r_cv` CHANGE COLUMN `city_ids` `city_province_ids` VAR
 ALTER TABLE `thue_today`.`t_cv_work_history` CHANGE COLUMN `city` `city_province` VARCHAR(255) NULL DEFAULT NULL  ;
 ALTER TABLE `thue_today`.`t_employer_payment` DROP COLUMN `service_category_id` , CHANGE COLUMN `page` `total_pages` INT(11) NOT NULL COMMENT '#page'  ;
 ALTER TABLE `thue_today`.`m_user` CHANGE COLUMN `total_pages` `total_pages` INT(11) NULL DEFAULT '0'  ;
+
+ALTER TABLE `thue_today`.`m_ads` CHANGE COLUMN `number_of_mobile` `number_of_mobile` INT(11) NULL DEFAULT '0'  AFTER `number_applied` , CHANGE COLUMN `number_of_pc` `number_of_pc` INT(11) NULL DEFAULT '0'  AFTER `number_of_mobile` ;
+ALTER TABLE `thue_today`.`m_ads` CHANGE COLUMN `number_of_pc` `number_of_pc` INT(11) NULL DEFAULT '0'  AFTER `number_applied` ;
+ALTER TABLE `thue_today`.`m_ads` CHANGE COLUMN `expired_at` `expired_at` DATE NOT NULL  AFTER `status` ;
