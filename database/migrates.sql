@@ -424,3 +424,5 @@ ALTER TABLE `thue_today`.`m_company` CHANGE COLUMN `facebook_load_newfeed` `face
 ALTER TABLE `thue_today`.`m_company` CHANGE COLUMN `city_province_id` `city_province_id` INT(11) NOT NULL  ;
 drop view `thue_today`.`v_company`;
 ALTER TABLE `thue_today`.`m_company_branch` CHANGE COLUMN `city_province_id` `city_province_id` INT(11) NOT NULL  ;
+
+ALTER TABLE `thue_today`.`m_job` ADD COLUMN `slug` VARCHAR(255) NOT NULL  AFTER `name` , CHANGE COLUMN `workhour` `work_hour` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL  , CHANGE COLUMN `keyword` `keywords` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL  , CHANGE COLUMN `view` `hit_view` INT(11) NULL DEFAULT '0' COMMENT 'view'  ;
