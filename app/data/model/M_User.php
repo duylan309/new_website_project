@@ -43,7 +43,7 @@ class M_User extends BaseModel
     public function validation()
     {
         $this->validate(new Uniqueness(array(
-            'field'   => array('email', 'status'),
+            'field'   => array('email', 'type', 'status'),
             'message' => 'Email này đã được sử dụng'
         )));
 
