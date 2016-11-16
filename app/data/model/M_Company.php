@@ -41,5 +41,10 @@ class M_Company extends BaseModel
             'foreignKey' => true,
             'alias'      => 'CityProvince'
         ));
+
+        $this->belongsTo('district_id', '\Thue\Data\Model\M_District', 'district_id', array(
+            'reusable' => true,
+            'alias'    => 'District'
+        ));
     }
 }

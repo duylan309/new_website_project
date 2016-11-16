@@ -420,3 +420,6 @@ ALTER TABLE `thue_today`.`m_comment` CHANGE COLUMN `status` `status` TINYINT(4) 
 ALTER TABLE `thue_today`.`m_company` CHANGE COLUMN `url` `slug` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL  ;
 ALTER TABLE `thue_today`.`m_company` CHANGE COLUMN `size` `size` TINYINT(4) NULL DEFAULT '0'  AFTER `about` , CHANGE COLUMN `fb_load_newfeed` `facebook_load_newfeed` TINYINT(4) NULL DEFAULT '0' COMMENT '# allow to get newfeed from facebook '  , CHANGE COLUMN `fb_load_photo` `facebook_load_photo` TINYINT(4) NULL DEFAULT '0' COMMENT '# allow to get photo from facebook '  ;
 ALTER TABLE `thue_today`.`m_company` CHANGE COLUMN `facebook_load_newfeed` `facebook_load_newsfeed` TINYINT(4) NULL DEFAULT '0' COMMENT '# allow to get newfeed from facebook '  ;
+
+ALTER TABLE `thue_today`.`m_company` CHANGE COLUMN `city_province_id` `city_province_id` INT(11) NOT NULL  ;
+drop view `thue_today`.`v_company`;
