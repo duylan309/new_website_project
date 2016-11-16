@@ -21,7 +21,8 @@ $parameter['db_slave']['charset']  = 'utf8';
 
 // --------- Application
 $parameter['application']['protocol']         = 'http://';
-$parameter['application']['base_url']         = $parameter['application']['protocol'] . 'localhost.admin.thue:81/';
+//$parameter['application']['base_url']       = $parameter['application']['protocol'] . 'localhost.admin.thue:81/';
+$parameter['application']['base_url']         = '/';
 $parameter['application']['asset']['version'] = '20161115_4_22pm';
 // Application ---------
 
