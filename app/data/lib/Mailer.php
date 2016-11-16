@@ -1,8 +1,6 @@
 <?php
 namespace Thue\Data\Lib;
 
-require_once ROOT . '/vendor/autoload.php';
-
 class Mailer
 {
     private static $instance = null;
