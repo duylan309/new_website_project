@@ -140,7 +140,7 @@ a,a:hover{
 .menu_admin .li .title{
     margin: 0;
     padding: 10px 0 10px 10px;
-    
+
 }
 
 .menu_admin .li ul{
@@ -148,12 +148,12 @@ a,a:hover{
     padding: 10px 0 0px 10px;
     display: none;
     background:rgba(255,255,255,0.05);
-    
+
 }
 
 .menu_admin .li.active ul{
     display: block;
-    
+
 }
 
 .menu_admin .li ul li{
@@ -199,7 +199,7 @@ a,a:hover{
 }
 
 .tab-content .nav-tabs{
-    border-bottom: none;    
+    border-bottom: none;
 }
 
 .listContent .tab-content .nav > li > a{
@@ -406,13 +406,22 @@ input.require{
 .sortTable{
     cursor: pointer;
 }
+
 .menu-left-admin li.selected{
     background: #444;
 }
+
 .menu-left-admin li.selected a{
     color:#fff;
 }
+
 .menu-left-admin li{
     float: none;
     display: block;
+    border-bottom:1px solid #333;
+}
+
+.menu-left-admin li>a{
+    padding:10px 15px;
+    font-size: 12px;
 }
