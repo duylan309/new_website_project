@@ -13,21 +13,6 @@
 					</a>
 				</div>
 
-				<ul class="nav navbar-right top-nav">
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Admin <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li>
-								<a target="_blank" href="#"><i class="fa fa-fw fa-gear"></i> View website</a>
-							</li>
-							<li class="divider"></li>
-							<li>
-								<a href="#"><i class="fa fa-fw fa-power-off"></i> Logout</a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-
                 <ul class="nav navbar-right top-nav">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Admin <b class="caret"></b></a>
