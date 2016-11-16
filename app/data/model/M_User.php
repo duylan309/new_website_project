@@ -38,6 +38,11 @@ class M_User extends BaseModel
     {
         parent::initialize();
         $this->setSource('m_user');
+
+        $this->belongsTo('city_province_id', '\Thue\Data\Model\M_CityProvince', 'city_province_id', array(
+            'reusable' => true,
+            'alias'    => 'CityProvince'
+        ));
     }
 
     public function validation()
