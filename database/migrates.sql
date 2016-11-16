@@ -423,3 +423,4 @@ ALTER TABLE `thue_today`.`m_company` CHANGE COLUMN `facebook_load_newfeed` `face
 
 ALTER TABLE `thue_today`.`m_company` CHANGE COLUMN `city_province_id` `city_province_id` INT(11) NOT NULL  ;
 drop view `thue_today`.`v_company`;
+ALTER TABLE `thue_today`.`m_company_branch` CHANGE COLUMN `city_province_id` `city_province_id` INT(11) NOT NULL  ;
