@@ -416,3 +416,4 @@ ALTER TABLE `thue_today`.`m_ads` CHANGE COLUMN `expired_at` `expired_at` DATE NO
 
 ALTER TABLE `thue_today`.`m_category` CHANGE COLUMN `image` `image` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL COMMENT 'Image'  AFTER `link` , CHANGE COLUMN `url` `slug` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL  ;
 ALTER TABLE `thue_today`.`m_city_province_id` RENAME TO  `thue_today`.`m_city_province` ;
+ALTER TABLE `thue_today`.`m_comment` CHANGE COLUMN `status` `status` TINYINT(4) NOT NULL DEFAULT '1'  ;
