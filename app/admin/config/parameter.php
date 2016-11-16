@@ -26,6 +26,15 @@ $parameter['application']['base_url']         = '/';
 $parameter['application']['asset']['version'] = '20161115_4_22pm';
 // Application ---------
 
+// --------- Mailer
+$parameter['mailer']['delivery'] = true;
+$parameter['mailer']['ssl']      = true;
+$parameter['mailer']['host']     = '';
+$parameter['mailer']['port']     = '';
+$parameter['mailer']['username'] = '';
+$parameter['mailer']['password'] = '';
+// Mailer ---------
+
 // --------- Facebook
 $parameter['facebook']['app_id']     = '';
 $parameter['facebook']['app_secret'] = '';
