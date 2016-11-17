@@ -3,7 +3,7 @@
         <a href="{{ url({'for': 'dashboard'}) }}">Dashboard</a>
     </li>
     <li class="">
-        <a href="#">Danh Mục</a>
+        <a href="{{ url({'for': 'category_index'}) }}">Danh Mục</a>
     </li>
     <li class="">
         <a href="#">Trang Tĩnh HTML</a>
