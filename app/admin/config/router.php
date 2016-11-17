@@ -6,13 +6,13 @@ $router->add('/{query:(/.*)*}', array(
 ))->setName('dashboard');
 
 // --------- Auth
-$router->add('/user/login', array(
+$router->add('/auth/login', array(
     'module'     => 'admin',
     'controller' => 'auth',
     'action'     => 'login'
 ))->setName('auth_login');
 
-$router->add('/user/logout', array(
+$router->add('/auth/logout', array(
     'module'     => 'admin',
     'controller' => 'auth',
     'action'     => 'logout'
