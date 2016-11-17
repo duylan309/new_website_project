@@ -6,7 +6,7 @@ $router->add('/{query:(/.*)*}', array(
 ))->setName('dashboard');
 
 // --------- Auth
-$router->add('/auth/login', array(
+$router->add('/auth/login{query:(/.*)*}', array(
     'module'     => 'admin',
     'controller' => 'auth',
     'action'     => 'login'

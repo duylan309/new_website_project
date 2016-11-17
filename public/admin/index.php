@@ -24,7 +24,7 @@ try {
             'port'     => $config->db->port,
             'username' => $config->db->username,
             'password' => $config->db->password,
-            'dbname'   => $config->db->dbname,
+            'dbname'   => $config->db->name,
             'charset'  => $config->db->charset
         ));
 
@@ -55,7 +55,7 @@ try {
             'port'     => $config->db->port,
             'username' => $config->db_slave->username,
             'password' => $config->db_slave->password,
-            'dbname'   => $config->db_slave->dbname,
+            'dbname'   => $config->db_slave->name,
             'charset'  => $config->db_slave->charset
         ));
 
@@ -140,8 +140,8 @@ try {
     $di->setShared('modelsMetadata', function () use ($config) {
         $meta_data = new \Phalcon\Mvc\Model\MetaData\Files(array(
             'metaDataDir' => ROOT . '/cache/data/model/',
-            'prefix'      => $config->cache->metadata->prefix,
-            'lifetime'    => $config->cache->metadata->lifetime
+            'prefix'      => $config->cache->prefix,
+            'lifetime'    => 31536000
         ));
 
         return $meta_data;

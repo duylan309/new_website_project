@@ -58,7 +58,8 @@ class BaseController extends Controller
             $result = $this->cache->get($cacheName);
 
             if (!$result) {
-                $b = R_UserAdmin::getModelsManager()->createBuilder();
+                $R_UserAdmin = new R_UserAdmin;
+                $b = $R_UserAdmin->getModelsManager()->createBuilder();
 
                 $b->columns(array(
                     'u1.user_id',

@@ -15,7 +15,7 @@
             </li>
             <li class="divider"></li>
             <li>
-                <a href="{{ url({'for': 'auth_login'}) }}">
+                <a href="{{ url({'for': 'auth_logout'}) }}">
                     <i class="fa fa-fw fa-power-off"></i>
                     Logout
                 </a>
