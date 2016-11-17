@@ -10,6 +10,7 @@ class AuthController extends BaseController
 
     public function loginAction()
     {
+        $form = new \Thue\Admin\Form\AuthLoginForm;
         $this->view->pick(parent::$theme . '/auth/login');
     }
 

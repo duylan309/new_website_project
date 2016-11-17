@@ -8,12 +8,11 @@ class Module
         $loader = new \Phalcon\Loader;
 
         $loader->registerNamespaces(array(
-            'Thue\Admin\Controller'     => ROOT . '/app/admin/controller/',
-            'Thue\Admin\Form'           => ROOT . '/app/admin/form/',
-            'Thue\Admin\Form\Validator' => ROOT . '/app/admin/form/validator/',
-            'Thue\Data\Lib'             => ROOT . '/app/data/lib/',
-            'Thue\Data\Model'           => ROOT . '/app/data/model/',
-            'Thue\Data\Repo'            => ROOT . '/app/data/repo/'
+            'Thue\Admin\Controller' => ROOT . '/app/admin/controller/',
+            'Thue\Admin\Form'       => ROOT . '/app/admin/form/',
+            'Thue\Data\Lib'         => ROOT . '/app/data/lib/',
+            'Thue\Data\Model'       => ROOT . '/app/data/model/',
+            'Thue\Data\Repo'        => ROOT . '/app/data/repo/'
         ));
         $loader->register();
     }
