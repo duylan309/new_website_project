@@ -39,7 +39,7 @@
 </li>
 <li class="">
     <a data-toggle="collapse" href="#" data-target="#menu_config">
-        <i class="fa fa-fw fa-cog"></i> Cài đặt <i class="fa fa-fw fa-caret-down"> </i>
+        <i class="fa fa-fw fa-cog"></i> Cài đặt <i class="fa fa-fw fa-caret-down pull-right"> </i>
     </a>
     <ul id="menu_config" class="collapse">
         <li class="">
