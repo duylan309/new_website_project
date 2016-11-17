@@ -11,7 +11,19 @@ class AuthController extends BaseController
     public function loginAction()
     {
         $form = new \Thue\Admin\Form\AuthLoginForm;
-        $this->view->pick(parent::$theme . '/auth/login');
+
+        if ($this->request->isPost()) {
+            if (!$form->isValid($this->request->getPost())) {
+                $this->flashSession->error('Thông tin không hợp lệ');
+                goto RETURN_RESPONSE;
+            }
+        }
+
+        RETURN_RESPONSE:
+            $this->view->setVars(array(
+                'form' => $form
+            ));
+            $this->view->pick(parent::$theme . '/auth/login');
     }
 
     public function logoutAction()
