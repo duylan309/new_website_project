@@ -13,11 +13,13 @@
                     </a>
                 </div>
 
-                {% include 'default/element/user_menu.volt' %}
+                {% if session.has('USER') %}
+                    {% include 'default/element/user_menu.volt' %}
 
-                <div class="collapse navbar-collapse navbar-ex1-collapse">
-                    {% include 'default/element/main_menu.volt' %}
-                </div>
+                    <div class="collapse navbar-collapse navbar-ex1-collapse">
+                        {% include 'default/element/main_menu.volt' %}
+                    </div>
+                {% endif %}
             </nav>
 
             <div id="page-wrapper">
