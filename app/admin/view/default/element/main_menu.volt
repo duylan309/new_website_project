@@ -1,4 +1,7 @@
 <li class="">
+    <a href="{{ url({'for': 'dashboard'}) }}">Dashboard</a>
+</li>
+<li class="">
     <a href="#">Danh Mục</a>
 </li>
 <li class="">

@@ -5,24 +5,35 @@
 	</head>
 	<body>
 		<div id="wrapper">
-
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 				<div class="navbar-header">
-					<a class="navbar-brand" href="#">
-						<i class="fa fa-fw fa-dashboard"></i> <span>Dashboard</span>
+					<a href="{{ url({'for': 'dashboard'}) }}" class="navbar-brand">
+						<i class="fa fa-fw fa-dashboard"></i>
+                        <span>Administrator</span>
 					</a>
 				</div>
 
                 <ul class="nav navbar-right top-nav">
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Admin <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-user"></i>
+                            Admin
+                            <b class="caret"></b>
+                        </a>
+
                         <ul class="dropdown-menu">
                             <li>
-                                <a target="_blank" href="#"><i class="fa fa-fw fa-gear"></i> View website</a>
+                                <a href="#" target="_blank">
+                                    <i class="fa fa-fw fa-gear"></i>
+                                    View website
+                                </a>
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="#"><i class="fa fa-fw fa-power-off"></i> Logout</a>
+                                <a href="#">
+                                    <i class="fa fa-fw fa-power-off"></i>
+                                    Logout
+                                </a>
                             </li>
                         </ul>
                     </li>
