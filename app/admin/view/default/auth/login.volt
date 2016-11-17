@@ -4,7 +4,7 @@
     <div class="login-section">
         <div class="container">
             <center>
-                <div class="logo form-group ">
+                <div class="logo form-group">
                     <img class="text-center" src="{{ config.asset.url ~ 'img/logo.png?' ~ config.asset.version }}" >
                 </div>
 

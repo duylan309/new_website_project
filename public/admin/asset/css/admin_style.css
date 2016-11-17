@@ -455,13 +455,13 @@ input.require{
 
 .login-section{
     width: 100%;
-    padding:25% 0;
+    padding-top:10%;
     min-height: 100vh;
     position: relative;
 }
 
 .login-section form{
-    width: 300px;
+    width: 350px;
     background: #0C2448;
     border: 1px solid #0c2448;
     padding:20px 30px 10px;
@@ -471,11 +471,22 @@ input.require{
 }
 
 .login-section form input,
-.login-section form button{
+.login-section form button,
+.login-section form .help-block{
     font-size: 12px;
 }
 
+.login-section form .help-block{
+    margin-bottom: 0;
+    color:#a94442;
+}
+
+.login-section .form-horizontal .form-group{
+    margin-left: 0;
+    margin-right: 0;
+}
+
 .logo img{
-    width: 70px;
+    width: 100px;
     height: auto;
 }
