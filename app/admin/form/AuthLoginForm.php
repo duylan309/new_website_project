@@ -17,7 +17,7 @@ class AuthLoginForm extends Form
         $email = new Text('email');
         $email->addValidators(array(
             new PresenceOf(array(
-                'message' => 'Yêu cầu nhập email đăng nhập'
+                'message' => 'Yêu cầu nhập email'
             )),
             new Email(array(
                 'message' => 'Email không hợp lệ'
