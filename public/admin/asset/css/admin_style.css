@@ -1,13 +1,18 @@
 html{
-    /*font-family: 'Open Sans', sans-serif;*/
     font-size: 12px;
     color:#666;
     background: #FFF;
 }
 
-body{
+body,
+[data-simple-layout]{
+    margin: 0;
+    padding: 0;
     position: relative;
-    /*font-family: 'Open Sans', sans-serif;*/
+}
+
+[data-simple-layout]{
+    background: #193661;
 }
 
 a,a:hover{
@@ -79,11 +84,6 @@ a,a:hover{
 
 .color-white{
     color:#aaabae;
-}
-
-.bg-color1{
-    background: #2B303A;
-    color: #fff;
 }
 
 .bg-grey-color1 {
@@ -424,4 +424,58 @@ input.require{
 .menu-left-admin li>a{
     padding:10px 15px;
     font-size: 12px;
+}
+
+.text-color1 {
+    color: #193661!important
+}
+
+.text-color2 {
+    color: #00abbe!important
+}
+
+.text-color3 {
+    color: #e6053c!important
+}
+
+.bg-color1 {
+    color: #fff!important;
+    background-color: #193661
+}
+
+.bg-color2 {
+    color: #fff!important;
+    background-color: #00abbe
+}
+
+.bg-color3 {
+    color: #fff!important;
+    background-color: #e6053c
+}
+
+.login-section{
+    width: 100%;
+    padding:25% 0;
+    min-height: 100vh;
+    position: relative;
+}
+
+.login-section form{
+    width: 300px;
+    background: #0C2448;
+    border: 1px solid #0c2448;
+    padding:20px 30px 10px;
+    text-align: center;
+    -webkit-border-radius: 4px;
+            border-radius: 4px;
+}
+
+.login-section form input,
+.login-section form button{
+    font-size: 12px;
+}
+
+.logo img{
+    width: 70px;
+    height: auto;
 }

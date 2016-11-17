@@ -3,7 +3,7 @@
     <head>
         {% include 'default/element/header.volt' %}
     </head>
-    <body>
+    <body data-simple-layout>
         {% block container %} {% endblock %}
     </body>
 </html>
