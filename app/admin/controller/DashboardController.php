@@ -3,6 +3,12 @@ namespace Thue\Admin\Controller;
 
 class DashboardController extends BaseController
 {
+    public function initialize()
+    {
+        parent::authenticateUser();
+        parent::initialize();
+    }
+
     public function indexAction()
     {
         $this->view->setVars(array());

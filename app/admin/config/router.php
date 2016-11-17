@@ -5,8 +5,21 @@ $router->add('/{query:(/.*)*}', array(
     'action'     => 'index'
 ))->setName('dashboard');
 
-$router->setUriSource(\Phalcon\Mvc\Router::URI_SOURCE_SERVER_REQUEST_URI);
+// --------- Auth
+$router->add('/auth/login', array(
+    'module'     => 'admin',
+    'controller' => 'auth',
+    'action'     => 'login'
+))->setName('auth_login');
 
+$router->add('/auth/logout', array(
+    'module'     => 'admin',
+    'controller' => 'auth',
+    'action'     => 'logout'
+))->setName('auth_logout');
+// Auth ---------
+
+$router->setUriSource(\Phalcon\Mvc\Router::URI_SOURCE_SERVER_REQUEST_URI);
 $router->notFound(array(
     'module'     => 'admin',
     'controller' => 'error',
