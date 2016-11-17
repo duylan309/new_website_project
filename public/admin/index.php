@@ -140,7 +140,6 @@ try {
     $di->setShared('modelsMetadata', function () use ($config) {
         $meta_data = new \Phalcon\Mvc\Model\MetaData\Files(array(
             'metaDataDir' => ROOT . '/cache/data/model/',
-            'prefix'      => $config->cache->prefix,
             'lifetime'    => 31536000
         ));
 

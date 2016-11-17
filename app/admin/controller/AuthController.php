@@ -84,7 +84,7 @@ class AuthController extends BaseController
                 $user = $b->getQuery()->execute();
 
                 if ($user && isset($user[0])) {
-                    parent::setUserSession($user);
+                    parent::setUserSession($user[0]);
 
                     $redirect = $this->url->get(array('for' => 'dashboard'));
 
