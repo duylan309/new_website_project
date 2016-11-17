@@ -10,6 +10,9 @@ class R_UserAdmin extends BaseModel
     public $created_at;
     public $updated_at;
 
+    const STATUS_ACTIVE   = 1;
+    const STATUS_INACTIVE = 2;
+
     public function initialize()
     {
         parent::initialize();

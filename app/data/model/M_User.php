@@ -34,6 +34,9 @@ class M_User extends BaseModel
     public $created_at;
     public $updated_at;
 
+    const TYPE_CANDIDATE = 1;
+    const TYPE_EMPLOYER  = 2;
+
     public function initialize()
     {
         parent::initialize();
