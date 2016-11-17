@@ -1,8 +1,10 @@
+{% set user_session = session.get('USER') %}
+
 <ul class="nav navbar-right top-nav">
     <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <i class="fa fa-user"></i>
-            Admin
+            {{ user_session['name'] }}
             <b class="caret"></b>
         </a>
 
