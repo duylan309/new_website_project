@@ -7,6 +7,7 @@ class R_UserAdmin extends BaseModel
     public $password;
     public $permission;
     public $status;
+    public $logined_at;
     public $created_at;
     public $updated_at;
 

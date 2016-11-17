@@ -431,3 +431,5 @@ ALTER TABLE `thue_today`.`m_static_page` CHANGE COLUMN `category_id` `category_i
 , DROP INDEX `url`
 , ADD UNIQUE INDEX `slug` (`slug` ASC) ;
 ALTER TABLE `thue_today`.`m_static_page` CHANGE COLUMN `slug` `slug` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL  AFTER `name_en` , CHANGE COLUMN `name_vi` `name_vi` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL COMMENT '#title_en'  , CHANGE COLUMN `name_en` `name_en` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL COMMENT '#title_vn'  , CHANGE COLUMN `subject` `subject` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL  , CHANGE COLUMN `language` `languages` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL COMMENT '#language'  ;
+
+ALTER TABLE `thue_today`.`r_user_admin` ADD COLUMN `logined_at` TIMESTAMP NULL DEFAULT NULL  AFTER `status` ;
