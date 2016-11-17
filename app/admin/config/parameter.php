@@ -27,7 +27,7 @@ $parameter['application']['base_url']   = '/';
 
 // --------- Asset
 $parameter['asset']['url']     = $parameter['application']['base_url'] . 'asset/';
-$parameter['asset']['version'] = '20161115_4_22pm';
+$parameter['asset']['version'] = '20161117_11_57am';
 // Asset ---------
 
 // --------- Mailer
