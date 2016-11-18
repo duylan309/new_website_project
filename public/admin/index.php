@@ -29,13 +29,12 @@ try {
         ));
 
         if ($config->db->debug) {
-            $e      = new \Phalcon\Events\Manager;
+            $e = new \Phalcon\Events\Manager;
             $logger = new \Phalcon\Logger\Adapter\File(ROOT . '/log/admin/db_master.log');
 
             $e->attach('db', function ($event, $connection) use ($logger) {
                 if ($event->getType() == 'beforeQuery') {
                     $sql = $connection->getSQLVariables();
-
                     if (count($sql)) {
                         $logger->log($connection->getSQLStatement() . ' ' . join(', ', $sql), \Phalcon\Logger::INFO);
                     } else {
@@ -60,13 +59,12 @@ try {
         ));
 
         if ($config->db_slave->debug) {
-            $e      = new \Phalcon\Events\Manager;
+            $e = new \Phalcon\Events\Manager;
             $logger = new \Phalcon\Logger\Adapter\File(ROOT . '/log/admin/db_slave.log');
 
             $e->attach('db', function ($event, $connection) use ($logger) {
                 if ($event->getType() == 'beforeQuery') {
                     $sql = $connection->getSQLVariables();
-
                     if (count($sql)) {
                         $logger->log($connection->getSQLStatement() . ' ' . join(', ', $sql), \Phalcon\Logger::INFO);
                     } else {
@@ -83,16 +81,13 @@ try {
     $di->setShared('url', function () use ($config) {
         $url = new \Phalcon\Mvc\Url;
         $url->setBaseUri($config->application->base_url);
-
         return $url;
     });
 
     $di->setShared('router', function () {
         $router = new \Phalcon\Mvc\Router(false);
-
         require_once ROOT . '/app/admin/config/router.php';
         $router->removeExtraSlashes(true);
-
         return $router;
     });
 
@@ -107,7 +102,6 @@ try {
                 'port'       => $config->cache->memcache->port,
                 'persistent' => $config->cache->memcache->persistent
             ));
-
             return $cache;
         });
     } elseif ($config->cache->type == 'redis') {
@@ -122,7 +116,15 @@ try {
                 'auth'       => $config->cache->redis->auth,
                 'persistent' => $config->cache->redis->persistent
             ));
-
+            return $cache;
+        });
+    } elseif ($config->cache->type == 'apc') {
+        $di->setShared('cache', function () use ($config) {
+            $data_cache = new \Phalcon\Cache\Frontend\Data(array(
+                'lifetime' => $config->cache->lifetime,
+                'prefix'   => $config->cache->prefix
+            ));
+            $cache = new \Phalcon\Cache\Backend\Apc($data_cache, array());
             return $cache;
         });
     } else {
@@ -131,8 +133,9 @@ try {
                 'lifetime' => $config->cache->lifetime,
                 'prefix'   => $config->cache->prefix
             ));
-            $cache = new \Phalcon\Cache\Backend\Apc($data_cache, array());
-
+            $cache = new \Phalcon\Cache\Backend\File($data_cache, array(
+                'cacheDir' => ROOT . '/cache/admin/data/'
+            ));
             return $cache;
         });
     }
@@ -142,7 +145,6 @@ try {
             'metaDataDir' => ROOT . '/cache/data/model/',
             'lifetime'    => 31536000
         ));
-
         return $meta_data;
     });
 
@@ -157,7 +159,6 @@ try {
                 'port'       => $config->cache->memcache->port,
                 'persistent' => $config->cache->memcache->persistent
             ));
-
             return $cache;
         });
     } elseif ($config->cache->type == 'redis') {
@@ -172,45 +173,50 @@ try {
                 'auth'       => $config->cache->redis->auth,
                 'persistent' => $config->cache->redis->persistent
             ));
-
             return $cache;
         });
-    } else {
+    } elseif ($config->cache->type == 'apc') {
         $di->setShared('modelsCache', function () use ($config) {
             $data_cache = new \Phalcon\Cache\Frontend\Data(array(
                 'lifetime' => $config->cache->lifetime,
                 'prefix'   => $config->cache->prefix
             ));
             $cache = new \Phalcon\Cache\Backend\Apc($data_cache, array());
-
+            return $cache;
+        });
+    } else {
+        $di->setShared('cache', function () use ($config) {
+            $data_cache = new \Phalcon\Cache\Frontend\Data(array(
+                'lifetime' => $config->cache->lifetime,
+                'prefix'   => $config->cache->prefix
+            ));
+            $cache = new \Phalcon\Cache\Backend\File($data_cache, array(
+                'cacheDir' => ROOT . '/cache/admin/data/'
+            ));
             return $cache;
         });
     }
 
     $di->setShared('security', function () {
         $security = new \Phalcon\Security;
-
         return $security;
     });
 
     $di->setShared('session', function () use ($config) {
         $session = new \Phalcon\Session\Adapter\Files;
         $session->start();
-
         return $session;
     });
 
     $di->setShared('crypt', function () use ($config) {
         $crypt = new \Phalcon\Crypt;
         $crypt->setKey($config->application->cookie_key);
-
         return $crypt;
     });
 
     $di->setShared('cookies', function () {
         $cookies = new \Phalcon\Http\Response\Cookies;
         $cookies->useEncryption(false);
-
         return $cookies;
     });
 
@@ -240,7 +246,6 @@ try {
                         'controller' => 'error',
                         'action'     => 'error404'
                     ));
-
                     return false;
                 } else {
                     $dispatcher->forward(array(
@@ -249,20 +254,17 @@ try {
                         'action'     => 'error',
                         'params'     => array($exception)
                     ));
-
                     return false;
                 }
             }
         });
 
         $dispatcher->setEventsManager($eventsManager);
-
         return $dispatcher;
     });
 
     $di->setShared('logger', function () {
         $logger = new \Phalcon\Logger\Adapter\File(ROOT . '/log/admin/debug.log');
-
         return $logger;
     });
 
@@ -277,10 +279,7 @@ try {
             'path'      => ROOT . '/app/data/Module.php'
         )
     ));
-
     echo $application->handle()->getContent();
 } catch (\Exception $e) {
     throw new \Phalcon\Exception($e->getMessage());
-} catch (\PDOException $e) {
-    throw new \PDOException($e->getMessage());
 }

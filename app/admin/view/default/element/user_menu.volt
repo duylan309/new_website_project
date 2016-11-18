@@ -1,4 +1,4 @@
-{% set user_session = session.get('USER') %}
+{% set user_session = session.get('USER_ADMIN') %}
 
 <ul class="nav navbar-right top-nav">
     <li class="dropdown">

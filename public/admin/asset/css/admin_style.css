@@ -82,8 +82,8 @@ a,a:hover{
     padding:10px;
 }
 
-.color-white{
-    color:#aaabae;
+.text-white{
+    color:#fff;
 }
 
 .bg-grey-color1 {
@@ -453,6 +453,26 @@ input.require{
     background-color: #e6053c
 }
 
+.bg-color4 {
+    background: #fff;
+    border: 1px solid #d8d8d8;
+}
+
+.bg-color5 {
+    background: gray;
+    color: #fff
+}
+
+.bg-color6 {
+    background: none;
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+.bg-color6:hover{
+    color: #fff;
+}
+
 .login-section{
     width: 100%;
     padding-top:10%;
@@ -489,4 +509,20 @@ input.require{
 .logo img{
     width: 100px;
     height: auto;
+}
+
+[data-errror404] h1{
+    font-size: 125px;
+    margin-bottom: 0;
+}
+
+[data-errror404] h2{
+    margin-bottom: 30px;
+    margin-top: 0;
+    font-size: 12px;
+}
+
+[data-errror404] a{
+    color:#fff;
+    font-size: 12px;
 }
