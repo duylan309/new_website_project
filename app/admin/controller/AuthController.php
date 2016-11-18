@@ -79,7 +79,7 @@ class AuthController extends BaseController
                 $b->innerJoin('\Thue\Data\Model\R_UserAdmin', 'ua1.user_id = u1.user_id', 'ua1');
 
                 $b->where('u1.user_id = :user_id:', array('user_id' => $user->user_id));
-                $b->where('ua1.status = :status:', array('status' => R_UserAdmin::STATUS_ACTIVE));
+                $b->andWhere('ua1.status = :status:', array('status' => R_UserAdmin::STATUS_ACTIVE));
 
                 $user = $b->getQuery()->execute();
 
