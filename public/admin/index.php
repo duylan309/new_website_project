@@ -125,13 +125,25 @@ try {
 
             return $cache;
         });
-    } else {
+    } elseif ($config->cache->type == 'apc') {
         $di->setShared('cache', function () use ($config) {
             $data_cache = new \Phalcon\Cache\Frontend\Data(array(
                 'lifetime' => $config->cache->lifetime,
                 'prefix'   => $config->cache->prefix
             ));
             $cache = new \Phalcon\Cache\Backend\Apc($data_cache, array());
+
+            return $cache;
+        });
+    } else {
+        $di->setShared('cache', function () use ($config) {
+            $data_cache = new \Phalcon\Cache\Frontend\Data(array(
+                'lifetime' => $config->cache->lifetime,
+                'prefix'   => $config->cache->prefix
+            ));
+            $cache = new \Phalcon\Cache\Backend\File($data_cache, array(
+                'cacheDir' => ROOT . '/cache/admin/data/'
+            ));
 
             return $cache;
         });
@@ -175,13 +187,25 @@ try {
 
             return $cache;
         });
-    } else {
+    } elseif ($config->cache->type == 'apc') {
         $di->setShared('modelsCache', function () use ($config) {
             $data_cache = new \Phalcon\Cache\Frontend\Data(array(
                 'lifetime' => $config->cache->lifetime,
                 'prefix'   => $config->cache->prefix
             ));
             $cache = new \Phalcon\Cache\Backend\Apc($data_cache, array());
+
+            return $cache;
+        });
+    } else {
+        $di->setShared('cache', function () use ($config) {
+            $data_cache = new \Phalcon\Cache\Frontend\Data(array(
+                'lifetime' => $config->cache->lifetime,
+                'prefix'   => $config->cache->prefix
+            ));
+            $cache = new \Phalcon\Cache\Backend\File($data_cache, array(
+                'cacheDir' => ROOT . '/cache/admin/data/'
+            ));
 
             return $cache;
         });

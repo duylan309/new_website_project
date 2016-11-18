@@ -54,9 +54,10 @@ $parameter['volt']['stat']      = true;
 $parameter['cache']['lifetime'] = 900;
 $parameter['cache']['prefix']   = '_thue_admin_';
 
-$parameter['cache']['type']   = 'apc';
+//$parameter['cache']['type']   = 'apc';
 //$parameter['cache']['type'] = 'memcache';
 //$parameter['cache']['type'] = 'redis';
+$parameter['cache']['type'] = 'file';
 
 $parameter['cache']['memcache']['host'] = '127.0.0.1';
 $parameter['cache']['memcache']['port'] = 11211;
