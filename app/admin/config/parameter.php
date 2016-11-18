@@ -2,7 +2,7 @@
 $parameter = array();
 
 // --------- Database
-$parameter['db']['debug']    = true;
+$parameter['db']['debug']    = false;
 $parameter['db']['host']     = 'localhost';
 $parameter['db']['port']     = 3306;
 $parameter['db']['username'] = 'root';
