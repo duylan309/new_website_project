@@ -1,6 +1,7 @@
 <?php
 namespace Thue\Admin\Controller;
 
+use Thue\Admin\Component\ElementComponent;
 use Thue\Data\Repo\CategoryRepo;
 
 class CategoryController extends BaseController
@@ -23,8 +24,20 @@ class CategoryController extends BaseController
         $category_repo = new CategoryRepo;
         $categories = $category_repo->getPaginationList($params);
 
+        $options = array(
+            'url'           => $this->url->get(array('for' => 'category_index')),
+            'query'         => array(),
+            'total_pages'   => isset($categories->total_pages) ? $categories->total_pages : 0,
+            'page'          => $page,
+            'pages_display' => 3
+        );
+
+        $element_component = new ElementComponent;
+        $pagination = $element_component->pagination(parent::$theme, $options);
+
         $this->view->setVars(array(
-            'categories' => $categories
+            'categories' => $categories,
+            'pagination' => $pagination
         ));
         $this->view->pick(parent::$theme . '/category/index');
     }
