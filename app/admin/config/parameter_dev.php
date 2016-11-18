@@ -5,23 +5,23 @@ $parameter = array();
 $parameter['db']['debug']    = false;
 $parameter['db']['host']     = 'localhost';
 $parameter['db']['port']     = 3306;
-$parameter['db']['username'] = 'root';
-$parameter['db']['password'] = 'root';
+$parameter['db']['username'] = '';
+$parameter['db']['password'] = '';
 $parameter['db']['name']     = 'thue_today';
 $parameter['db']['charset']  = 'utf8';
 
 $parameter['db_slave']['debug']    = false;
 $parameter['db_slave']['host']     = 'localhost';
 $parameter['db_slave']['port']     = 3306;
-$parameter['db_slave']['username'] = 'root';
-$parameter['db_slave']['password'] = 'root';
+$parameter['db_slave']['username'] = '';
+$parameter['db_slave']['password'] = '';
 $parameter['db_slave']['name']     = 'thue_today';
 $parameter['db_slave']['charset']  = 'utf8';
 // Database ---------
 
 // --------- Application
 $parameter['application']['protocol'] = 'http://';
-$parameter['application']['base_url'] = $parameter['application']['protocol'] . 'localhost.admin.thue:81/';
+$parameter['application']['base_url'] = $parameter['application']['protocol'] . 'devadmin.thue.today/';
 // Application ---------
 
 // --------- Asset
