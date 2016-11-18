@@ -20,8 +20,9 @@ $parameter['db_slave']['charset']  = 'utf8';
 // Database ---------
 
 // --------- Application
-$parameter['application']['protocol'] = 'http://';
-$parameter['application']['base_url'] = $parameter['application']['protocol'] . 'admin.thue.today/';
+$parameter['application']['protocol']         = 'http://';
+$parameter['application']['base_url']         = $parameter['application']['protocol'] . 'admin.thue.today/';
+$parameter['application']['pagination_limit'] = 20;
 // Application ---------
 
 // --------- Asset
