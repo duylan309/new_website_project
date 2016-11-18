@@ -6,7 +6,7 @@ $parameter['db']['debug']    = true;
 $parameter['db']['host']     = 'localhost';
 $parameter['db']['port']     = 3306;
 $parameter['db']['username'] = 'root';
-$parameter['db']['password'] = 'admin';
+$parameter['db']['password'] = 'root';
 $parameter['db']['name']     = 'thue_today';
 $parameter['db']['charset']  = 'utf8';
 
@@ -14,19 +14,19 @@ $parameter['db_slave']['debug']    = false;
 $parameter['db_slave']['host']     = 'localhost';
 $parameter['db_slave']['port']     = 3306;
 $parameter['db_slave']['username'] = 'root';
-$parameter['db_slave']['password'] = 'admin';
+$parameter['db_slave']['password'] = 'root';
 $parameter['db_slave']['name']     = 'thue_today';
 $parameter['db_slave']['charset']  = 'utf8';
 // Database ---------
 
 // --------- Application
-$parameter['application']['protocol']   = 'http://';
-$parameter['application']['base_url'] = $parameter['application']['protocol'] . 'adminphalcon.thue.today/';
+$parameter['application']['protocol'] = 'http://';
+$parameter['application']['base_url'] = $parameter['application']['protocol'] . 'localhost.admin.thue:81/';
 // Application ---------
 
 // --------- Asset
 $parameter['asset']['url']     = $parameter['application']['base_url'] . 'asset/';
-$parameter['asset']['version'] = '20161117_11_57am';
+$parameter['asset']['version'] = '20161118_12_24pm';
 // Asset ---------
 
 // --------- Mailer
@@ -54,8 +54,7 @@ $parameter['volt']['stat']      = true;
 $parameter['cache']['lifetime'] = 0;
 $parameter['cache']['prefix']   = '_thue_admin_';
 
-
-//$parameter['cache']['type']   = 'apc';
+//$parameter['cache']['type'] = 'apc';
 //$parameter['cache']['type'] = 'memcache';
 //$parameter['cache']['type'] = 'redis';
 $parameter['cache']['type'] = 'file';
