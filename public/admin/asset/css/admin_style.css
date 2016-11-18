@@ -529,6 +529,13 @@ input.require{
 
 
 /* MENU */
+
 [data-menu-top]{
     margin-bottom: 0;
+}
+
+/* MAIN CONTAINER */
+
+#page-wrapper{
+    margin-top: 50px;
 }
