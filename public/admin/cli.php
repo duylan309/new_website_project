@@ -28,7 +28,6 @@ try {
     $di->setShared('config', $config);
 
     $di->setShared('db', function () use ($config) {
-        $debug = false;
         $connection = new \Phalcon\Db\Adapter\Pdo\Mysql(array(
             'host'     => $config->db->host,
             'port'     => $config->db->port,
@@ -38,7 +37,7 @@ try {
             'charset'  => $config->db->charset
         ));
 
-        if ($debug) {
+        if ($config->db->debug) {
             $e = new \Phalcon\Events\Manager;
             $logger = new \Phalcon\Logger\Adapter\File(ROOT . '/log/admin/cli_db_master.log');
 
@@ -59,7 +58,6 @@ try {
     });
 
     $di->setShared('db_slave', function () use ($config) {
-        $debug = false;
         $connection = new \Phalcon\Db\Adapter\Pdo\Mysql(array(
             'host'     => $config->db_slave->host,
             'port'     => $config->db->port,
@@ -69,7 +67,7 @@ try {
             'charset'  => $config->db_slave->charset
         ));
 
-        if ($debug) {
+        if ($config->db_slave->debug) {
             $e = new \Phalcon\Events\Manager;
             $logger = new \Phalcon\Logger\Adapter\File(ROOT . '/log/admin/cli_db_slave.log');
 
