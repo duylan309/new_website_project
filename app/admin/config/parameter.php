@@ -2,11 +2,11 @@
 $parameter = array();
 
 // --------- Database
-$parameter['db']['debug']    = false;
+$parameter['db']['debug']    = true;
 $parameter['db']['host']     = 'localhost';
 $parameter['db']['port']     = 3306;
 $parameter['db']['username'] = 'root';
-$parameter['db']['password'] = 'root';
+$parameter['db']['password'] = 'admin';
 $parameter['db']['name']     = 'thue_today';
 $parameter['db']['charset']  = 'utf8';
 
@@ -14,14 +14,14 @@ $parameter['db_slave']['debug']    = false;
 $parameter['db_slave']['host']     = 'localhost';
 $parameter['db_slave']['port']     = 3306;
 $parameter['db_slave']['username'] = 'root';
-$parameter['db_slave']['password'] = 'root';
+$parameter['db_slave']['password'] = 'admin';
 $parameter['db_slave']['name']     = 'thue_today';
 $parameter['db_slave']['charset']  = 'utf8';
 // Database ---------
 
 // --------- Application
 $parameter['application']['protocol']   = 'http://';
-$parameter['application']['base_url'] = $parameter['application']['protocol'] . 'localhost.admin.thue:81/';
+$parameter['application']['base_url'] = $parameter['application']['protocol'] . 'adminphalcon.thue.today/';
 // Application ---------
 
 // --------- Asset
@@ -51,12 +51,12 @@ $parameter['volt']['stat']      = true;
 // Volt ---------
 
 // --------- Cache
-$parameter['cache']['lifetime'] = 900;
+$parameter['cache']['lifetime'] = 0;
 $parameter['cache']['prefix']   = '_thue_admin_';
 
 $parameter['cache']['type']   = 'apc';
-//$parameter['cache']['type'] = 'memcache';
-//$parameter['cache']['type'] = 'redis';
+// $parameter['cache']['type'] = 'memcache';
+// $parameter['cache']['type'] = 'redis';
 
 $parameter['cache']['memcache']['host'] = '127.0.0.1';
 $parameter['cache']['memcache']['port'] = 11211;

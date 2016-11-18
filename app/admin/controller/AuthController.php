@@ -18,7 +18,6 @@ class AuthController extends BaseController
         }
 
         $referral_url = $this->request->getQuery('referral_url');
-
         $form = new \Thue\Admin\Form\AuthLoginForm;
 
         if ($this->request->isPost()) {
@@ -61,7 +60,6 @@ class AuthController extends BaseController
             }
 
             $user_admin->logined_at = date('Y-m-d H:i:s');
-
             try {
                 $user_admin->save();
 
@@ -79,7 +77,7 @@ class AuthController extends BaseController
                 $b->innerJoin('\Thue\Data\Model\R_UserAdmin', 'ua1.user_id = u1.user_id', 'ua1');
 
                 $b->where('u1.user_id = :user_id:', array('user_id' => $user->user_id));
-                $b->where('ua1.status = :status:', array('status' => R_UserAdmin::STATUS_ACTIVE));
+                $b->Andwhere('ua1.status = :status:', array('status' => R_UserAdmin::STATUS_ACTIVE));
 
                 $user = $b->getQuery()->execute();
 

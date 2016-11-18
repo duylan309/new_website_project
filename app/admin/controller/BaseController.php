@@ -47,6 +47,7 @@ class BaseController extends Controller
         }
 
         if ($authenticate && count($user)) {
+
             $cacheName = md5(serialize(array(
                 'BaseController',
                 'authenticateUser',
@@ -56,7 +57,7 @@ class BaseController extends Controller
             )));
 
             $result = $this->cache->get($cacheName);
-
+            var_export($result);
             if (!$result) {
                 $R_UserAdmin = new R_UserAdmin;
                 $b = $R_UserAdmin->getModelsManager()->createBuilder();

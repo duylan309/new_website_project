@@ -8,7 +8,7 @@
                     <img class="text-center" src="{{ config.asset.url ~ 'img/logo.png?' ~ config.asset.version }}" >
                 </div>
 
-                <form action="" method="post" class="form-horizontal post-form">
+                <form action method="post" class="form-horizontal post-form">
                     {{ flashSession.output() }}
 
                     <div class="form-group">
