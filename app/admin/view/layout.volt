@@ -13,11 +13,11 @@
         <div id="wrapper">
             <nav data-menu-top class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                 <div class="navbar-header">
-                    <a href="{{ url({'for': 'dashboard'}) }}" class="navbar-brand">
-                        <div class="logo-sm form-group">
-                            <img class="text-center" src="{{ config.asset.url ~ 'img/logo.png?' ~ config.asset.version }}" >
-                        </div>
-                    </a>
+                    <div class="logo-sm form-group">
+                        <a href="{{ url({'for': 'dashboard'}) }}" class="navbar-brand">
+                            <img src="{{ config.asset.url ~ 'img/logo.png?' ~ config.asset.version }}" alt="" class="text-center" />
+                        </a>
+                    </div>
                 </div>
 
                 {% if session.has('USER_ADMIN') %}
