@@ -3,5 +3,5 @@
 {% block title %}Dashboard{% endblock %}
 
 {% block container %}
-    Hello world!
+    <h2>Dashboard</h2>
 {% endblock %}
