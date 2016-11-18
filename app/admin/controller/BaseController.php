@@ -28,11 +28,11 @@ class BaseController extends Controller
         $authenticate = true;
         $user = array();
 
-        if (!$this->session->has('USER')) {
-            if (!$this->cookies->has('USER')) {
+        if (!$this->session->has('USER_ADMIN')) {
+            if (!$this->cookies->has('USER_ADMIN')) {
                 $authenticate = false;
             } else {
-                $cookie = $this->cookies->get('USER');
+                $cookie = $this->cookies->get('USER_ADMIN');
                 $user = @unserialize($cookie->getValue());
 
                 if ($user && is_array($user) && isset($user['user_id'])) {
@@ -43,7 +43,7 @@ class BaseController extends Controller
                 }
             }
         } else {
-            $user = $this->session->get('USER');
+            $user = $this->session->get('USER_ADMIN');
         }
 
         if ($authenticate && count($user)) {
@@ -88,8 +88,8 @@ class BaseController extends Controller
         }
 
         if (!$authenticate) {
-            $this->session->remove('USER');
-            $cookie = $this->cookies->get('USER');
+            $this->session->remove('USER_ADMIN');
+            $cookie = $this->cookies->get('USER_ADMIN');
             $cookie->delete();
 
             $request_uri = $this->url->getBaseUri();
@@ -121,11 +121,11 @@ class BaseController extends Controller
                 'permission' => $user['permission']
             );
 
-            $this->session->set('USER', $session);
-            $this->cookies->set('USER', serialize($session), strtotime('+1 hour'));
+            $this->session->set('USER_ADMIN', $session);
+            $this->cookies->set('USER_ADMIN', serialize($session), strtotime('+1 hour'));
         } else {
-            $this->session->remove('USER');
-            $cookie = $this->cookies->get('USER');
+            $this->session->remove('USER_ADMIN');
+            $cookie = $this->cookies->get('USER_ADMIN');
             $cookie->delete();
         }
     }

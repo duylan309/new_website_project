@@ -19,7 +19,7 @@
                     </a>
                 </div>
 
-                {% if session.has('USER') %}
+                {% if session.has('USER_ADMIN') %}
                     {% include 'default/element/user_menu.volt' %}
 
                     <div class="collapse navbar-collapse navbar-ex1-collapse">

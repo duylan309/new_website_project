@@ -13,7 +13,7 @@ class AuthController extends BaseController
 
     public function loginAction()
     {
-        if ($this->session->has('USER')) {
+        if ($this->session->has('USER_ADMIN')) {
             return $this->response->redirect(array('for' => 'dashboard'));
         }
 
@@ -110,8 +110,8 @@ class AuthController extends BaseController
 
     public function logoutAction()
     {
-        $this->session->remove('USER');
-        $cookie = $this->cookies->get('USER');
+        $this->session->remove('USER_ADMIN');
+        $cookie = $this->cookies->get('USER_ADMIN');
         $cookie->delete();
 
         return $this->response->redirect(array('for' => 'dashboard'));
