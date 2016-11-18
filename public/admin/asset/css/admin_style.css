@@ -520,6 +520,11 @@ input.require{
     height: auto;
 }
 
+.logo-sm img{
+    width: 55px;
+    height: auto;
+}
+
 [data-errror404] h1{
     font-size: 125px;
     margin-bottom: 0;

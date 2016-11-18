@@ -14,8 +14,9 @@
             <nav data-menu-top class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                 <div class="navbar-header">
                     <a href="{{ url({'for': 'dashboard'}) }}" class="navbar-brand">
-                        <i class="fa fa-fw fa-dashboard"></i>
-                        <span>Administrator</span>
+                        <div class="logo-sm form-group">
+                            <img class="text-center" src="{{ config.asset.url ~ 'img/logo.png?' ~ config.asset.version }}" >
+                        </div>
                     </a>
                 </div>
 
