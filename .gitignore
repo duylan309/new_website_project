@@ -1,3 +1,5 @@
 /.idea/
 /cache/
 /log/
+/app/admin/config/parameter.php
+/app/home/config/parameter.php
