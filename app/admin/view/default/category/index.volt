@@ -3,36 +3,34 @@
 {% block title %}Danh mục{% endblock %}
 
 {% block container %}
-<form method="post" class="form-horizontal" action>
-
-    <div class="row">
-        <div class="col-lg-12">
-            <h3 class="page-header">
-                <span>Danh Mục</span>
-                <a class="btn btn-default btn-primary pull-right btn-sm" href="#">
-                    <i class="fa fa-plus"></i> <span>Thêm mới</span>
-                </a>
-            </h3>
-            <ol class="breadcrumb">
-                <li>
-                    <i class="fa fa-dashboard"></i>  <a href="{{ url({'for': 'dashboard'}) }}">Dashboard</a>
-                </li>
-                <li class="active">
+    <form action="" method="get" class="form-horizontal">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header">
                     <span>Danh Mục</span>
-                </li>
-            </ol>
+                    <a href="#" class="btn btn-default btn-primary pull-right btn-sm">
+                        <i class="fa fa-plus"></i> <span>Thêm mới</span>
+                    </a>
+                </h3>
+                <ol class="breadcrumb">
+                    <li>
+                        <i class="fa fa-dashboard"></i>
+                        <a href="{{ url({'for': 'dashboard'}) }}">Dashboard</a>
+                    </li>
+                    <li class="active">
+                        <span>Danh Mục</span>
+                    </li>
+                </ol>
+            </div>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="col-sm-12">
-            <div>
+        <div class="row">
+            <div class="col-sm-12">
                 <table class="table table-bordered table-hover">
-
                     <thead>
                         <tr class="bg-color8">
-                            <th class="col-sm-1">Cập Nhật</th>
-                            <th class="col-sm-1">Id</th>
+                            <th class="col-sm-1"></th>
+                            <th class="col-sm-1">ID</th>
                             <th class="col-sm-5">Tiêu Đề</th>
                             <th class="col-sm-2">Loại</th>
                             <th class="col-sm-1">Thứ Tự</th>
@@ -40,8 +38,12 @@
                         </tr>
                         <tr class="tSearch">
                             <th class="col-sm-1"></th>
-                            <th class="col-sm-1"><input type="text" placeholder="" class="form-control input-sm" name="id" value="" /></th>
-                            <th class="col-sm-5"><input type="text" placeholder="" class="form-control input-sm" name="title" value="" /></th>
+                            <th class="col-sm-1">
+                                <input type="text" placeholder="" class="form-control input-sm" name="id" value="" />
+                            </th>
+                            <th class="col-sm-5">
+                                <input type="text" placeholder="" class="form-control input-sm" name="title" value="" />
+                            </th>
                             <th class="col-sm-2">
                                 <select name=""  class="fform-control input-sm">
                                     <option value="-1">Tất cả</option>
@@ -54,7 +56,6 @@
                         </tr>
                     </thead>
 
-                    <!-- Content-->
                     <tbody data-table-content>
                         <tr>
                             <td>
@@ -71,7 +72,6 @@
                                 <div class="btn btn-primary btn-success btn-xs">Hiển thị</div>
                             </td>
                         <tr>
-
                         <tr>
                             <td>
                                 <label class="">
@@ -88,20 +88,13 @@
                             </td>
                         <tr>
                     </tbody>
-                    <!-- Content -->
-
                 </table>
 
-                <!-- pagination -->
                 <div class="row">
                     <div class="col-sm-12 text-left">
                     </div>
                 </div>
-                <!-- pagination -->
-
             </div>
         </div>
-    </div>
-
-</form>
+    </form>
 {% endblock %}
