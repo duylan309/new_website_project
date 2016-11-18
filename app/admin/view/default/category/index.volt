@@ -1,3 +1,6 @@
 {% extends 'layout.volt' %}
 
-{% block title %}Category{% endblock %}
+{% block title %}Danh mục{% endblock %}
+
+{% block container %}
+{% endblock %}

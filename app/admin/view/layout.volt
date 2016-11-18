@@ -34,5 +34,7 @@
                 </div>
             </div>
         </div>
+
+        {% block bottom_script %}{% endblock %}
     </body>
 </html>
