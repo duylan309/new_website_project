@@ -1,4 +1,4 @@
-<link type="image/x-icon" href="{{ config.asset.url ~ 'img/favicon.ico?' ~ config.asset.version }}" rel="icon" />
+<link type="image/x-icon" rel="icon" href="{{ config.asset.url ~ 'img/favicon.ico?' ~ config.asset.version }}" />
 <link type="text/css" rel="stylesheet" href="{{ config.asset.url ~ 'css/fonticon.min.css?' ~ config.asset.version }}" />
 <link type="text/css" rel="stylesheet" href="{{ config.asset.url ~ 'css/bootstrap.min.css?' ~ config.asset.version }}" />
 <link type="text/css" rel="stylesheet" href="{{ config.asset.url ~ 'css/sb-admin.css?' ~ config.asset.version }}" />

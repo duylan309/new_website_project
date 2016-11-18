@@ -21,7 +21,7 @@ $parameter['db_slave']['charset']  = 'utf8';
 
 // --------- Application
 $parameter['application']['protocol'] = 'http://';
-$parameter['application']['base_url'] = $parameter['application']['protocol'] . 'devadmin.thue.today/';
+$parameter['application']['base_url'] = $parameter['application']['protocol'] . 'admin.thue.today/';
 // Application ---------
 
 // --------- Asset
