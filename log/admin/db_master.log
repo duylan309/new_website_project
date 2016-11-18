@@ -1,2 +1,0 @@
-[Fri, 18 Nov 16 12:21:00 +0700][INFO] UPDATE `r_user_admin` SET `password` = ?, `permission` = ?, `status` = ?, `logined_at` = ?, `created_at` = ?, `updated_at` = null WHERE `user_id` = ? 21232f297a57a5a743894a0e4a801fc3, 100, 1, 2016-11-18 10:29:01, 0000-00-00 00:00:00, 125
-[Fri, 18 Nov 16 12:21:25 +0700][INFO] UPDATE `r_user_admin` SET `password` = ?, `permission` = ?, `status` = ?, `logined_at` = ?, `created_at` = ?, `updated_at` = null WHERE `user_id` = ? 21232f297a57a5a743894a0e4a801fc3, 100, 1, 2016-11-18 10:29:01, 0000-00-00 00:00:00, 125
