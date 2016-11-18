@@ -26,10 +26,5 @@ class M_Category extends BaseModel
     {
         parent::initialize();
         $this->setSource('m_category');
-
-        $this->belongsTo('created_by', '\Thue\Data\Model\R_UserAdmin', 'user_id', array(
-            'foreignKey' => true,
-            'alias'      => 'UserAdmin'
-        ));
     }
 }
