@@ -4,6 +4,10 @@ html{
     background: #FFF;
 }
 
+body{
+    font-size: 12px;
+}
+
 body,
 [data-simple-layout]{
     margin: 0;
@@ -385,8 +389,9 @@ div.mce-fullscreen{
 .page-header small,
 .page-header{
     font-size: 18px;
-    margin-bottom:5px;
+    margin-bottom:10px;
     color: #666;
+    border-bottom: none;
 }
 
 .page-header{
@@ -473,6 +478,10 @@ input.require{
     color: #fff;
 }
 
+.bg-color8{
+    background: #F5F5F5;
+}
+
 .login-section{
     width: 100%;
     padding-top:10%;
@@ -527,15 +536,30 @@ input.require{
     font-size: 12px;
 }
 
-
 /* MENU */
 
 [data-menu-top]{
     margin-bottom: 0;
 }
 
+/* HEADER */
+
+.breadcrumb .fa{
+    font-size: 12px;
+}
+
+.table-bordered>thead>tr>td,
+.table-bordered>thead>tr>th{
+    border-bottom-width:1px
+}
+
 /* MAIN CONTAINER */
 
 #page-wrapper{
     margin-top: 50px;
+}
+
+.table>[data-table-content]>tr>td{
+    padding-top:10px;
+    padding-bottom:5px;
 }
