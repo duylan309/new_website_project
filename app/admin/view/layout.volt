@@ -11,7 +11,7 @@
     </head>
     <body>
         <div id="wrapper">
-            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <nav data-menu-top class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                 <div class="navbar-header">
                     <a href="{{ url({'for': 'dashboard'}) }}" class="navbar-brand">
                         <i class="fa fa-fw fa-dashboard"></i>
