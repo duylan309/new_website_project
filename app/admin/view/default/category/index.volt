@@ -57,41 +57,35 @@
                     </thead>
 
                     <tbody data-table-content>
-                        <tr>
-                            <td>
-                                <label class="">
-                                    <a href="#"> <i class="fa fa-edit"></i>&nbsp;</a>
-                                    <a href="#" class="funDelete"> <i class="fa fa-trash-o"></i>&nbsp;</a>
-                                </label>
-                            </td>
-                            <td>1</td>
-                            <td>Giới thiệu</td>
-                            <td>Trang đơn</td>
-                            <td>1</td>
-                            <td>
-                                <div class="btn btn-primary btn-success btn-xs">Hiển thị</div>
-                            </td>
-                        <tr>
-                        <tr>
-                            <td>
-                                <label class="">
-                                    <a href="#"> <i class="fa fa-edit"></i>&nbsp;</a>
-                                    <a href="#"> <i class="fa fa-trash-o"></i>&nbsp;</a>
-                                </label>
-                            </td>
-                            <td>2</td>
-                            <td>Liên hệ</td>
-                            <td>Trang đơn</td>
-                            <td>2</td>
-                            <td>
-                                <div class="btn btn-primary btn-danger btn-xs">Ẩn</div>
-                            </td>
-                        <tr>
+
+                        <?php foreach( $categories->items as $category ) :?>
+                            <tr>
+                                <td>
+                                    <label class="">
+                                        <a href="#"> <i class="fa fa-edit"></i>&nbsp;</a>
+                                        <a href="#"> <i class="fa fa-trash-o"></i>&nbsp;</a>
+                                    </label>
+                                </td>
+                                <td><?=$category->category_id?></td>
+                                <td><?=$category->name_vi?></td>
+                                <td></td>
+                                <td><?=$category->ordering?></td>
+                                <td>
+                                    <?php if( $category->status == 2 ): ?>
+                                    <div class="btn btn-primary btn-success btn-xs">Hiển thị</div>
+                                    <?php else:?>
+                                    <div class="btn btn-primary btn-danger btn-xs">Ẩn</div>
+                                    <?php endif;?>
+                                </td>
+                            <tr>
+                        <?php endforeach;?>
+
                     </tbody>
                 </table>
 
                 <div class="row">
                     <div class="col-sm-12 text-left">
+                        {{ pagination }}
                     </div>
                 </div>
             </div>

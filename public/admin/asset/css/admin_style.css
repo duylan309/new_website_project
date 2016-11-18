@@ -547,6 +547,18 @@ input.require{
     margin-bottom: 0;
 }
 
+.pagination .fa{
+    padding:3px 2px 2px;
+}
+
+.pagination>li>a{
+    color:#666
+}
+
+.pagination a.active{
+    background: #286090;
+    color: #fff
+}
 /* HEADER */
 
 .breadcrumb .fa{

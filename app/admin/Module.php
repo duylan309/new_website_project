@@ -9,6 +9,7 @@ class Module
 
         $loader->registerNamespaces(array(
             'Thue\Admin\Controller' => ROOT . '/app/admin/controller/',
+            'Thue\Admin\Component'  => ROOT . '/app/admin/component/',
             'Thue\Admin\Form'       => ROOT . '/app/admin/form/',
             'Thue\Data\Lib'         => ROOT . '/app/data/lib/',
             'Thue\Data\Model'       => ROOT . '/app/data/model/',
