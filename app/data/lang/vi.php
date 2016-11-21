@@ -1,7 +1,19 @@
 <?php
 $content = array(
-    'dashboard' => 'Dashboard',
-    'category'  => 'Danh mục',
+    'dashboard'       => 'Dashboard',
+    'category'        => 'Danh mục',
+    'static_page'     => 'Trang tĩnh',
+    'candidate'       => 'Ứng viên',
+    'employer'        => 'Nhà tuyển dụng',
+    'job'             => 'Việc làm',
+    'cv'              => 'Hồ sơ xin việc',
+    'message'         => 'Tin nhắn',
+    'advertising'     => 'Quảng cáo',
+    'promotion'       => 'Khuyến mãi',
+    'contact'         => 'Liên hệ',
+    'setting'         => 'Cài đặt',
+    'administrator'   => 'Quản trị viên',
+    'general_setting' => 'Cài đặt chung',
 
     'login'  => 'Đăng nhập',
     'logout' => 'Thoát',

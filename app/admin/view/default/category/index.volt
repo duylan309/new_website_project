@@ -65,10 +65,10 @@
                                 <td>
                                     <label class="">
                                         <a href="{{ url({'for': 'category_edit', 'query': '?' ~ http_build_query({'category_id': category.category_id})}) }}">
-                                            <i class="fa fa-edit"></i>&nbsp;
+                                            <i class="fa fa-edit"></i>
                                         </a>
                                         <a href="{{ url({'for': 'category_delete', 'query': '?' ~ http_build_query({'category_id': category.category_id})}) }}" onclick="return confirm('Đồng ý xóa?');">
-                                            <i class="fa fa-trash-o"></i>&nbsp;
+                                            <i class="fa fa-trash-o"></i>
                                         </a>
                                     </label>
                                 </td>
