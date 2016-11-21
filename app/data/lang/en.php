@@ -3,6 +3,13 @@ $content = array(
     'dashboard' => 'Dashboard',
     'category'  => 'Category',
 
+    'login'  => 'Login',
+    'logout' => 'Logout',
+
+    'email'    => 'Email',
+    'password' => 'Password',
+    'account'  => 'Account',
+
     'id'       => 'ID',
     'title'    => 'Title',
     'type'     => 'Type',
