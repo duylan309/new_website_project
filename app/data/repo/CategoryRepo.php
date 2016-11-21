@@ -12,7 +12,7 @@ class CategoryRepo extends M_Category
         }
 
         if (!isset($params['limit'])) {
-            $params['limit'] = 20;
+            $params['limit'] = 10;
         }
 
         $b = M_Category::getModelsManager()->createBuilder();
