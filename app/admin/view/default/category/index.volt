@@ -35,7 +35,6 @@
                             <th class="col-sm-1">{{ t._('id') }}</th>
                             <th class="col-sm-5">{{ t._('title') }}</th>
                             <th class="col-sm-2">{{ t._('type') }}</th>
-                            <th class="col-sm-1"></th>
                             <th class="col-sm-1">{{ t._('ordering') }}</th>
                             <th class="col-sm-1">{{ t._('status') }}</th>
                         </tr>
@@ -52,7 +51,6 @@
                                     <option value="">{{ t._('all') }}</option>
                                 </select>
                             </th>
-                            <th></th>
                             <th class="col-sm-1">
                                 <input type="text" placeholder="" class="form-control input-sm" name="ordering" value="" />
                             </th>
@@ -81,10 +79,9 @@
                                 </td>
                                 <td>{{ category.category_id }}</td>
                                 <td>{{ category.name_vi }}</td>
-                                <td></td>
                                 <td>
-                                    {% if category.is_single_page == constant('\Thue\Data\Model\M_Category::IS_SINGLE_PAGE') %}
-                                        {{ t._('single_page') }}
+                                    {% if TYPE[category.type] is defined %}
+                                        {{ t._(TYPE[category.type]) }}
                                     {% endif %}
                                 </td>
                                 <td>{{ category.ordering }}</td>
