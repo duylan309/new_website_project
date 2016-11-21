@@ -29,7 +29,7 @@ class CategoryController extends BaseController
             'query'         => array(),
             'total_pages'   => isset($categories->total_pages) ? $categories->total_pages : 0,
             'page'          => $page,
-            'pages_display' => 3
+            'pages_display' => 10
         );
 
         $element_component = new ElementComponent;

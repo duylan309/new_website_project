@@ -45,7 +45,7 @@
                                 <input type="text" placeholder="" class="form-control input-sm" name="title" value="" />
                             </th>
                             <th class="col-sm-2">
-                                <select name=""  class="fform-control input-sm">
+                                <select name=""  class="form-control input-sm">
                                     <option value="-1">Tất cả</option>
                                     <option value="0">Trang đơn</option>
                                     <option value="1">Danh mục</option>
