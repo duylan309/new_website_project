@@ -36,7 +36,6 @@ class BaseController extends Controller
         $authenticate = true;
         $user = array();
 
-
         if (!$this->session->has('USER_ADMIN')) {
             if (!$this->cookies->has('USER_ADMIN')) {
                 $authenticate = false;
@@ -56,7 +55,6 @@ class BaseController extends Controller
         }
 
         if ($authenticate && count($user)) {
-
             $cacheName = md5(serialize(array(
                 'BaseController',
                 'authenticateUser',
