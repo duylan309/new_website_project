@@ -3,6 +3,7 @@ $content = array(
     'dashboard' => 'Dashboard',
     'category'  => 'Danh mục',
 
+    'id'       => 'ID',
     'title'    => 'Tiêu đề',
     'type'     => 'Loại',
     'ordering' => 'Thứ tự',

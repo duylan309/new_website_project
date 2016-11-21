@@ -3,6 +3,7 @@ $content = array(
     'dashboard' => 'Dashboard',
     'category'  => 'Category',
 
+    'id'       => 'ID',
     'title'    => 'Title',
     'type'     => 'Type',
     'ordering' => 'Ordering',

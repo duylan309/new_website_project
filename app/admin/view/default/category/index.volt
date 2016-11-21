@@ -32,7 +32,7 @@
                     <thead>
                         <tr class="bg-color8">
                             <th class="col-sm-1"></th>
-                            <th class="col-sm-1">ID</th>
+                            <th class="col-sm-1">{{ t._('id') }}</th>
                             <th class="col-sm-5">{{ t._('title') }}</th>
                             <th class="col-sm-2">{{ t._('type') }}</th>
                             <th class="col-sm-1">{{ t._('ordering') }}</th>
