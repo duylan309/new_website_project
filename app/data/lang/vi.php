@@ -30,6 +30,8 @@ $content = array(
     'url'      => 'Url',
     'alt_image'=> 'Tên hình ảnh',
     'image'    => 'Hình ảnh',
+    'keyword'  => 'Từ khóa',
+    'description'  => 'Miêu tả',
 
     'all'           => 'Tất cả',
     'single_page'   => 'Trang đơn',

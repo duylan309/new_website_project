@@ -30,6 +30,8 @@ $content = array(
     'url'      => 'Url',
     'alt_image'=> 'Image\'s name',
     'image'    => 'Image',
+    'keyword'  => 'Keyword',
+    'description'  => 'Description',
 
     'all'           => 'All',
     'single_page'   => 'Single page',
