@@ -8,7 +8,7 @@
             <div class="col-lg-12">
                 <h3 class="page-header">
                     <span>Danh Mục</span>
-                    <a href="#" class="btn btn-default btn-primary pull-right btn-sm">
+                    <a href="{{ url({'for': 'category_add'}) }}" class="btn btn-default btn-primary pull-right btn-sm">
                         <i class="fa fa-plus"></i> <span>Thêm mới</span>
                     </a>
                 </h3>
@@ -61,10 +61,10 @@
                             <tr>
                                 <td>
                                     <label class="">
-                                        <a href="#">
+                                        <a href="{{ url({'for': 'category_edit', 'query': '?' ~ http_build_query({'category_id': category.category_id})}) }}">
                                             <i class="fa fa-edit"></i>&nbsp;
                                         </a>
-                                        <a href="#">
+                                        <a href="{{ url({'for': 'category_delete', 'query': '?' ~ http_build_query({'category_id': category.category_id})}) }}" onclick="return confirm('Đồng ý xóa?');">
                                             <i class="fa fa-trash-o"></i>&nbsp;
                                         </a>
                                     </label>
