@@ -12,19 +12,19 @@
         <a href="#">{{ t._('candidate') }}</a>
     </li>
     <li class="">
-        <a href="#">Nhà Tuyển Dụng</a>
+        <a href="#">{{ t._('employer') }}</a>
     </li>
     <li class="">
         <a href="#">Trang Thương Hiệu</a>
     </li>
     <li class="">
-        <a href="#">Việc Làm</a>
+        <a href="#">{{ t._('job') }}</a>
     </li>
     <li class="">
-        <a href="#">Ứng Tuyển</a>
+        <a href="#">{{ t._('cv') }}</a>
     </li>
     <li class="">
-        <a href="#">Tin Nhắn</a>
+        <a href="#">{{ t._('message') }}</a>
     </li>
     <li class="">
         <a href="#">Quản Lý Gia Hạn</a>
@@ -33,13 +33,13 @@
         <a href="#">Đơn Hàng</a>
     </li>
     <li class="">
-        <a href="#">Quảng Cáo</a>
+        <a href="#">{{ t._('advertising') }}</a>
     </li>
     <li class="">
-        <a href="#">Khuyến Mãi</a>
+        <a href="#">{{ t._('promotion') }}</a>
     </li>
     <li class="">
-        <a href="#">Liên Hệ</a>
+        <a href="#">{{ t._('contact') }}</a>
     </li>
     <li class="">
         <a data-toggle="collapse" href="#" data-target="#menu_config">

@@ -1,7 +1,16 @@
 <?php
 $content = array(
-    'dashboard' => 'Dashboard',
-    'category'  => 'Category',
+    'dashboard'   => 'Dashboard',
+    'category'    => 'Category',
+    'static_page' => 'Static page',
+    'candidate'   => 'Candidate',
+    'employer'    => 'Employer',
+    'job'         => 'Job',
+    'cv'          => 'CV',
+    'message'     => 'Message',
+    'advertising' => 'Advertising',
+    'promotion'   => 'Promotion',
+    'contact'     => 'Contact',
 
     'login'  => 'Login',
     'logout' => 'Logout',
