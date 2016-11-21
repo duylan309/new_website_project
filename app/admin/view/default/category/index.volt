@@ -1,24 +1,25 @@
 {% extends 'layout.volt' %}
 
-{% block title %}Danh mục{% endblock %}
+{% block title %}{{ t._('category') }}{% endblock %}
 
 {% block container %}
     <form action="" method="get" class="form-horizontal">
         <div class="row">
             <div class="col-lg-12">
                 <h3 class="page-header">
-                    <span>Danh Mục</span>
+                    <span>{{ t._('category') }}</span>
+
                     <a href="{{ url({'for': 'category_add'}) }}" class="btn btn-default btn-primary pull-right btn-sm">
-                        <i class="fa fa-plus"></i> <span>Thêm mới</span>
+                        <i class="fa fa-plus"></i> <span>{{ t._('add') }}</span>
                     </a>
                 </h3>
                 <ol class="breadcrumb">
                     <li>
                         <i class="fa fa-dashboard"></i>
-                        <a href="{{ url({'for': 'dashboard'}) }}">Dashboard</a>
+                        <a href="{{ url({'for': 'dashboard'}) }}">{{ t._('dashboard') }}</a>
                     </li>
                     <li class="active">
-                        <span>Danh Mục</span>
+                        <span>{{ t._('category') }}</span>
                     </li>
                 </ol>
             </div>
@@ -31,10 +32,10 @@
                         <tr class="bg-color8">
                             <th class="col-sm-1"></th>
                             <th class="col-sm-1">ID</th>
-                            <th class="col-sm-5">Tiêu Đề</th>
-                            <th class="col-sm-2">Loại</th>
-                            <th class="col-sm-1">Thứ Tự</th>
-                            <th class="col-sm-1">Trạng Thái</th>
+                            <th class="col-sm-5">{{ t._('title') }}</th>
+                            <th class="col-sm-2">{{ t._('type') }}</th>
+                            <th class="col-sm-1">{{ t._('ordering') }}</th>
+                            <th class="col-sm-1">{{ t._('status') }}</th>
                         </tr>
                         <tr class="tSearch">
                             <th class="col-sm-1"></th>

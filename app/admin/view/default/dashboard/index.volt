@@ -1,7 +1,6 @@
 {% extends 'layout.volt' %}
 
-{% block title %}Dashboard{% endblock %}
+{% block title %}{{ t._('dashboard') }}{% endblock %}
 
 {% block container %}
-    <h2>Dashboard</h2>
 {% endblock %}

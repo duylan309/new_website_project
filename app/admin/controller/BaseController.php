@@ -2,7 +2,6 @@
 namespace Thue\Admin\Controller;
 
 use Phalcon\Mvc\Controller;
-use Phalcon\Translate\Adapter\NativeArray;
 use Thue\Data\Model\R_UserAdmin;
 
 class BaseController extends Controller
@@ -13,7 +12,6 @@ class BaseController extends Controller
     {
         self::$theme = 'default';
         $this->view->setMainView(self::$theme . '/');
-        $this->view->t = $this->getTranslation();
     }
 
     public function outputJson($response)
@@ -23,12 +21,6 @@ class BaseController extends Controller
         $this->response->setJsonContent($response);
         $this->response->send();
         exit;
-    }
-
-    protected function getTranslation()
-    {
-        require_once ROOT . '/app/data/lang/vi.php';
-        return new NativeArray(array("content" => $messages));
     }
 
     public function authenticateUser()

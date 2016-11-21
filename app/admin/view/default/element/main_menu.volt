@@ -1,9 +1,9 @@
 <ul class="nav navbar-nav side-nav menu-left-admin">
     <li class="">
-        <a href="{{ url({'for': 'dashboard'}) }}">Dashboard</a>
+        <a href="{{ url({'for': 'dashboard'}) }}">{{ t._('dashboard') }}</a>
     </li>
     <li class="">
-        <a href="{{ url({'for': 'category_index'}) }}">Danh Mục</a>
+        <a href="{{ url({'for': 'category_index'}) }}">{{ t._('category') }}</a>
     </li>
     <li class="">
         <a href="#">Trang Tĩnh HTML</a>
