@@ -272,8 +272,11 @@ try {
         $session = $di->getShared('session');
         $request = $di->getShared('request');
 
-        if ($session->has('lang')) {
-            $language = $session->get('lang');
+        if ($session->has('LANG')) {
+            $language = $session->get('LANG');
+            if (!in_array($language, array('vi', 'en'))) {
+                $language = 'vi';
+            }
         } else {
             $language = 'vi';
         }
