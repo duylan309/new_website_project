@@ -30,6 +30,7 @@ $content = array(
 
     'all'           => 'All',
     'single_page'   => 'Single page',
+    'blog_page'     => 'Blog page',
     'category_page' => 'Category page',
 
     'add'    => 'Add',
@@ -37,5 +38,6 @@ $content = array(
     'delete' => 'Delete',
 
     'active'   => 'Active',
-    'inactive' => 'Inactive'
+    'inactive' => 'Inactive',
+    'deleted'  => 'Deleted'
 );

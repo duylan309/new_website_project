@@ -30,6 +30,7 @@ $content = array(
 
     'all'           => 'Tất cả',
     'single_page'   => 'Trang đơn',
+    'blog_page'     => 'Trang blog',
     'category_page' => 'Trang danh mục',
 
     'add'    => 'Thêm mới',
@@ -37,5 +38,6 @@ $content = array(
     'delete' => 'Xóa',
 
     'active'   => 'Kích hoạt',
-    'inactive' => 'Không kích hoạt'
+    'inactive' => 'Không kích hoạt',
+    'deleted'  => 'Đã xóa'
 );

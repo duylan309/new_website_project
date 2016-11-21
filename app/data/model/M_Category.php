@@ -22,23 +22,24 @@ class M_Category extends BaseModel
     public $created_at;
     public $updated_at;
 
-    const TYPE_RESTAURANT   = 1;
-    const TYPE_COFFEE_SHOP  = 2;
+    const TYPE_SINGLE_PAGE   = 1;
+    const TYPE_BLOG_PAGE     = 2;
+    const TYPE_CATEGORY_PAGE = 3;
 
     public static $TYPE = array(
-        self::TYPE_RESTAURANT  => 'restaurant',
-        self::TYPE_COFFEE_SHOP => 'coffee_shop'
+        self::TYPE_SINGLE_PAGE   => 'single_page',
+        self::TYPE_BLOG_PAGE     => 'blog_page',
+        self::TYPE_CATEGORY_PAGE => 'category_page'
     );
-
-    const IS_SINGLE_PAGE     = 1;
-    const IS_NOT_SINGLE_PAGE = 0;
 
     const STATUS_ACTIVE   = 1;
     const STATUS_INACTIVE = 2;
+    const STATUS_DELETED  = 9;
 
     public static $STATUS = array(
         self::STATUS_ACTIVE   => 'active',
-        self::STATUS_INACTIVE => 'inactive'
+        self::STATUS_INACTIVE => 'inactive',
+        self::STATUS_DELETED  => 'deleted'
     );
 
     public function initialize()
