@@ -11,7 +11,7 @@ class ErrorController extends BaseController
     public function errorAction($e)
     {
         $this->view->setVars(array(
-            'code'    => $e->getCode(),
+            'code'    => $e->getCode() != 0 ? $e->getCode : 400,
             'message' => $e->getMessage()
         ));
         $this->view->pick(parent::$theme . '/error/error');

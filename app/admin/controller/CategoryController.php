@@ -68,11 +68,11 @@ class CategoryController extends BaseController
 
         try {
             $category->save();
-
             $this->flashSession->success('Xóa thành công');
-            return $this->response->redirect(array('for' => 'category_index'));
         } catch (\Exception $e) {
-            throw new \Exception($e->getMessage());
+            $this->flashSession->success($e->getMessage());
         }
+
+        return $this->response->redirect(array('for' => 'category_index'));
     }
 }
