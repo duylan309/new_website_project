@@ -46,10 +46,10 @@
                                 <input type="text" placeholder="" class="form-control input-sm" name="title" value="" />
                             </th>
                             <th class="col-sm-2">
-                                <select name=""  class="fform-control input-sm">
-                                    <option value="-1">Tất cả</option>
-                                    <option value="0">Trang đơn</option>
-                                    <option value="1">Danh mục</option>
+                                <select name="" class="fform-control input-sm">
+                                    <option value="">{{ t._('all') }}</option>
+                                    <option value="1">{{ t._('single_page') }}</option>
+                                    <option value="2">{{ t._('category_page') }}</option>
                                 </select>
                             </th>
                             <th class="col-sm-1"></th>
