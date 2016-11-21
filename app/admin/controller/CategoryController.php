@@ -47,4 +47,32 @@ class CategoryController extends BaseController
         ));
         $this->view->pick(parent::$theme . '/category/index');
     }
+
+    public function deleteAction()
+    {
+        $category_id = $this->request->getQuery('category_id');
+        if (!$category_id) {
+            throw new \Exception('Không tồn tại danh mục này');
+        }
+
+        $category = M_Category::findFirst(array(
+            'conditions' => 'category_id = :category_id:',
+            'bind' => array('category_id' => $category_id)
+        ));
+        if (!$category) {
+            throw new \Exception('Không tồn tại danh mục này');
+        }
+
+        $category->status     = M_Category::STATUS_DELETED;
+        $category->updated_at = date('Y-m-d H:i:s');
+
+        try {
+            $category->save();
+
+            $this->flashSession->success('Xóa thành công');
+            return $this->response->redirect(array('for' => 'category_index'));
+        } catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
+        }
+    }
 }

@@ -28,6 +28,8 @@
 
         <div class="row">
             <div class="col-sm-12">
+                {{ flashSession.output() }}
+
                 <table class="table table-bordered table-hover">
                     <thead>
                         <tr class="bg-color8">
