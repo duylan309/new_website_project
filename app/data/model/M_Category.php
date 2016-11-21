@@ -22,12 +22,14 @@ class M_Category extends BaseModel
     public $created_at;
     public $updated_at;
 
-    const TYPE_SINGLE_PAGE   = 1;
-    const TYPE_CATEGORY_PAGE = 2;
+    const TYPE_SINGLE_PAGE       = 1;
+    const TYPE_CATEGORY_PAGE     = 2;
+    const TYPE_CATEGORY_NAME     = 3;
 
     public static $TYPE = array(
         self::TYPE_SINGLE_PAGE   => 'single_page',
-        self::TYPE_CATEGORY_PAGE => 'category_page'
+        self::TYPE_CATEGORY_PAGE => 'category_page',
+        self::TYPE_CATEGORY_NAME => 'category',
     );
 
     const STATUS_ACTIVE   = 1;
