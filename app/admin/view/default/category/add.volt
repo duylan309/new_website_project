@@ -20,7 +20,6 @@
                         <i class="fa fa-save"></i>
                         <span>{{ t._('save') }}</span>
                     </button>
-
                 </div>
             </div>
 
