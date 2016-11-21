@@ -94,6 +94,8 @@
                                     {% set class = 'btn btn-primary btn-danger btn-xs' %}
                                     {% if category.status == constant('\Thue\Data\Model\M_Category::STATUS_ACTIVE') %}
                                         {% set class = 'btn btn-primary btn-success btn-xs' %}
+                                    {% elseif category.status == constant('\Thue\Data\Model\M_Category::STATUS_INACTIVE') %}
+                                        {% set class = 'btn btn-primary btn-warning btn-xs' %}
                                     {% endif %}
 
                                     <div class="{{ class }}">
