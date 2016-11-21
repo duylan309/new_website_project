@@ -31,7 +31,6 @@ $content = array(
     'all'           => 'All',
     'single_page'   => 'Single page',
     'category_page' => 'Category page',
-    'category'      => 'Category',
 
     'add'    => 'Add',
     'edit'   => 'Edit',
