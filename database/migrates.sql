@@ -439,3 +439,5 @@ ALTER TABLE `thue_today`.`m_category` CHANGE COLUMN `admin_user_id` `created_by`
 , ADD UNIQUE INDEX `slug` (`slug` ASC)
 , DROP INDEX `admin_user_id`
 , ADD INDEX `created_by` (`created_by` ASC) ;
+
+ALTER TABLE `thue_today`.`m_category` CHANGE COLUMN `name_vi` `name_vi` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL COMMENT 'title_vn'  , CHANGE COLUMN `name_en` `name_en` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL COMMENT 'title_en'  , CHANGE COLUMN `slug` `slug` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL  ;

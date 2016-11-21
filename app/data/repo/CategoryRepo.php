@@ -34,6 +34,10 @@ class CategoryRepo extends M_Category
             $b->andWhere('c1.type = :type:', array('type' => $params['conditions']['type']));
         }
 
+        if (isset($params['conditions']['ordering'])) {
+            $b->andWhere('c1.ordering = :ordering:', array('ordering' => $params['conditions']['ordering']));
+        }
+
         if (isset($params['conditions']['status'])) {
             $b->andWhere('c1.status = :status:', array('status' => $params['conditions']['status']));
         }

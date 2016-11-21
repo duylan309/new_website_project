@@ -46,4 +46,18 @@ class M_Category extends BaseModel
         parent::initialize();
         $this->setSource('m_category');
     }
+
+    public function validation()
+    {
+        $this->validate(new \Phalcon\Mvc\Model\Validator\Uniqueness(array(
+            'field'   => array('slug'),
+            'message' => 'Slug này đã được sử dụng'
+        )));
+
+        if ($this->validationHasFailed()) {
+            return false;
+        }
+
+        return true;
+    }
 }

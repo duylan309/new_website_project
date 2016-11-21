@@ -35,6 +35,7 @@
                             <th class="col-sm-1">{{ t._('id') }}</th>
                             <th class="col-sm-5">{{ t._('title') }}</th>
                             <th class="col-sm-2">{{ t._('type') }}</th>
+                            <th class="col-sm-1"></th>
                             <th class="col-sm-1">{{ t._('ordering') }}</th>
                             <th class="col-sm-1">{{ t._('status') }}</th>
                         </tr>
@@ -49,11 +50,9 @@
                             <th class="col-sm-2">
                                 <select name="" class="form-control input-sm">
                                     <option value="">{{ t._('all') }}</option>
-                                    <option value="1">{{ t._('single_page') }}</option>
-                                    <option value="2">{{ t._('category_page') }}</option>
-                                    <option value="2">{{ t._('category') }}</option>
                                 </select>
                             </th>
+                            <th></th>
                             <th class="col-sm-1">
                                 <input type="text" placeholder="" class="form-control input-sm" name="ordering" value="" />
                             </th>
@@ -82,9 +81,10 @@
                                 </td>
                                 <td>{{ category.category_id }}</td>
                                 <td>{{ category.name_vi }}</td>
+                                <td></td>
                                 <td>
-                                    {% if TYPE[category.type] is defined %}
-                                        {{ t._(TYPE[category.type]) }}
+                                    {% if category.is_single_page == constant('\Thue\Data\Model\M_Category::IS_SINGLE_PAGE') %}
+                                        {{ t._('single_page') }}
                                     {% endif %}
                                 </td>
                                 <td>{{ category.ordering }}</td>
