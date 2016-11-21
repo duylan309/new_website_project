@@ -27,6 +27,9 @@ $content = array(
     'type'     => 'Loại',
     'ordering' => 'Thứ tự',
     'status'   => 'Trạng thái',
+    'url'      => 'Url',
+    'alt_image'=> 'Tên hình ảnh',
+    'image'    => 'Hình ảnh',
 
     'all'           => 'Tất cả',
     'single_page'   => 'Trang đơn',
@@ -43,5 +46,8 @@ $content = array(
 
     'active'   => 'Kích hoạt',
     'inactive' => 'Không kích hoạt',
-    'deleted'  => 'Đã xóa'
+    'deleted'  => 'Đã xóa',
+
+    'vi'       => 'VI',
+    'en'       => 'EN'
 );

@@ -27,6 +27,9 @@ $content = array(
     'type'     => 'Type',
     'ordering' => 'Ordering',
     'status'   => 'Status',
+    'url'      => 'Url',
+    'alt_image'=> 'Image\'s name',
+    'image'    => 'Image',
 
     'all'           => 'All',
     'single_page'   => 'Single page',
@@ -43,5 +46,8 @@ $content = array(
 
     'active'   => 'Active',
     'inactive' => 'Inactive',
-    'deleted'  => 'Deleted'
+    'deleted'  => 'Deleted',
+
+    'vi'       => 'VI',
+    'en'       => 'EN'
 );
