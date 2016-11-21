@@ -11,9 +11,6 @@ class AuthLoginForm extends Form
 {
     public function initialize($model, $option)
     {
-        if ($model) {}
-        if ($option) {}
-
         $email = new Text('email');
         $email->addValidators(array(
             new PresenceOf(array(

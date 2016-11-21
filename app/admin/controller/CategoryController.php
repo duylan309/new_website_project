@@ -56,6 +56,19 @@ class CategoryController extends BaseController
 
     public function editAction()
     {
+        $category_id = $this->request->getQuery('category_id');
+        if (!$category_id) {
+            throw new \Exception('Không tồn tại danh mục này');
+        }
+
+        $category = M_Category::findFirst(array(
+            'conditions' => 'category_id = :category_id:',
+            'bind' => array('category_id' => $category_id)
+        ));
+        if (!$category) {
+            throw new \Exception('Không tồn tại danh mục này');
+        }
+
         $this->view->setVars(array());
         $this->view->pick(parent::$theme . '/category/edit');
     }
