@@ -15,7 +15,6 @@ class M_Category extends BaseModel
     public $html_content_vi;
     public $html_content_en;
     public $type;
-    public $is_single_page;
     public $ordering;
     public $status;
     public $created_by;
