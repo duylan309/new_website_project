@@ -24,6 +24,7 @@ $content = array(
 
     'id'       => 'ID',
     'title'    => 'Tiêu đề',
+    'slug'     => 'Slug',
     'type'     => 'Loại',
     'ordering' => 'Thứ tự',
     'status'   => 'Trạng thái',
