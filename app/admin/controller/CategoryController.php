@@ -15,35 +15,30 @@ class CategoryController extends BaseController
 
     public function indexAction()
     {
-        $page = $this->request->getQuery('page', array('int'), 1);
-        $limit = $this->config->application->pagination_limit;
-
         $params = array();
-        $params['page']  = $page;
-        $params['limit'] = $limit;
+        $params['conditions']['parent_id'] = 0;
 
         $category_repo = new CategoryRepo;
-        $categories = $category_repo->getPaginationList($params);
+        $categories = $category_repo->getList($params);
 
-        $options = array(
-            'url'           => $this->url->get(array('for' => 'category_index')),
-            'query'         => array(),
-            'total_pages'   => isset($categories->total_pages) ? $categories->total_pages : 0,
-            'page'          => $page,
-            'pages_display' => 10
-        );
+        $sub_categories = array();
 
-        $element_component = new ElementComponent;
-        $pagination = $element_component->pagination(parent::$theme, $options);
+        if (count($categories)) {
+            foreach ($categories as $item) {
+                $p = array();
+                $p['conditions']['parent_id'] = $item->category_id;
+                $sub_categories[$item->category_id] = $category_repo->getList($p);
+            }
+        }
 
         $TYPE = M_Category::$TYPE;
         $STATUS = M_Category::$STATUS;
 
         $this->view->setVars(array(
-            'categories' => $categories,
-            'pagination' => $pagination,
-            'TYPE'       => $TYPE,
-            'STATUS'     => $STATUS
+            'categories'     => $categories,
+            'sub_categories' => $sub_categories,
+            'TYPE'           => $TYPE,
+            'STATUS'         => $STATUS
         ));
         $this->view->pick(parent::$theme . '/category/index');
     }
