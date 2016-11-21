@@ -31,13 +31,13 @@ class M_Category extends BaseModel
         self::TYPE_CATEGORY_PAGE => 'category_page'
     );
 
-    const STATUS_ACTIVE   = 1;
-    const STATUS_INACTIVE = 2;
+    const STATUS_INACTIVE = 1;
+    const STATUS_ACTIVE   = 2;
     const STATUS_DELETED  = 9;
 
     public static $STATUS = array(
-        self::STATUS_ACTIVE   => 'active',
         self::STATUS_INACTIVE => 'inactive',
+        self::STATUS_ACTIVE   => 'active',
         self::STATUS_DELETED  => 'deleted'
     );
 

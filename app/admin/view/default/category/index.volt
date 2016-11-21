@@ -64,6 +64,7 @@
                                     <option value="">{{ t._('all') }}</option>
                                     <option value="1">{{ t._('inactive') }}</option>
                                     <option value="2">{{ t._('active') }}</option>
+                                    <option value="3">{{ t._('deleted') }}</option>
                                 </select>
                             </th>
                         </tr>
