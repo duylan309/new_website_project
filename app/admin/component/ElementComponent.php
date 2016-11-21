@@ -43,35 +43,35 @@ class ElementComponent extends Component
                 for ($i = $min; $i <= $max; $i++) {
                     $query['page'] = $i;
                     $url = $options['url'] . '?' . http_build_query($query);
-                    $paging .= ($i == $active_page) ? '<li><a class="active">' . $i . '</a></li>' : '<li><a href="'. $url .'" title="Trang ' . $i . '">' . $i . '</a></li>';
+                    $paging .= ($i == $active_page) ? '<li><a class="active">' . $i . '</a></li>' : '<li><a href="'. $url .'">' . $i . '</a></li>';
                 }
             } else {
                 for ($i = 1; $i <= $total_pages; $i++) {
                     $query['page'] = $i;
                     $url = $options['url'] . '?' . http_build_query($query);
-                    $paging .= ($i == $active_page) ? '<li><a class="active" title="Trang '.$i.'">' . $i . '</a></li>' : '<li><a href="' . $url . '" title="Trang ' . $i . '">' . $i . '</a></li>';
+                    $paging .= ($i == $active_page) ? '<li><a class="active">' . $i . '</a></li>' : '<li><a href="' . $url . '">' . $i . '</a></li>';
                 }
             }
 
             if ($active_page > 1) {
                 $query['page'] = $active_page - 1;
                 $url = $options['url'] . '?' . http_build_query($query);
-                $paging = '<li><a title="Trang trước" href="' . $url .'"><span class="fa fa-angle-left"></a></li>' . $paging;
+                $paging = '<li><a href="' . $url .'"><span class="fa fa-angle-left"></a></li>' . $paging;
             }
 
             if ($active_page < $total_pages) {
                 $query['page'] = $active_page + 1;
                 $url = $options['url'] . '?' . http_build_query($query);
-                $paging .= '<li><a title="Trang kế tiếp" href="'. $url .'"><span class="fa fa-angle-right"></a></li>';
+                $paging .= '<li><a href="'. $url .'"><span class="fa fa-angle-right"></a></li>';
 
                 $query['page'] = $total_pages;
                 $url = $options['url'] . '?' . http_build_query($query);
-                $paging .= '<li><a title="Trang cuối" href="'. $url .'"><span class="fa fa-angle-double-right"></span></a></li>';
+                $paging .= '<li><a href="'. $url .'"><span class="fa fa-angle-double-right"></span></a></li>';
             }
 
             $query['page'] = 1;
             $url = $options['url'] . '?' . http_build_query($query);
-            $paging = '<li><a title="Trang đầu tiên" href="' . $url . '"><span class="fa fa-angle-double-left"></span></a></li>' . $paging;
+            $paging = '<li><a href="' . $url . '"><span class="fa fa-angle-double-left"></span></a></li>' . $paging;
         }
 
         $this->view->start();
