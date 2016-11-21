@@ -43,7 +43,7 @@ class ElementComponent extends Component
                 for ($i = $min; $i <= $max; $i++) {
                     $query['page'] = $i;
                     $url = $options['url'] . '?' . http_build_query($query);
-                    $paging .= ($i == $active_page) ? '<li><a class="active">' . $i . '</a></li>' : '<li><a href="'. $url .'">' . $i . '</a></li>';
+                    $paging .= ($i == $active_page) ? '<li><a class="active">' . $i . '</a></li>' : '<li><a href="' . $url . '">' . $i . '</a></li>';
                 }
             } else {
                 for ($i = 1; $i <= $total_pages; $i++) {
@@ -56,17 +56,17 @@ class ElementComponent extends Component
             if ($active_page > 1) {
                 $query['page'] = $active_page - 1;
                 $url = $options['url'] . '?' . http_build_query($query);
-                $paging = '<li><a href="' . $url .'"><span class="fa fa-angle-left"></span></a></li>' . $paging;
+                $paging = '<li><a href="' . $url . '"><span class="fa fa-angle-left"></span></a></li>' . $paging;
             }
 
             if ($active_page < $total_pages) {
                 $query['page'] = $active_page + 1;
                 $url = $options['url'] . '?' . http_build_query($query);
-                $paging .= '<li><a href="'. $url .'"><span class="fa fa-angle-right"></span></a></li>';
+                $paging .= '<li><a href="' . $url . '"><span class="fa fa-angle-right"></span></a></li>';
 
                 $query['page'] = $total_pages;
                 $url = $options['url'] . '?' . http_build_query($query);
-                $paging .= '<li><a href="'. $url .'"><span class="fa fa-angle-double-right"></span></a></li>';
+                $paging .= '<li><a href="' . $url . '"><span class="fa fa-angle-double-right"></span></a></li>';
             }
 
             $query['page'] = 1;

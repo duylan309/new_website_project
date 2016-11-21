@@ -24,6 +24,7 @@ $content = array(
 
     'id'       => 'ID',
     'title'    => 'Title',
+    'slug'     => 'Slug',
     'type'     => 'Type',
     'ordering' => 'Ordering',
     'status'   => 'Status',

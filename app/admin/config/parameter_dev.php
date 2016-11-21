@@ -22,7 +22,7 @@ $parameter['db_slave']['charset']  = 'utf8';
 // --------- Application
 $parameter['application']['protocol']         = 'http://';
 $parameter['application']['base_url']         = $parameter['application']['protocol'] . 'devadmin.thue.today/';
-$parameter['application']['pagination_limit'] = 20;
+$parameter['application']['pagination_limit'] = 10;
 // Application ---------
 
 // --------- Asset
