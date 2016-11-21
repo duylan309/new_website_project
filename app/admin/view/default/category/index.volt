@@ -10,7 +10,8 @@
                     <span>{{ t._('category') }}</span>
 
                     <a href="{{ url({'for': 'category_add'}) }}" class="btn btn-default btn-primary pull-right btn-sm">
-                        <i class="fa fa-plus"></i> <span>{{ t._('add') }}</span>
+                        <i class="fa fa-plus"></i>
+                        <span>{{ t._('add') }}</span>
                     </a>
                 </h3>
                 <ol class="breadcrumb">
