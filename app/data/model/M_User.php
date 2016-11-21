@@ -1,8 +1,6 @@
 <?php
 namespace Thue\Data\Model;
 
-use Phalcon\Mvc\Model\Validator\Uniqueness;
-
 class M_User extends BaseModel
 {
     public $user_id;
@@ -50,7 +48,7 @@ class M_User extends BaseModel
 
     public function validation()
     {
-        $this->validate(new Uniqueness(array(
+        $this->validate(new \Phalcon\Mvc\Model\Validator\Uniqueness(array(
             'field'   => array('email', 'type', 'status'),
             'message' => 'Email này đã được sử dụng'
         )));
