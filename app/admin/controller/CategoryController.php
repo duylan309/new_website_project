@@ -36,11 +36,13 @@ class CategoryController extends BaseController
         $element_component = new ElementComponent;
         $pagination = $element_component->pagination(parent::$theme, $options);
 
+        $TYPE = M_Category::$TYPE;
         $STATUS = M_Category::$STATUS;
 
         $this->view->setVars(array(
             'categories' => $categories,
             'pagination' => $pagination,
+            'TYPE'       => $TYPE,
             'STATUS'     => $STATUS
         ));
         $this->view->pick(parent::$theme . '/category/index');

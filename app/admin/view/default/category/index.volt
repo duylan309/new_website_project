@@ -72,7 +72,11 @@
                                 </td>
                                 <td>{{ category.category_id }}</td>
                                 <td>{{ category.name_vi }}</td>
-                                <td></td>
+                                <td>
+                                    {% if TYPE[category.type] is defined %}
+                                        {{ t._(TYPE[category.type]) }}
+                                    {% endif %}
+                                </td>
                                 <td>{{ category.ordering }}</td>
                                 <td>
                                     {% set class = 'btn btn-primary btn-danger btn-xs' %}
@@ -80,7 +84,11 @@
                                         {% set class = 'btn btn-primary btn-success btn-xs' %}
                                     {% endif %}
 
-                                    <div class="{{ class }}">{{ t._(STATUS[category.status]) }}</div>
+                                    <div class="{{ class }}">
+                                        {% if STATUS[category.status] is defined %}
+                                            {{ t._(STATUS[category.status]) }}
+                                        {% endif %}
+                                    </div>
                                 </td>
                             <tr>
                         {% endfor %}
