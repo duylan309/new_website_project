@@ -1,7 +1,6 @@
 <?php
 namespace Thue\Admin\Controller;
 
-use Thue\Admin\Component\ElementComponent;
 use Thue\Data\Model\M_Category;
 use Thue\Data\Repo\CategoryRepo;
 
@@ -17,16 +16,17 @@ class CategoryController extends BaseController
     {
         $params = array();
         $params['conditions']['parent_id'] = 0;
+        $params['order'] = 'c1.ordering ASC';
 
         $category_repo = new CategoryRepo;
         $categories = $category_repo->getList($params);
-
         $sub_categories = array();
 
         if (count($categories)) {
             foreach ($categories as $item) {
                 $p = array();
                 $p['conditions']['parent_id'] = $item->category_id;
+                $p['order'] = 'c1.ordering ASC';
                 $sub_categories[$item->category_id] = $category_repo->getList($p);
             }
         }
