@@ -55,6 +55,6 @@ $content = array(
     'inactive' => 'Inactive',
     'deleted'  => 'Deleted',
 
-    'vi'       => 'VI',
-    'en'       => 'EN'
+    'vi' => 'VI',
+    'en' => 'EN'
 );

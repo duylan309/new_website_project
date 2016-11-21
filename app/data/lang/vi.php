@@ -55,6 +55,6 @@ $content = array(
     'inactive' => 'Không kích hoạt',
     'deleted'  => 'Đã xóa',
 
-    'vi'       => 'VI',
-    'en'       => 'EN'
+    'vi' => 'VI',
+    'en' => 'EN'
 );
