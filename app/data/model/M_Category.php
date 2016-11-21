@@ -22,15 +22,16 @@ class M_Category extends BaseModel
     public $created_at;
     public $updated_at;
 
-    const TYPE_SINGLE_PAGE   = 1;
-    const TYPE_CATEGORY_PAGE = 2;
-    const TYPE_CATEGORY      = 3;
+    const TYPE_RESTAURANT   = 1;
+    const TYPE_COFFEE_SHOP  = 2;
 
     public static $TYPE = array(
-        self::TYPE_SINGLE_PAGE   => 'single_page',
-        self::TYPE_CATEGORY_PAGE => 'category_page',
-        self::TYPE_CATEGORY      => 'category',
+        self::TYPE_RESTAURANT  => 'restaurant',
+        self::TYPE_COFFEE_SHOP => 'coffee_shop'
     );
+
+    const IS_SINGLE_PAGE     = 1;
+    const IS_NOT_SINGLE_PAGE = 0;
 
     const STATUS_ACTIVE   = 1;
     const STATUS_INACTIVE = 2;
