@@ -47,14 +47,23 @@
                                 <input type="text" placeholder="" class="form-control input-sm" name="title" value="" />
                             </th>
                             <th class="col-sm-2">
-                                <select name="" class="fform-control input-sm">
+                                <select name="" class="form-control input-sm">
                                     <option value="">{{ t._('all') }}</option>
                                     <option value="1">{{ t._('single_page') }}</option>
                                     <option value="2">{{ t._('category_page') }}</option>
+                                    <option value="2">{{ t._('category') }}</option>
                                 </select>
                             </th>
-                            <th class="col-sm-1"></th>
-                            <th class="col-sm-1"></th>
+                            <th class="col-sm-1">
+                                <input type="text" placeholder="" class="form-control input-sm" name="ordering" value="" />
+                            </th>
+                            <th class="col-sm-1">
+                                <select name="" class="form-control input-sm">
+                                    <option value="">{{ t._('all') }}</option>
+                                    <option value="1">{{ t._('inactive') }}</option>
+                                    <option value="2">{{ t._('active') }}</option>
+                                </select>
+                            </th>
                         </tr>
                     </thead>
 
