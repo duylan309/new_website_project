@@ -25,7 +25,7 @@
     <div class="form-group">
         <label class="col-sm-3">{{ t._('ordering') }}</label>
         <div class="col-sm-9">
-            <input class="form-control" type="text" size="4" name="sordering" value=""/>
+            <input class="form-control" type="text" size="4" name="ordering" value=""/>
         </div>
     </div>
     <div class="form-group">
