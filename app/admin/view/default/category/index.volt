@@ -51,7 +51,7 @@
                                     <option value="">{{ t._('all') }}</option>
                                     <option value="1">{{ t._('single_page') }}</option>
                                     <option value="2">{{ t._('category_page') }}</option>
-                                    <option value="2">{{ t._('category') }}</option>
+                                    <option value="3">{{ t._('category') }}</option>
                                 </select>
                             </th>
                             <th class="col-sm-1">
