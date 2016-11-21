@@ -37,6 +37,10 @@ $content = array(
     'edit'   => 'Chỉnh sửa',
     'delete' => 'Xóa',
 
+    'add-object'    => 'Thêm %object%',
+    'edit-object'   => 'Chỉnh sửa %object%',
+    'delete-object' => 'Xóa %object%',
+
     'active'   => 'Kích hoạt',
     'inactive' => 'Không kích hoạt',
     'deleted'  => 'Đã xóa'

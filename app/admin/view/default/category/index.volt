@@ -3,29 +3,29 @@
 {% block title %}{{ t._('category') }}{% endblock %}
 
 {% block container %}
-    <form action="" method="get" class="form-horizontal">
-        <div class="row">
-            <div class="col-lg-12">
-                <h3 class="page-header">
+    <div class="row">
+        <div class="col-lg-12">
+            <h3 class="page-header">
+                <span>{{ t._('category') }}</span>
+
+                <a href="{{ url({'for': 'category_add'}) }}" class="btn btn-default btn-primary pull-right btn-sm">
+                    <i class="fa fa-plus"></i>
+                    <span>{{ t._('add') }}</span>
+                </a>
+            </h3>
+            <ol class="breadcrumb">
+                <li>
+                    <i class="fa fa-dashboard"></i>
+                    <a href="{{ url({'for': 'dashboard'}) }}">{{ t._('dashboard') }}</a>
+                </li>
+                <li class="active">
                     <span>{{ t._('category') }}</span>
-
-                    <a href="{{ url({'for': 'category_add'}) }}" class="btn btn-default btn-primary pull-right btn-sm">
-                        <i class="fa fa-plus"></i>
-                        <span>{{ t._('add') }}</span>
-                    </a>
-                </h3>
-                <ol class="breadcrumb">
-                    <li>
-                        <i class="fa fa-dashboard"></i>
-                        <a href="{{ url({'for': 'dashboard'}) }}">{{ t._('dashboard') }}</a>
-                    </li>
-                    <li class="active">
-                        <span>{{ t._('category') }}</span>
-                    </li>
-                </ol>
-            </div>
+                </li>
+            </ol>
         </div>
+    </div>
 
+    <form action="" method="get" class="form-horizontal">
         <div class="row">
             <div class="col-sm-12">
                 {{ flashSession.output() }}

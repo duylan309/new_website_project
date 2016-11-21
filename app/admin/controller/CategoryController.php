@@ -48,6 +48,18 @@ class CategoryController extends BaseController
         $this->view->pick(parent::$theme . '/category/index');
     }
 
+    public function addAction()
+    {
+        $this->view->setVars(array());
+        $this->view->pick(parent::$theme . '/category/add');
+    }
+
+    public function editAction()
+    {
+        $this->view->setVars(array());
+        $this->view->pick(parent::$theme . '/category/edit');
+    }
+
     public function deleteAction()
     {
         $category_id = $this->request->getQuery('category_id');

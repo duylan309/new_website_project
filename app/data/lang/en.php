@@ -37,6 +37,10 @@ $content = array(
     'edit'   => 'Edit',
     'delete' => 'Delete',
 
+    'add-object'    => 'Add %object%',
+    'edit-object'   => 'Edit %object%',
+    'delete-object' => 'Delete %object%',
+
     'active'   => 'Active',
     'inactive' => 'Inactive',
     'deleted'  => 'Deleted'
