@@ -25,6 +25,11 @@ class M_Category extends BaseModel
     const STATUS_ACTIVE   = 1;
     const STATUS_INACTIVE = 2;
 
+    public static $STATUS = array(
+        self::STATUS_ACTIVE   => 'active',
+        self::STATUS_INACTIVE => 'inactive'
+    );
+
     public function initialize()
     {
         parent::initialize();

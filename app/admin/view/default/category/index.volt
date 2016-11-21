@@ -57,29 +57,32 @@
                     </thead>
 
                     <tbody data-table-content>
-
-                        <?php foreach( $categories->items as $category ) :?>
+                        {% for category in categories.items %}
                             <tr>
                                 <td>
                                     <label class="">
-                                        <a href="#"> <i class="fa fa-edit"></i>&nbsp;</a>
-                                        <a href="#"> <i class="fa fa-trash-o"></i>&nbsp;</a>
+                                        <a href="#">
+                                            <i class="fa fa-edit"></i>&nbsp;
+                                        </a>
+                                        <a href="#">
+                                            <i class="fa fa-trash-o"></i>&nbsp;
+                                        </a>
                                     </label>
                                 </td>
-                                <td><?=$category->category_id?></td>
-                                <td><?=$category->name_vi?></td>
+                                <td>{{ category.category_id }}</td>
+                                <td>{{ category.name_vi }}</td>
                                 <td></td>
-                                <td><?=$category->ordering?></td>
+                                <td>{{ category.ordering }}</td>
                                 <td>
-                                    <?php if( $category->status == 2 ): ?>
-                                    <div class="btn btn-primary btn-success btn-xs">Hiển thị</div>
-                                    <?php else:?>
-                                    <div class="btn btn-primary btn-danger btn-xs">Ẩn</div>
-                                    <?php endif;?>
+                                    {% set class = 'btn btn-primary btn-danger btn-xs' %}
+                                    {% if category.status == constant('\Thue\Data\Model\M_Category::STATUS_ACTIVE') %}
+                                        {% set class = 'btn btn-primary btn-success btn-xs' %}
+                                    {% endif %}
+
+                                    <div class="{{ class }}">{{ t._(STATUS[category.status]) }}</div>
                                 </td>
                             <tr>
-                        <?php endforeach;?>
-
+                        {% endfor %}
                     </tbody>
                 </table>
 
