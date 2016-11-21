@@ -5,20 +5,20 @@
 {% block container %}
     <div class="row">
         <div class="col-lg-12">
-
             <div class="page-header row">
                 <div class="col-sm-6">
                     <h3 class="no-margin">{{ t._('add-object', {'object': 'danh mục'}) }}</h3>
                 </div>
 
                 <div class="col-sm-6 text-right">
-
-                    <a class="btn btn-default btn-sm" href="#">
-                      <i class="fa fa-ban"></i> <span>{{ t._('cancel') }}</span>
+                    <a href="" class="btn btn-default btn-sm">
+                        <i class="fa fa-ban"></i>
+                        <span>{{ t._('cancel') }}</span>
                     </a>
 
-                    <button class="btn btn-default btn-primary btn-success btn-sm" type="submit" value="save">
-                      <i class="fa fa-save"></i> <span>{{ t._('save') }}</span>
+                    <button type="submit" class="btn btn-default btn-primary btn-success btn-sm" value="{{ t._('save') }}">
+                        <i class="fa fa-save"></i>
+                        <span>{{ t._('save') }}</span>
                     </button>
 
                 </div>
@@ -39,18 +39,27 @@
         </div>
     </div>
 
-    <form class="form-horizontal" action="" method="post" id="submitForm" enctype="multipart/form-data">
+    <form action="" method="post" id="submitForm" class="form-horizontal" enctype="multipart/form-data">
+        {{ flashSession.output() }}
 
         <div class="form-dashborad p-10">
-            {% include 'default/element/table/header/header_basic.volt' %}
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="#info" data-toggle="tab">{{ t._('info') }}</a>
+                </li>
+                <li>
+                    <a href="#image" data-toggle="tab">{{ t._('image') }}</a>
+                </li>
+                <li>
+                    <a href="#seo" data-toggle="tab">{{ t._('seo')}}</a>
+                </li>
+            </ul>
 
             <div class="tab-content m-t-30">
-                {% include 'default/element/table/tabs/tab_info.volt' %}
-                {% include 'default/element/table/tabs/tab_image.volt' %}
-                {% include 'default/element/table/tabs/tab_meta.volt' %}
+                {% include 'default/category/_tab_info.volt' %}
+                {% include 'default/category/_tab_image.volt' %}
+                {% include 'default/category/_tab_meta.volt' %}
             </div>
-
         </div>
     </form>
 {% endblock %}
-
