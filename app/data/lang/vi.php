@@ -30,7 +30,7 @@ $content = array(
 
     'all'           => 'Tất cả',
     'single_page'   => 'Trang đơn',
-    'blog_page'     => 'Trang blog',
+    'blog_page'     => 'Trang tin tức',
     'category_page' => 'Trang danh mục',
 
     'add'    => 'Thêm mới',
