@@ -3,6 +3,13 @@ $content = array(
     'dashboard' => 'Dashboard',
     'category'  => 'Danh mục',
 
+    'login'  => 'Đăng nhập',
+    'logout' => 'Thoát',
+
+    'email'    => 'Email',
+    'password' => 'Mật khẩu',
+    'account'  => 'Tài khoản',
+
     'id'       => 'ID',
     'title'    => 'Tiêu đề',
     'type'     => 'Loại',
@@ -12,6 +19,7 @@ $content = array(
     'all'           => 'Tất cả',
     'single_page'   => 'Trang đơn',
     'category_page' => 'Trang danh mục',
+    'category'      => 'Danh mục',
 
     'add'    => 'Thêm mới',
     'edit'   => 'Chỉnh sửa',

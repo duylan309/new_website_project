@@ -10,16 +10,16 @@
 
         <ul class="dropdown-menu">
             <li>
-                <a href="#" target="_blank">
+                <a href="#">
                     <i class="fa fa-fw fa-gear"></i>
-                    View website
+                    {{ t._('account') }}
                 </a>
             </li>
             <li class="divider"></li>
             <li>
                 <a href="{{ url({'for': 'auth_logout'}) }}">
                     <i class="fa fa-fw fa-power-off"></i>
-                    Logout
+                    {{ t._('logout') }}
                 </a>
             </li>
         </ul>

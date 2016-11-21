@@ -6,10 +6,10 @@
         <a href="{{ url({'for': 'category_index'}) }}">{{ t._('category') }}</a>
     </li>
     <li class="">
-        <a href="#">Trang Tĩnh HTML</a>
+        <a href="#">{{ t._('static_page') }}</a>
     </li>
     <li class="">
-        <a href="#">Ứng Viên</a>
+        <a href="#">{{ t._('candidate') }}</a>
     </li>
     <li class="">
         <a href="#">Nhà Tuyển Dụng</a>

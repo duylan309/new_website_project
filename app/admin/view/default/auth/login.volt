@@ -12,15 +12,17 @@
                     {{ flashSession.output() }}
 
                     <div class="form-group">
-                        {{ form.render('email', {'class': 'form-control', 'placeholder': 'Email'}) }}
+                        {{ form.render('email', {'class': 'form-control', 'placeholder': t._('email')}) }}
                         {% include 'default/element/form_message' with {'form': form, 'element': 'email'} %}
                     </div>
                     <div class="form-group">
-                        {{ form.render('password', {'class': 'form-control', 'placeholder': 'Mật khẩu'}) }}
+                        {{ form.render('password', {'class': 'form-control', 'placeholder': t._('password')}) }}
                         {% include 'default/element/form_message' with {'form': form, 'element': 'password'} %}
                     </div>
                     <div class="form-group">
-                        <button type="submit" name="" value="login" class="btn bg-color3 btn-block">Đăng Nhập</button>
+                        <button type="submit" name="" value="login" class="btn bg-color3 btn-block">
+                            {{ t._('login') }}
+                        </button>
                     </div>
                 </form>
             </center>
