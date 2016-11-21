@@ -42,15 +42,17 @@
         <a href="#">{{ t._('contact') }}</a>
     </li>
     <li class="">
-        <a data-toggle="collapse" href="#" data-target="#menu_config">
-            <i class="fa fa-fw fa-cog"></i> Cài đặt <i class="fa fa-fw fa-caret-down"> </i>
+        <a href="#" data-toggle="collapse" data-target="#menu_config">
+            <i class="fa fa-fw fa-cog"></i>
+            {{ t._('setting') }}
+            <i class="fa fa-fw fa-caret-down"> </i>
         </a>
         <ul id="menu_config" class="collapse">
             <li class="">
-                <a href="#">Quản Trị Viên</a>
+                <a href="#">{{ t._('administrator') }}</a>
             </li>
             <li class="">
-                <a href="#">Cài Đặt Chung</a>
+                <a href="#">{{ t._('general_setting') }}</a>
             </li>
         </ul>
     </li>
