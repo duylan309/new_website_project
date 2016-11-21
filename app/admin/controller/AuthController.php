@@ -45,7 +45,6 @@ class AuthController extends BaseController
             ));
 
 
-
             if (!$user_admin) {
                 $this->flashSession->error('Tài khoản này không có quyền quản trị');
                 goto RETURN_RESPONSE;
@@ -60,7 +59,6 @@ class AuthController extends BaseController
                 $this->flashSession->error('Tài khoản này chưa được kích hoạt');
                 goto RETURN_RESPONSE;
             }
-
 
             try {
                 $user_admin->save();

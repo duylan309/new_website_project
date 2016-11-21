@@ -268,6 +268,20 @@ try {
         return $logger;
     });
 
+    $di->setShared('t', function () use ($di) {
+        $session = $di->getShared('session');
+        $request = $di->getShared('request');
+
+        if ($session->has('lang')) {
+            $language = $session->get('lang');
+        } else {
+            $language = 'vi';
+        }
+
+        require_once ROOT . '/app/data/lang/' . $language . '.php';
+        return new \Phalcon\Translate\Adapter\NativeArray(array('content' => $content));
+    });
+
     $application = new \Phalcon\Mvc\Application($di);
     $application->registerModules(array(
         'admin' => array(

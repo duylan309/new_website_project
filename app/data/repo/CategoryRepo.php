@@ -20,6 +20,24 @@ class CategoryRepo extends M_Category
         $b->columns(array('c1.*'));
         $b->from(array('c1' => '\Thue\Data\Model\M_Category'));
 
+        $b->where('1 = 1');
+
+        if (isset($params['conditions']['category_id'])) {
+            $b->andWhere('c1.category_id = :category_id:', array('category_id' => $params['conditions']['category_id']));
+        }
+
+        if (isset($params['conditions']['name_vi'])) {
+            $b->andWhere('c1.name_vi LIKE :name_vi:', array('name_vi' => '%' . $params['conditions']['name_vi'] . '%'));
+        }
+
+        if (isset($params['conditions']['type'])) {
+            $b->andWhere('c1.type = :type:', array('type' => $params['conditions']['type']));
+        }
+
+        if (isset($params['conditions']['status'])) {
+            $b->andWhere('c1.status = :status:', array('status' => $params['conditions']['status']));
+        }
+
         if (isset($params['order'])) {
             $b->orderBy($params['order']);
         } else {

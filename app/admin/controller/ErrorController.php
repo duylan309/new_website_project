@@ -19,7 +19,7 @@ class ErrorController extends BaseController
 
     public function error404Action()
     {
-        $this->response->setStatusCode(404, 'Page not found.');
+        $this->response->setStatusCode(404, 'Page not found');
         $this->view->pick(parent::$theme . '/error/error404');
     }
 }

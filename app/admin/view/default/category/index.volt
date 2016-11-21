@@ -1,24 +1,26 @@
 {% extends 'layout.volt' %}
 
-{% block title %}Danh mục{% endblock %}
+{% block title %}{{ t._('category') }}{% endblock %}
 
 {% block container %}
     <form action="" method="get" class="form-horizontal">
         <div class="row">
             <div class="col-lg-12">
                 <h3 class="page-header">
-                    <span>Danh Mục</span>
-                    <a href="#" class="btn btn-default btn-primary pull-right btn-sm">
-                        <i class="fa fa-plus"></i> <span>Thêm mới</span>
+                    <span>{{ t._('category') }}</span>
+
+                    <a href="{{ url({'for': 'category_add'}) }}" class="btn btn-default btn-primary pull-right btn-sm">
+                        <i class="fa fa-plus"></i>
+                        <span>{{ t._('add') }}</span>
                     </a>
                 </h3>
                 <ol class="breadcrumb">
                     <li>
                         <i class="fa fa-dashboard"></i>
-                        <a href="{{ url({'for': 'dashboard'}) }}">Dashboard</a>
+                        <a href="{{ url({'for': 'dashboard'}) }}">{{ t._('dashboard') }}</a>
                     </li>
                     <li class="active">
-                        <span>Danh Mục</span>
+                        <span>{{ t._('category') }}</span>
                     </li>
                 </ol>
             </div>
@@ -30,11 +32,11 @@
                     <thead>
                         <tr class="bg-color8">
                             <th class="col-sm-1"></th>
-                            <th class="col-sm-1">ID</th>
-                            <th class="col-sm-5">Tiêu Đề</th>
-                            <th class="col-sm-2">Loại</th>
-                            <th class="col-sm-1">Thứ Tự</th>
-                            <th class="col-sm-1">Trạng Thái</th>
+                            <th class="col-sm-1">{{ t._('id') }}</th>
+                            <th class="col-sm-5">{{ t._('title') }}</th>
+                            <th class="col-sm-2">{{ t._('type') }}</th>
+                            <th class="col-sm-1">{{ t._('ordering') }}</th>
+                            <th class="col-sm-1">{{ t._('status') }}</th>
                         </tr>
                         <tr class="tSearch">
                             <th class="col-sm-1"></th>
@@ -45,10 +47,10 @@
                                 <input type="text" placeholder="" class="form-control input-sm" name="title" value="" />
                             </th>
                             <th class="col-sm-2">
-                                <select name=""  class="form-control input-sm">
-                                    <option value="-1">Tất cả</option>
-                                    <option value="0">Trang đơn</option>
-                                    <option value="1">Danh mục</option>
+                                <select name="" class="fform-control input-sm">
+                                    <option value="">{{ t._('all') }}</option>
+                                    <option value="1">{{ t._('single_page') }}</option>
+                                    <option value="2">{{ t._('category_page') }}</option>
                                 </select>
                             </th>
                             <th class="col-sm-1"></th>
@@ -57,29 +59,40 @@
                     </thead>
 
                     <tbody data-table-content>
-
-                        <?php foreach( $categories->items as $category ) :?>
+                        {% for category in categories.items %}
                             <tr>
                                 <td>
                                     <label class="">
-                                        <a href="#"> <i class="fa fa-edit"></i>&nbsp;</a>
-                                        <a href="#"> <i class="fa fa-trash-o"></i>&nbsp;</a>
+                                        <a href="{{ url({'for': 'category_edit', 'query': '?' ~ http_build_query({'category_id': category.category_id})}) }}">
+                                            <i class="fa fa-edit"></i>&nbsp;
+                                        </a>
+                                        <a href="{{ url({'for': 'category_delete', 'query': '?' ~ http_build_query({'category_id': category.category_id})}) }}" onclick="return confirm('Đồng ý xóa?');">
+                                            <i class="fa fa-trash-o"></i>&nbsp;
+                                        </a>
                                     </label>
                                 </td>
-                                <td><?=$category->category_id?></td>
-                                <td><?=$category->name_vi?></td>
-                                <td></td>
-                                <td><?=$category->ordering?></td>
+                                <td>{{ category.category_id }}</td>
+                                <td>{{ category.name_vi }}</td>
                                 <td>
-                                    <?php if( $category->status == 2 ): ?>
-                                    <div class="btn btn-primary btn-success btn-xs">Hiển thị</div>
-                                    <?php else:?>
-                                    <div class="btn btn-primary btn-danger btn-xs">Ẩn</div>
-                                    <?php endif;?>
+                                    {% if TYPE[category.type] is defined %}
+                                        {{ t._(TYPE[category.type]) }}
+                                    {% endif %}
+                                </td>
+                                <td>{{ category.ordering }}</td>
+                                <td>
+                                    {% set class = 'btn btn-primary btn-danger btn-xs' %}
+                                    {% if category.status == constant('\Thue\Data\Model\M_Category::STATUS_ACTIVE') %}
+                                        {% set class = 'btn btn-primary btn-success btn-xs' %}
+                                    {% endif %}
+
+                                    <div class="{{ class }}">
+                                        {% if STATUS[category.status] is defined %}
+                                            {{ t._(STATUS[category.status]) }}
+                                        {% endif %}
+                                    </div>
                                 </td>
                             <tr>
-                        <?php endforeach;?>
-
+                        {% endfor %}
                     </tbody>
                 </table>
 
