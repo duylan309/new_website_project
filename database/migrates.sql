@@ -444,3 +444,6 @@ ALTER TABLE `thue_today`.`m_category` CHANGE COLUMN `name_vi` `name_vi` VARCHAR(
 ALTER TABLE `thue_today`.`m_category` DROP COLUMN `is_single_page` ;
 
 ALTER TABLE `thue_today`.`m_category` CHANGE COLUMN `updated_at` `updated_at` TIMESTAMP NULL DEFAULT NULL  ;
+
+ALTER TABLE `thue_today`.`m_category` DROP COLUMN `description_en` , DROP COLUMN `description_vi` ;
+ALTER TABLE `thue_today`.`m_category` CHANGE COLUMN `html_content_vi` `description_vi` TEXT NULL DEFAULT NULL COMMENT 'description vietnameses'  , CHANGE COLUMN `html_content_en` `description_en` TEXT NULL DEFAULT NULL  ;

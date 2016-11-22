@@ -12,8 +12,6 @@ class M_Category extends BaseModel
     public $image;
     public $description_vi;
     public $description_en;
-    public $html_content_vi;
-    public $html_content_en;
     public $type;
     public $ordering;
     public $status;

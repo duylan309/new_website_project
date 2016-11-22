@@ -36,11 +36,11 @@ class CategoryForm extends Form
         $this->add($slug);
 
         $description_vi = new Textarea('description_vi');
-        $description_vi->setFilters(array('striptags', 'trim'));
+        $description_vi->setFilters(array('trim'));
         $this->add($description_vi);
 
         $description_en = new Textarea('description_en');
-        $description_en->setFilters(array('striptags', 'trim'));
+        $description_en->setFilters(array('trim'));
         $this->add($description_en);
 
         $categories = M_Category::find(array(

@@ -64,7 +64,19 @@
 {% endblock %}
 
 {% block bottom_script %}
+    <script type="text/javascript" src="{{ config.asset.url ~ 'js/plugin/tinymce/tinymce.min.js?' ~ config.asset.version }}"></script>
     <script type="text/javascript">
+        tinymce.init({
+            selector: '#description_vi, #description_en',
+            plugins: [
+                'advlist autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table contextmenu paste'
+            ],
+            toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+            height: '400px'
+        });
+
         $(document).ready(function () {
             $('#button_save').click(function () {
                 $('#category_form').submit();
