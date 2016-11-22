@@ -18,6 +18,7 @@ class M_Category extends BaseModel
     public $status;
     public $created_by;
     public $created_at;
+    public $updated_by;
     public $updated_at;
 
     const TYPE_SINGLE_PAGE   = 1;

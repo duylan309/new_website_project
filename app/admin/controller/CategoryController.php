@@ -125,6 +125,7 @@ class CategoryController extends BaseController
             }
 
             $category->slug       = Util::slug($category->slug);
+            $category->updated_by = $user_session['user_id'];
             $category->updated_at = date('Y-m-d H:i:s');
 
             if (!$category->save()) {
