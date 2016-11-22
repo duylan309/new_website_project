@@ -1,4 +1,4 @@
-<div id="info" class="tab-pane fade in active col-sm-6">
+<div id="tab_info" class="tab-pane fade in active col-sm-6">
     <div class="form-group">
         <label class="col-sm-3">{{ t._('title') }}</label>
         <div class="col-sm-9">

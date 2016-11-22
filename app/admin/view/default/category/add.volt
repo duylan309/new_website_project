@@ -44,13 +44,13 @@
         <div class="form-dashborad p-10">
             <ul class="nav nav-tabs">
                 <li class="active">
-                    <a href="#info" data-toggle="tab">{{ t._('info') }}</a>
+                    <a href="#tab_info" data-toggle="tab">{{ t._('info') }}</a>
                 </li>
                 <li>
-                    <a href="#image" data-toggle="tab">{{ t._('image') }}</a>
+                    <a href="#tab_image" data-toggle="tab">{{ t._('image') }}</a>
                 </li>
                 <li>
-                    <a href="#seo" data-toggle="tab">{{ t._('seo')}}</a>
+                    <a href="#tab_seo" data-toggle="tab">{{ t._('seo')}}</a>
                 </li>
             </ul>
 
