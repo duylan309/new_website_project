@@ -2,6 +2,7 @@
 $content = array(
     'dashboard'       => 'Dashboard',
     'category'        => 'Danh mục',
+    'parent_category' => 'Danh mục cha',
     'static_page'     => 'Trang tĩnh',
     'candidate'       => 'Ứng viên',
     'employer'        => 'Nhà tuyển dụng',

@@ -1,6 +1,8 @@
 <?php
 namespace Thue\Admin\Controller;
 
+use Thue\Admin\Form\CategoryForm;
+use Thue\Data\Lib\Util;
 use Thue\Data\Model\M_Category;
 use Thue\Data\Repo\CategoryRepo;
 
@@ -45,8 +47,43 @@ class CategoryController extends BaseController
 
     public function addAction()
     {
-        $this->view->setVars(array());
-        $this->view->pick(parent::$theme . '/category/add');
+        $user_session = $this->session->get('USER_ADMIN');
+        $category = new M_Category;
+        $form = new CategoryForm;
+
+        if ($this->request->isPost()) {
+            $form->bind($this->request->getPost(), $category);
+
+            if (!$form->isValid()) {
+                $this->flashSession->error('Thông tin không hợp lệ');
+                goto RETURN_RESPONSE;
+            }
+
+            if ($category->name_en == '') {
+                $category->name_en = $category->name_vi;
+            }
+
+            $category->slug       = Util::slug($category->slug);
+            $category->created_by = $user_session['user_id'];
+            $category->created_at = date('Y-m-d H:i:s');
+
+            if (!$category->save()) {
+                $messages = $category->getMessages();
+                if (isset($messages[0])) {
+                    $this->flashSession->error($messages[0]->getMessage());
+                    goto RETURN_RESPONSE;
+                }
+            }
+
+            $this->flashSession->success('Thêm thành công');
+            return $this->response->redirect(array('for' => 'category_index'));
+        }
+
+        RETURN_RESPONSE:
+            $this->view->setVars(array(
+                'form' => $form
+            ));
+            $this->view->pick(parent::$theme . '/category/add');
     }
 
     public function editAction()
@@ -91,6 +128,15 @@ class CategoryController extends BaseController
             $this->flashSession->success('Xóa thành công');
         } catch (\Exception $e) {
             $this->flashSession->success($e->getMessage());
+        }
+
+        if (!$category->save()) {
+            $messages = $category->getMessages();
+            if (isset($messages[0])) {
+                $this->flashSession->error($messages[0]->getMessage());
+            }
+        } else {
+            $this->flashSession->success('Thêm thành công');
         }
 
         return $this->response->redirect(array('for' => 'category_index'));

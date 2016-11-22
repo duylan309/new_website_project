@@ -4,18 +4,20 @@
         <div class="col-sm-9">
             <ul class="nav nav-tabs">
                 <li class="active">
-                    <a href="#vn" data-toggle="tab">{{ t._('vi') }}</a>
+                    <a href="#tab_name_vi" data-toggle="tab">{{ t._('vi') }}</a>
                 </li>
                 <li>
-                    <a href="#en" data-toggle="tab">{{ t._('en') }}</a>
+                    <a href="#tab_name_en" data-toggle="tab">{{ t._('en') }}</a>
                 </li>
             </ul>
             <div class="tab-content">
-                <div id="vn" class="tab-pane active">
-                    <input class="input form-control" name="name_vi" type="text" size="50" value="" />
+                <div id="tab_name_vi" class="tab-pane active">
+                    {{ form.render('name_vi', {'class': 'input form-control'}) }}
+                    {% include 'default/element/form_message' with {'form': form, 'element': 'name_vi'} %}
                 </div>
-                <div id="en" class="tab-pane">
-                    <input class="input form-control" name="name_en" type="text" size="50" value="" />
+                <div id="tab_name_en" class="tab-pane">
+                    {{ form.render('name_en', {'class': 'input form-control'}) }}
+                    {% include 'default/element/form_message' with {'form': form, 'element': 'name_en'} %}
                 </div>
             </div>
         </div>
@@ -24,24 +26,58 @@
     <div class="form-group">
         <label class="col-sm-3">{{ t._('slug') }}</label>
         <div class="col-sm-9">
-            <input data-validate class="form-control" type="text" id="titleUrl" name="slug" size="50" value="" />
+            {{ form.render('slug', {'class': 'input form-control'}) }}
+            {% include 'default/element/form_message' with {'form': form, 'element': 'slug'} %}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3">{{ t._('description') }}</label>
+        <div class="col-sm-9">
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="#tab_description_vi" data-toggle="tab">{{ t._('vi') }}</a>
+                </li>
+                <li>
+                    <a href="#tab_description_en" data-toggle="tab">{{ t._('en') }}</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div id="tab_description_vi" class="tab-pane active">
+                    {{ form.render('description_vi', {'class': 'input form-control', 'rows': 10}) }}
+                </div>
+                <div id="tab_description_en" class="tab-pane">
+                    {{ form.render('description_en', {'class': 'input form-control', 'rows': 10}) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3">{{ t._('parent_category') }}</label>
+        <div class="col-sm-9">
+            {{ form.render('parent_id', {'class': 'input-sm form-control'}) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3">{{ t._('type') }}</label>
+        <div class="col-sm-9">
+            {{ form.render('type', {'class': 'input-sm form-control'}) }}
         </div>
     </div>
 
     <div class="form-group">
         <label class="col-sm-3">{{ t._('ordering') }}</label>
         <div class="col-sm-9">
-            <input class="form-control" type="text" size="4" name="sordering" value="" />
+            {{ form.render('ordering', {'class': 'input-sm form-control'}) }}
         </div>
     </div>
 
     <div class="form-group">
         <label class="col-sm-3">{{ t._('status') }}</label>
         <div class="col-sm-9">
-            <select name="" class="form-control input-sm">
-                <option value="1">{{ t._('inactive') }}</option>
-                <option value="2">{{ t._('active') }}</option>
-            </select>
+            {{ form.render('status', {'class': 'input-sm form-control'}) }}
         </div>
     </div>
 </div>

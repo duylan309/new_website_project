@@ -2,6 +2,7 @@
 $content = array(
     'dashboard'       => 'Dashboard',
     'category'        => 'Category',
+    'parent_category' => 'Parent category',
     'static_page'     => 'Static page',
     'candidate'       => 'Candidate',
     'employer'        => 'Employer',
