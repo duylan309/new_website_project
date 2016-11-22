@@ -3,8 +3,12 @@
         <label class="col-sm-3">{{ t._('title') }}</label>
         <div class="col-sm-9">
             <ul class="nav nav-tabs">
-                <li class="active"><a href="#vn" data-toggle="tab">{{ t._('vi') }}</a></li>
-                <li><a href="#en" data-toggle="tab">{{ t._('en') }}</a></li>
+                <li class="active">
+                    <a href="#vn" data-toggle="tab">{{ t._('vi') }}</a>
+                </li>
+                <li>
+                    <a href="#en" data-toggle="tab">{{ t._('en') }}</a>
+                </li>
             </ul>
             <div class="tab-content">
                 <div id="vn" class="tab-pane active">
@@ -16,18 +20,21 @@
             </div>
         </div>
     </div>
+
     <div class="form-group">
-        <label class="col-sm-3">{{ t._('url') }}</label>
+        <label class="col-sm-3">{{ t._('slug') }}</label>
         <div class="col-sm-9">
             <input data-validate class="form-control" type="text" id="titleUrl" name="slug" size="50" value="" />
         </div>
     </div>
+
     <div class="form-group">
         <label class="col-sm-3">{{ t._('ordering') }}</label>
         <div class="col-sm-9">
-            <input class="form-control" type="text" size="4" name="sordering" value=""/>
+            <input class="form-control" type="text" size="4" name="sordering" value="" />
         </div>
     </div>
+
     <div class="form-group">
         <label class="col-sm-3">{{ t._('status') }}</label>
         <div class="col-sm-9">
