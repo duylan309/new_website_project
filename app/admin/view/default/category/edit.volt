@@ -5,9 +5,23 @@
 {% block container %}
     <div class="row">
         <div class="col-lg-12">
-            <h3 class="page-header">
-                <span>{{ t._('edit-object', {'object': 'danh mục'}) }}</span>
-            </h3>
+            <div class="page-header row">
+                <div class="col-sm-6">
+                    <h3 class="no-margin">{{ t._('edit-object', {'object': 'danh mục'}) }}</h3>
+                </div>
+
+                <div class="col-sm-6 text-right">
+                    <a href="{{ url({'for': 'category_index'}) }}" class="btn btn-default btn-sm">
+                        <i class="fa fa-ban"></i>
+                        <span>{{ t._('cancel') }}</span>
+                    </a>
+
+                    <button type="submit" id="button_save" class="btn btn-default btn-primary btn-success btn-sm" value="{{ t._('save') }}">
+                        <i class="fa fa-save"></i>
+                        <span>{{ t._('save') }}</span>
+                    </button>
+                </div>
+            </div>
 
             <ol class="breadcrumb">
                 <li>
@@ -23,4 +37,38 @@
             </ol>
         </div>
     </div>
+
+    <form action="" method="post" id="category_form" class="form-horizontal" enctype="multipart/form-data">
+        {{ flashSession.output() }}
+
+        <div class="form-dashborad p-10">
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="#info" data-toggle="tab">{{ t._('info') }}</a>
+                </li>
+                <li>
+                    <a href="#image" data-toggle="tab">{{ t._('image') }}</a>
+                </li>
+                <li>
+                    <a href="#seo" data-toggle="tab">{{ t._('seo')}}</a>
+                </li>
+            </ul>
+
+            <div class="tab-content m-t-30">
+                {% include 'default/category/_tab_info.volt' %}
+                {% include 'default/category/_tab_image.volt' %}
+                {% include 'default/category/_tab_meta.volt' %}
+            </div>
+        </div>
+    </form>
+{% endblock %}
+
+{% block bottom_script %}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#button_save').click(function () {
+                $('#category_form').submit();
+            });
+        });
+    </script>
 {% endblock %}
