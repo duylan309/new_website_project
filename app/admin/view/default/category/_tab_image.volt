@@ -2,7 +2,7 @@
     <div class="form-group">
         <label class="col-sm-3">{{ t._('alt_image') }}</label>
         <div class="col-sm-9">
-            <input class="input-sm form-control" type="text" name="alt_image" value="" />
+            {{ form.render('alt_image', {'class': 'input-sm form-control'}) }}
         </div>
     </div>
 
