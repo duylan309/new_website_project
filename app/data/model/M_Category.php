@@ -10,6 +10,7 @@ class M_Category extends BaseModel
     public $slug;
     public $link;
     public $image;
+    public $alt_image;
     public $description_vi;
     public $description_en;
     public $type;

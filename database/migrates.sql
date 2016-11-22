@@ -447,3 +447,5 @@ ALTER TABLE `thue_today`.`m_category` CHANGE COLUMN `updated_at` `updated_at` TI
 
 ALTER TABLE `thue_today`.`m_category` DROP COLUMN `description_en` , DROP COLUMN `description_vi` ;
 ALTER TABLE `thue_today`.`m_category` CHANGE COLUMN `html_content_vi` `description_vi` TEXT NULL DEFAULT NULL COMMENT 'description vietnameses'  , CHANGE COLUMN `html_content_en` `description_en` TEXT NULL DEFAULT NULL  ;
+
+ALTER TABLE `thue_today`.`m_category` ADD COLUMN `alt_image` VARCHAR(255) NULL DEFAULT NULL  AFTER `image` ;

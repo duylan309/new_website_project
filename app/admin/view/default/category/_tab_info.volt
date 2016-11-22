@@ -12,11 +12,11 @@
             </ul>
             <div class="tab-content">
                 <div id="tab_name_vi" class="tab-pane active">
-                    {{ form.render('name_vi', {'class': 'input form-control'}) }}
+                    {{ form.render('name_vi', {'class': 'input-sm form-control'}) }}
                     {% include 'default/element/form_message' with {'form': form, 'element': 'name_vi'} %}
                 </div>
                 <div id="tab_name_en" class="tab-pane">
-                    {{ form.render('name_en', {'class': 'input form-control'}) }}
+                    {{ form.render('name_en', {'class': 'input-sm form-control'}) }}
                     {% include 'default/element/form_message' with {'form': form, 'element': 'name_en'} %}
                 </div>
             </div>
@@ -26,7 +26,7 @@
     <div class="form-group">
         <label class="col-sm-3">{{ t._('slug') }}</label>
         <div class="col-sm-9">
-            {{ form.render('slug', {'class': 'input form-control'}) }}
+            {{ form.render('slug', {'class': 'input-sm form-control'}) }}
             {% include 'default/element/form_message' with {'form': form, 'element': 'slug'} %}
         </div>
     </div>
@@ -44,10 +44,10 @@
             </ul>
             <div class="tab-content">
                 <div id="tab_description_vi" class="tab-pane active">
-                    {{ form.render('description_vi', {'class': 'input form-control'}) }}
+                    {{ form.render('description_vi', {'class': 'input-sm form-control'}) }}
                 </div>
                 <div id="tab_description_en" class="tab-pane">
-                    {{ form.render('description_en', {'class': 'input form-control'}) }}
+                    {{ form.render('description_en', {'class': 'input-sm form-control'}) }}
                 </div>
             </div>
         </div>
