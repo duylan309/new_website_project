@@ -200,6 +200,7 @@ a,a:hover{
 
 .form-dashborad .nav > li > a{
     padding:5px 15px;
+    text-transform: capitalize;
 }
 
 .tab-content .nav-tabs{
@@ -588,4 +589,8 @@ input.require{
 
 .tab-content .nav-tabs>li.active>a{
     background: #f5f5f5;
+}
+
+.form-dashboard .mceEditor{
+    height: 300px;
 }

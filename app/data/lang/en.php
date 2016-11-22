@@ -37,6 +37,7 @@ $content = array(
     'description' => 'Description',
     'info'        => 'Information',
     'seo'         => 'SEO',
+    'content'     => 'Content',
 
     'all'           => 'All',
     'single_page'   => 'Single page',

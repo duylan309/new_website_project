@@ -50,6 +50,9 @@
                     <a href="#image" data-toggle="tab">{{ t._('image') }}</a>
                 </li>
                 <li>
+                    <a href="#content" data-toggle="tab">{{ t._('content') }}</a>
+                </li>
+                <li>
                     <a href="#seo" data-toggle="tab">{{ t._('seo')}}</a>
                 </li>
             </ul>
@@ -57,6 +60,7 @@
             <div class="tab-content m-t-30">
                 {% include 'default/category/_tab_info.volt' %}
                 {% include 'default/category/_tab_image.volt' %}
+                {% include 'default/category/_tab_content.volt' %}
                 {% include 'default/category/_tab_meta.volt' %}
             </div>
         </div>

@@ -37,6 +37,7 @@ $content = array(
     'description'  => 'Mô tả',
     'info'         => 'Thông tin',
     'seo'          => 'SEO',
+    'content'      => 'Nội dung',
 
     'all'           => 'Tất cả',
     'single_page'   => 'Trang đơn',

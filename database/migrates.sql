@@ -442,3 +442,6 @@ ALTER TABLE `thue_today`.`m_category` CHANGE COLUMN `admin_user_id` `created_by`
 
 ALTER TABLE `thue_today`.`m_category` CHANGE COLUMN `name_vi` `name_vi` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL COMMENT 'title_vn'  , CHANGE COLUMN `name_en` `name_en` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL COMMENT 'title_en'  , CHANGE COLUMN `slug` `slug` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL  ;
 ALTER TABLE `thue_today`.`m_category` DROP COLUMN `is_single_page` ;
+
+ALTER TABLE `thue_today`.`m_category` ADD COLUMN `meta_title_vi` VARCHAR(255) NULL DEFAULT '' AFTER `status`, ADD COLUMN `meta_title_en` VARCHAR(255) NULL DEFAULT '' AFTER `meta_title_vi`, ADD COLUMN `meta_keyword_vi` VARCHAR(255) NULL DEFAULT '' AFTER `meta_title_en`, ADD COLUMN `meta_keyword_en` VARCHAR(255) NULL DEFAULT '' AFTER `meta_keyword_vi`, ADD COLUMN `meta_description_vi` TEXT NULL DEFAULT '' AFTER `meta_keyword_en`, ADD COLUMN `meta_description_en` TEXT NULL DEFAULT '' AFTER `meta_description_vi`, ADD COLUMN `meta_facebook_image` VARCHAR(255) NULL DEFAULT '' AFTER `meta_description_en`;
+
