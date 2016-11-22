@@ -164,12 +164,6 @@ class CategoryController extends BaseController
         $category->status     = M_Category::STATUS_DELETED;
         $category->updated_at = date('Y-m-d H:i:s');
 
-        try {
-            $category->save();
-            $this->flashSession->success('Xóa thành công');
-        } catch (\Exception $e) {
-            $this->flashSession->success($e->getMessage());
-        }
 
         if (!$category->save()) {
             $messages = $category->getMessages();
@@ -177,7 +171,7 @@ class CategoryController extends BaseController
                 $this->flashSession->error($messages[0]->getMessage());
             }
         } else {
-            $this->flashSession->success('Thêm thành công');
+            $this->flashSession->success('Xóa thành công');
         }
 
         return $this->response->redirect(array('for' => 'category_index'));
