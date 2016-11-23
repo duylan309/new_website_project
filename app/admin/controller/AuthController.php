@@ -21,6 +21,11 @@ class AuthController extends BaseController
         $form = new \Thue\Admin\Form\AuthLoginForm;
 
         if ($this->request->isPost()) {
+            if (!$this->security->checkToken()) {
+                $this->flashSession->error('Token không hợp lệ');
+                goto RETURN_RESPONSE;
+            }
+
             if (!$form->isValid($this->request->getPost())) {
                 $this->flashSession->error('Thông tin không hợp lệ');
                 goto RETURN_RESPONSE;
