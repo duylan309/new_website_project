@@ -21,13 +21,14 @@ $parameter['db_slave']['charset']  = 'utf8';
 
 // --------- Application
 $parameter['application']['protocol']         = 'http://';
-$parameter['application']['base_url']         = $parameter['application']['protocol'] . 'admin.thue.today/';
+$parameter['application']['base_url']         = 'http://admin.thue.today/';
 $parameter['application']['pagination_limit'] = 10;
 // Application ---------
 
 // --------- Asset
-$parameter['asset']['url']     = $parameter['application']['base_url'] . 'asset/';
-$parameter['asset']['version'] = '20161118_12_24pm';
+$parameter['asset']['url']      = 'http://admin.thue.today/asset/';
+$parameter['asset']['home_url'] = 'http://thue.today/asset/';
+$parameter['asset']['version']  = '20161118_12_24pm';
 // Asset ---------
 
 // --------- Mailer

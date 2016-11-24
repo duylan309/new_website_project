@@ -189,13 +189,17 @@ class BaseController extends Controller
                     }
                 } catch (\Exception $e) {
                     $this->logger->log('[BaseController][uploadImageToLocal] ' . $e->getMessage(), \Phalcon\Logger::ERROR);
-                    throw new \Exception($e->getMessage());
+
+                    $response = array(
+                        'status'  => Constant::STATUS_CODE_ERROR,
+                        'message' => $e->getMessage()
+                    );
                 }
             }
         } else {
             $response = array(
                 'status'  => Constant::STATUS_CODE_ERROR,
-                'message' => 'Không tìm thấy thư mục hình ảnh.'
+                'message' => 'Không tìm thấy thư mục hình ảnh'
             );
         }
 
