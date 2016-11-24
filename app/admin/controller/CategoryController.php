@@ -60,6 +60,37 @@ class CategoryController extends BaseController
                 goto RETURN_RESPONSE;
             }
 
+            if ($this->request->hasFiles()) {
+                $files = $this->request->getUploadedFiles();
+
+                if (isset($files[0])) {
+                    $file = $files[0];
+
+                    if (isset($file) && $file->getName() != '') {
+                        $resource = array(
+                            'name'     => $file->getName(),
+                            'type'     => $file->getType(),
+                            'tmp_name' => $file->getTempName(),
+                            'error'    => $file->getError(),
+                            'size'     => $file->getSize()
+                        );
+
+                        $response = parent::uploadImageToLocal(ROOT . '/public/home/asset/img/upload/', '', 800, $resource);
+
+                        if (
+                            isset($response['status'])
+                            && $response['status'] == Constant::STATUS_CODE_SUCCESS
+                            && isset($response['result'])
+                        ) {
+                            $category->image = $response['result'];
+                        } elseif (isset($response['message'])) {
+                            $this->flashSession->error($response['message']);
+                            goto RETURN_RESPONSE;
+                        }
+                    }
+                }
+            }
+
             if ($category->name_en == '') {
                 $category->name_en = $category->name_vi;
             }
