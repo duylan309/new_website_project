@@ -2,6 +2,7 @@
 namespace Thue\Admin\Controller;
 
 use Phalcon\Mvc\Controller;
+use Thue\Data\Lib\Constant;
 use Thue\Data\Model\R_UserAdmin;
 
 class BaseController extends Controller
@@ -128,5 +129,80 @@ class BaseController extends Controller
             $cookie = $this->cookies->get('USER_ADMIN');
             $cookie->delete();
         }
+    }
+
+    public function uploadImageToLocal($dir, $file_name, $scale_x, $resource)
+    {
+        $response = array();
+
+        if (is_dir($dir)) {
+            if ($file_name == '') {
+                $file_name = uniqid() . '_' . time();
+            }
+
+            if ($resource && !empty($resource)) {
+                $u = new \Thue\Data\Lib\Upload($resource);
+
+                $u->allowed   = array('image/*');
+                $u->forbidden = array('application/*');
+
+                try {
+                    if (!$u->uploaded) {
+                        $response = array(
+                            'status'  => Constant::STATUS_CODE_ERROR,
+                            'message' => 'Lỗi, không thể upload'
+                        );
+                    } else {
+                        if ($u->file_is_image) {
+                            if ($scale_x > 0) {
+                                $u->image_resize  = true;
+                                $u->image_x       = $scale_x;
+                                $u->image_ratio_y = true;
+                            }
+
+                            $u->jpeg_quality = 90;
+                            $u->file_new_name_body = $file_name;
+                            $u->process($dir);
+
+                            if ($u->processed) {
+                                $file_name .= '.' . $u->file_src_name_ext;
+
+                                $response = array(
+                                    'status'  => Constant::STATUS_CODE_SUCCESS,
+                                    'message' => 'Upload thành công',
+                                    'result'  => $file_name
+                                );
+                            } else {
+                                $response = array(
+                                    'status'  => Constant::STATUS_CODE_ERROR,
+                                    'message' => 'Lỗi, không thể xử lý hình ảnh'
+                                );
+                            }
+                        } else {
+                            $response = array(
+                                'status'  => Constant::STATUS_CODE_ERROR,
+                                'message' => 'Lỗi, không đúng định dạng hình ảnh'
+                            );
+                        }
+
+                        $u->clean();
+                    }
+                } catch (\Exception $e) {
+                    $this->logger->log('[BaseController][uploadImageToLocal] ' . $e->getMessage(), \Phalcon\Logger::ERROR);
+
+                    $response = array(
+                        'status'  => Constant::STATUS_CODE_ERROR,
+                        'message' => $e->getMessage()
+                    );
+                }
+            }
+        } else {
+            $response = array(
+                'status'  => Constant::STATUS_CODE_ERROR,
+                'message' => 'Không tìm thấy thư mục hình ảnh'
+            );
+        }
+
+        return $response;
     }
 }

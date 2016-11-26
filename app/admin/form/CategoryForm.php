@@ -82,6 +82,10 @@ class CategoryForm extends Form
         $status = new Select('status', $status_array);
         $this->add($status);
 
+        $alt_image = new Text('alt_image');
+        $alt_image->setFilters(array('striptags', 'trim'));
+        $this->add($alt_image);
+
         $meta_title_vi = new Text('meta_title_vi');
         $meta_title_vi->setFilters(array('striptags', 'trim'));
         $this->add($meta_title_vi);

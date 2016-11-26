@@ -2,6 +2,7 @@
 namespace Thue\Admin\Controller;
 
 use Thue\Admin\Form\CategoryForm;
+use Thue\Data\Lib\Constant;
 use Thue\Data\Lib\Util;
 use Thue\Data\Model\M_Category;
 use Thue\Data\Repo\CategoryRepo;
@@ -57,6 +58,37 @@ class CategoryController extends BaseController
             if (!$form->isValid()) {
                 $this->flashSession->error('Thông tin không hợp lệ');
                 goto RETURN_RESPONSE;
+            }
+
+            if ($this->request->hasFiles()) {
+                $files = $this->request->getUploadedFiles();
+
+                if (isset($files[0])) {
+                    $file = $files[0];
+
+                    if (isset($file) && $file->getName() != '') {
+                        $resource = array(
+                            'name'     => $file->getName(),
+                            'type'     => $file->getType(),
+                            'tmp_name' => $file->getTempName(),
+                            'error'    => $file->getError(),
+                            'size'     => $file->getSize()
+                        );
+
+                        $response = parent::uploadImageToLocal(ROOT . '/public/home/asset/img/upload/', '', 800, $resource);
+
+                        if (
+                            isset($response['status'])
+                            && $response['status'] == Constant::STATUS_CODE_SUCCESS
+                            && isset($response['result'])
+                        ) {
+                            $category->image = $response['result'];
+                        } elseif (isset($response['message'])) {
+                            $this->flashSession->error($response['message']);
+                            goto RETURN_RESPONSE;
+                        }
+                    }
+                }
             }
 
             if ($category->name_en == '') {
@@ -116,6 +148,41 @@ class CategoryController extends BaseController
                 goto RETURN_RESPONSE;
             }
 
+            if ($this->request->hasFiles()) {
+                $files = $this->request->getUploadedFiles();
+
+                if (isset($files[0])) {
+                    $file = $files[0];
+
+                    if (isset($file) && $file->getName() != '') {
+                        $resource = array(
+                            'name'     => $file->getName(),
+                            'type'     => $file->getType(),
+                            'tmp_name' => $file->getTempName(),
+                            'error'    => $file->getError(),
+                            'size'     => $file->getSize()
+                        );
+
+                        $response = parent::uploadImageToLocal(ROOT . '/public/home/asset/img/upload/', '', 800, $resource);
+
+                        if (
+                            isset($response['status'])
+                            && $response['status'] == Constant::STATUS_CODE_SUCCESS
+                            && isset($response['result'])
+                        ) {
+                            if ($category->image != '') {
+                                @unlink(ROOT . '/public/home/asset/img/upload/' . $category->image);
+                            }
+
+                            $category->image = $response['result'];
+                        } elseif (isset($response['message'])) {
+                            $this->flashSession->error($response['message']);
+                            goto RETURN_RESPONSE;
+                        }
+                    }
+                }
+            }
+
             if ($category->name_en == '') {
                 $category->name_en = $category->name_vi;
             }
@@ -125,6 +192,7 @@ class CategoryController extends BaseController
             }
 
             $category->slug       = Util::slug($category->slug);
+            $category->updated_by = $user_session['user_id'];
             $category->updated_at = date('Y-m-d H:i:s');
 
             if (!$category->save()) {
@@ -136,7 +204,7 @@ class CategoryController extends BaseController
             }
 
             $this->flashSession->success('Chỉnh sửa thành công');
-            return $this->response->redirect(array('for' => 'category_index'));
+            return $this->response->redirect(array('for' => 'category_edit', 'query' => '?' . http_build_query(array('category_id' => $category_id))));
         }
 
         RETURN_RESPONSE:

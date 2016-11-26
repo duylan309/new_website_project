@@ -24,6 +24,8 @@
                             {{ t._('login') }}
                         </button>
                     </div>
+
+                    <input type="hidden" name="{{ security.getTokenKey() }}" value="{{ security.getToken() }}" />
                 </form>
             </center>
         </div>

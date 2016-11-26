@@ -448,4 +448,7 @@ ALTER TABLE `thue_today`.`m_category` CHANGE COLUMN `updated_at` `updated_at` TI
 ALTER TABLE `thue_today`.`m_category` DROP COLUMN `description_en` , DROP COLUMN `description_vi` ;
 ALTER TABLE `thue_today`.`m_category` CHANGE COLUMN `html_content_vi` `description_vi` TEXT NULL DEFAULT NULL COMMENT 'description vietnameses'  , CHANGE COLUMN `html_content_en` `description_en` TEXT NULL DEFAULT NULL  ;
 
+ALTER TABLE `thue_today`.`m_category` ADD COLUMN `alt_image` VARCHAR(255) NULL DEFAULT NULL  AFTER `image` ;
+ALTER TABLE `thue_today`.`m_category` ADD COLUMN `updated_by` INT NULL DEFAULT NULL  AFTER `created_at` ;
+
 ALTER TABLE `thue_today`.`m_category` ADD COLUMN `meta_title_vi` VARCHAR(255) NULL DEFAULT '' AFTER `status`, ADD COLUMN `meta_title_en` VARCHAR(255) NULL DEFAULT '' AFTER `meta_title_vi`, ADD COLUMN `meta_keyword_vi` VARCHAR(255) NULL DEFAULT '' AFTER `meta_title_en`, ADD COLUMN `meta_keyword_en` VARCHAR(255) NULL DEFAULT '' AFTER `meta_keyword_vi`, ADD COLUMN `meta_description_vi` TEXT NULL DEFAULT '' AFTER `meta_keyword_en`, ADD COLUMN `meta_description_en` TEXT NULL DEFAULT '' AFTER `meta_description_vi`, ADD COLUMN `meta_facebook_image` VARCHAR(255) NULL DEFAULT '' AFTER `meta_description_en`;

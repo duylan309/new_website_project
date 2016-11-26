@@ -10,6 +10,7 @@ class M_Category extends BaseModel
     public $slug;
     public $link;
     public $image;
+    public $alt_image;
     public $description_vi;
     public $description_en;
     public $type;
@@ -17,6 +18,7 @@ class M_Category extends BaseModel
     public $status;
     public $created_by;
     public $created_at;
+    public $updated_by;
     public $updated_at;
 
     const TYPE_SINGLE_PAGE   = 1;

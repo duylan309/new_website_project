@@ -5,14 +5,18 @@
 {% block container %}
     <div class="row">
         <div class="col-lg-12">
-            <h3 class="page-header">
-                <span>{{ t._('category') }}</span>
+            <div class="page-header row">
+                <div class="col-sm-6">
+                    <h3 class="no-margin">{{ t._('category') }}</h3>
+                </div>
 
-                <a href="{{ url({'for': 'category_add'}) }}" class="btn btn-default btn-primary pull-right btn-sm">
-                    <i class="fa fa-plus"></i>
-                    <span>{{ t._('add') }}</span>
-                </a>
-            </h3>
+                <div class="col-sm-6 text-right">
+                    <a href="{{ url({'for': 'category_add'}) }}" class="btn btn-default btn-primary btn-sm">
+                        <i class="fa fa-plus"></i>
+                        <span>{{ t._('add') }}</span>
+                    </a>
+                </div>
+            </div>
 
             <ol class="breadcrumb">
                 <li>
