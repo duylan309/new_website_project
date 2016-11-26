@@ -44,7 +44,6 @@ class AuthController extends BaseController
                 'bind' => array('user_id' => $user->user_id)
             ));
 
-
             if (!$user_admin) {
                 $this->flashSession->error('Tài khoản này không có quyền quản trị');
                 goto RETURN_RESPONSE;

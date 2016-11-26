@@ -11,12 +11,12 @@
                 </div>
 
                 <div class="col-sm-6 text-right">
-                    <a href="" class="btn btn-default btn-sm">
+                    <a href="{{ url({'for': 'category_index'}) }}" class="btn btn-default btn-sm">
                         <i class="fa fa-ban"></i>
                         <span>{{ t._('cancel') }}</span>
                     </a>
 
-                    <button type="submit" class="btn btn-default btn-primary btn-success btn-sm" value="{{ t._('save') }}">
+                    <button type="submit" id="button_save" class="btn btn-default btn-primary btn-success btn-sm" value="{{ t._('save') }}">
                         <i class="fa fa-save"></i>
                         <span>{{ t._('save') }}</span>
                     </button>
@@ -38,22 +38,23 @@
         </div>
     </div>
 
-    <form action="" method="post" id="submitForm" class="form-horizontal" enctype="multipart/form-data">
+    <form action="" method="post" id="category_form" class="form-horizontal" enctype="multipart/form-data">
         {{ flashSession.output() }}
 
         <div class="form-dashborad p-10">
             <ul class="nav nav-tabs">
                 <li class="active">
-                    <a href="#info" data-toggle="tab">{{ t._('info') }}</a>
+                    <a href="#tab_info" data-toggle="tab">{{ t._('info') }}</a>
                 </li>
                 <li>
-                    <a href="#image" data-toggle="tab">{{ t._('image') }}</a>
+                    <a href="#tab_image" data-toggle="tab">{{ t._('image') }}</a>
                 </li>
                 <li>
-                    <a href="#content" data-toggle="tab">{{ t._('content') }}</a>
+                    <a href="#tab_content" data-toggle="tab">{{ t._('content') }}</a>
                 </li>
                 <li>
-                    <a href="#seo" data-toggle="tab">{{ t._('seo')}}</a>
+                    <a href="#tab_seo" data-toggle="tab">{{ t._('seo')}}</a>
+
                 </li>
             </ul>
 
@@ -65,4 +66,27 @@
             </div>
         </div>
     </form>
+{% endblock %}
+
+
+{% block bottom_script %}
+    <script type="text/javascript" src="{{ config.asset.url ~ 'js/plugin/tinymce/tinymce.min.js?' ~ config.asset.version }}"></script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: '#description_vi, #description_en',
+            plugins: [
+                'advlist autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table contextmenu paste'
+            ],
+            toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+            height: '400px'
+        });
+
+        $(document).ready(function () {
+            $('#button_save').click(function () {
+                $('#category_form').submit();
+            });
+        });
+    </script>
 {% endblock %}

@@ -1,7 +1,7 @@
 <?php
 namespace Thue\Data\Lib;
 
-require_once ROOT . '/vendor/swiftmailer/swiftmailer/lib/swift_required.php';
+//require_once ROOT . '/vendor/swiftmailer/swiftmailer/lib/swift_required.php';
 
 class Mailer
 {

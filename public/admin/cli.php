@@ -4,6 +4,7 @@ ini_set('display_errors', true);
 error_reporting(E_ALL);
 
 define('ROOT', realpath(dirname(dirname(dirname(__FILE__)))));
+require_once ROOT . '/vendor/autoload.php';
 
 // Usage: php cli.php <task name> <action name> <params>
 // Example: php cli.php cache clear
