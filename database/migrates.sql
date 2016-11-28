@@ -452,3 +452,8 @@ ALTER TABLE `thue_today`.`m_category` ADD COLUMN `alt_image` VARCHAR(255) NULL D
 ALTER TABLE `thue_today`.`m_category` ADD COLUMN `updated_by` INT NULL DEFAULT NULL  AFTER `created_at` ;
 
 ALTER TABLE `thue_today`.`m_category` ADD COLUMN `meta_title_vi` VARCHAR(255) NULL DEFAULT '' AFTER `status`, ADD COLUMN `meta_title_en` VARCHAR(255) NULL DEFAULT '' AFTER `meta_title_vi`, ADD COLUMN `meta_keyword_vi` VARCHAR(255) NULL DEFAULT '' AFTER `meta_title_en`, ADD COLUMN `meta_keyword_en` VARCHAR(255) NULL DEFAULT '' AFTER `meta_keyword_vi`, ADD COLUMN `meta_description_vi` TEXT NULL DEFAULT '' AFTER `meta_keyword_en`, ADD COLUMN `meta_description_en` TEXT NULL DEFAULT '' AFTER `meta_description_vi`, ADD COLUMN `meta_facebook_image` VARCHAR(255) NULL DEFAULT '' AFTER `meta_description_en`;
+
+#2016-11-28
+ALTER TABLE `thue_today`.`m_category` CHANGE COLUMN `meta_title_vi` `meta_title_vi` VARCHAR(255) NULL DEFAULT NULL  , CHANGE COLUMN `meta_title_en` `meta_title_en` VARCHAR(255) NULL DEFAULT NULL  , CHANGE COLUMN `meta_keyword_vi` `meta_keyword_vi` VARCHAR(255) NULL DEFAULT NULL  , CHANGE COLUMN `meta_keyword_en` `meta_keyword_en` VARCHAR(255) NULL DEFAULT NULL  , CHANGE COLUMN `meta_facebook_image` `meta_facebook_image` VARCHAR(255) NULL DEFAULT NULL  ;
+ALTER TABLE `thue_today`.`m_category` CHANGE COLUMN `status` `status` TINYINT(4) NOT NULL DEFAULT '1' COMMENT 'status'  AFTER `meta_facebook_image` ;
+ALTER TABLE `thue_today`.`m_category` CHANGE COLUMN `meta_keyword_vi` `meta_keywords_vi` VARCHAR(255) NULL DEFAULT NULL  , CHANGE COLUMN `meta_keyword_en` `meta_keywords_en` VARCHAR(255) NULL DEFAULT NULL  ;

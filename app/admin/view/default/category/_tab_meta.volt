@@ -14,16 +14,15 @@
 
             <div class="tab-content">
                 <div id="vi_m_title" class="tab-pane active">
-                    {{ form.render('meta_title_vi', {'class': 'input form-control'}) }}
-                    {% include 'default/element/form_message' with {'form': form, 'element': 'meta_title_vi'} %}
+                    {{ form.render('meta_title_vi', {'class': 'input-sm form-control'}) }}
                 </div>
                 <div id="en_m_title" class="tab-pane">
-                    {{ form.render('meta_title_en', {'class': 'input form-control'}) }}
-                    {% include 'default/element/form_message' with {'form': form, 'element': 'meta_title_en'} %}
+                    {{ form.render('meta_title_en', {'class': 'input-sm form-control'}) }}
                 </div>
             </div>
         </div>
     </div>
+
     <div class="form-group">
         <label class="col-sm-3">{{ t._('keyword') }}</label>
 
@@ -47,6 +46,7 @@
             </div>
         </div>
     </div>
+
     <div class="form-group">
         <label class="col-sm-3">{{ t._('description') }}</label>
 

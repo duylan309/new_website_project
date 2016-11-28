@@ -15,6 +15,13 @@ class M_Category extends BaseModel
     public $description_en;
     public $type;
     public $ordering;
+    public $meta_title_vi;
+    public $meta_title_en;
+    public $meta_keywords_vi;
+    public $meta_keywords_en;
+    public $meta_description_vi;
+    public $meta_description_en;
+    public $meta_facebook_image;
     public $status;
     public $created_by;
     public $created_at;
