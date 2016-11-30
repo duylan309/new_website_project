@@ -38,10 +38,10 @@
 
             <div class="tab-content">
                 <div id="vi_k" class="tab-pane active">
-                    <textarea class="form-control" rows="3" cols="50" name="meta_keyword_vi"></textarea>
+                    {{ form.render('meta_keywords_vi', {'class': 'input-sm form-control'}) }}
                 </div>
                 <div id="en_k" class="tab-pane">
-                    <textarea class="form-control" rows="3" cols="50" name="meta_keyword_en"></textarea>
+                    {{ form.render('meta_keywords_en', {'class': 'input-sm form-control'}) }}
                 </div>
             </div>
         </div>
@@ -58,10 +58,10 @@
 
             <div class="tab-content">
                 <div id="vi_md" class="tab-pane active">
-                    <textarea class="form-control" rows="3" cols="50" name="meta_description_vi"></textarea>
+                    {{ form.render('meta_description_vi', {'class': 'input-sm form-control', 'rows': 3, 'cols': 50}) }}
                 </div>
                 <div id="en_md" class="tab-pane">
-                    <textarea class="form-control" rows="3" cols="50" name="meta_description_en"></textarea>
+                    {{ form.render('meta_description_en', {'class': 'input-sm form-control', 'rows': 3, 'cols': 50}) }}
                 </div>
             </div>
         </div>

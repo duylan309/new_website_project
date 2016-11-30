@@ -61,7 +61,7 @@
                 {% include 'default/category/_tab_info.volt' %}
                 {% include 'default/category/_tab_image.volt' %}
                 {% include 'default/category/_tab_content.volt' %}
-                {% include 'default/category/_tab_meta.volt' %}
+                {% include 'default/category/_tab_seo.volt' %}
             </div>
         </div>
     </form>

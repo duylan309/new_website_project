@@ -93,5 +93,21 @@ class CategoryForm extends Form
         $meta_title_en = new Text('meta_title_en');
         $meta_title_en->setFilters(array('striptags', 'trim'));
         $this->add($meta_title_en);
+
+        $meta_keywords_vi = new Text('meta_keywords_vi');
+        $meta_keywords_vi->setFilters(array('striptags', 'trim'));
+        $this->add($meta_keywords_vi);
+
+        $meta_keywords_en = new Text('meta_keywords_en');
+        $meta_keywords_en->setFilters(array('striptags', 'trim'));
+        $this->add($meta_keywords_en);
+
+        $meta_description_vi = new Textarea('meta_description_vi');
+        $meta_description_vi->setFilters(array('striptags', 'trim'));
+        $this->add($meta_description_vi);
+
+        $meta_description_en = new Textarea('meta_description_en');
+        $meta_description_en->setFilters(array('striptags', 'trim'));
+        $this->add($meta_description_en);
     }
 }
