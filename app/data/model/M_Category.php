@@ -1,9 +1,6 @@
 <?php
 namespace Thue\Data\Model;
 
-use Phalcon\Validation;
-use Phalcon\Validation\Validator\Uniqueness as UniquenessValidator;
-
 class M_Category extends BaseModel
 {
     public $category_id;
@@ -59,23 +56,10 @@ class M_Category extends BaseModel
 
     public function validation()
     {
-        // $this->validate(new \Phalcon\Validation\Validator\Uniqueness(array(
-        //     'field'   => array('slug'),
-        //     'message' => 'Slug này đã được sử dụng'
-        // )));
-
-        $validator = new Validation();
-        $validator->add(
-            [
-                'slug'
-            ],
-
-            new UniquenessValidator([
-                'message' => ':field này đã được sử dụng'
-            ])
-        );
-
-        $this->validate($validator);
+        $this->validate(new \Phalcon\Mvc\Model\Validator\Uniqueness(array(
+            'field'   => array('slug'),
+            'message' => 'Slug này đã được sử dụng'
+        )));
 
         if ($this->validationHasFailed()) {
             return false;
